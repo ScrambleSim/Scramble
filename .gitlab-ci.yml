@@ -1,0 +1,48 @@
+stages:
+  - test
+  - build
+  - deployment
+
+license-header:
+  stage: test
+  image: alpine
+  script:
+  - './.gitlab/licenseHeaderCheck.sh ./.gitlab/license/LICENSE_HEADER'
+
+file-naming:
+  stage: test
+  image: alpine
+  script:
+  - 'apk update && apk add bash'
+  - './.gitlab/fileNamingConventionCheck.sh'
+
+global-logging:
+  stage: test
+  image: alpine
+  script:
+  - 'apk update && apk add grep'
+  - './.gitlab/scrambleLoggingCheck.sh'
+
+linux-client:
+  stage: build
+  image: mrminimal/godot-desktop-export:3.1.0
+  script:
+    - 'mkdir -p export/client'
+    - 'cd Scramble-client'
+    - 'godot -v --export "Linux" ../export/client/Scramble-client.x64'
+  artifacts:
+    name: Scramble-client-$CI_BUILD_REF
+    paths:
+      - export/client
+
+linux-server:
+  stage: build
+  image: mrminimal/godot-desktop-export:3.1.0
+  script:
+    - 'mkdir -p export/server'
+    - 'cd Scramble-server'
+    - 'godot -v --export "Linux" ../export/server/Scramble-server.x64'
+  artifacts:
+    name: Scramble-server-$CI_BUILD_REF
+    paths:
+      - export/server

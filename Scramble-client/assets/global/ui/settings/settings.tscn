@@ -1,0 +1,578 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/global/ui/_shared/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/global/ui/settings/settings.gd" type="Script" id=2]
+[ext_resource path="res://assets/global/ui/panel_blurry/panel_blurry.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/global/ui/settings/graphics.gd" type="Script" id=4]
+[ext_resource path="res://assets/global/ui/_shared/themes/accept_button.tres" type="Theme" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "blend_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "blend_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "settings_hidden" ],
+"method": "emit_signal"
+} ]
+}
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="PanelBlurry" parent="." instance=ExtResource( 3 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 240.0
+margin_top = 138.0
+margin_right = 1040.0
+margin_bottom = 582.0
+
+[node name="TabContainer" type="TabContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 800.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 800, 400 )
+tab_align = 0
+
+[node name="Graphics" type="Tabs" parent="CenterContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 26.0
+script = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 780.0
+margin_bottom = 354.0
+custom_constants/separation = 20
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer"]
+margin_right = 358.0
+margin_bottom = 334.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+
+[node name="ItemResolution" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+margin_right = 358.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemResolution"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemResolution/HBoxContainer"]
+margin_top = 9.0
+margin_right = 73.0
+margin_bottom = 30.0
+text = "Resolution"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemResolution/HBoxContainer"]
+margin_left = 73.0
+margin_right = 358.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="ResolutionWidth" type="LineEdit" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemResolution/HBoxContainer/HBoxContainer"]
+margin_left = 176.0
+margin_right = 223.0
+margin_bottom = 40.0
+text = "1280"
+align = 1
+
+[node name="LabelTimes" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemResolution/HBoxContainer/HBoxContainer"]
+margin_left = 227.0
+margin_top = 9.0
+margin_right = 234.0
+margin_bottom = 30.0
+text = "x"
+valign = 1
+
+[node name="ResolutionHeight" type="LineEdit" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemResolution/HBoxContainer/HBoxContainer"]
+margin_left = 238.0
+margin_right = 285.0
+margin_bottom = 40.0
+text = "720"
+align = 1
+
+[node name="ItemFullscreen" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+margin_top = 45.0
+margin_right = 358.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFullscreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFullscreen/HBoxContainer"]
+margin_top = 9.0
+margin_right = 70.0
+margin_bottom = 30.0
+text = "Fullscreen"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFullscreen/HBoxContainer"]
+margin_left = 70.0
+margin_right = 358.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Fullscreen" type="CheckButton" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFullscreen/HBoxContainer/HBoxContainer"]
+margin_left = 224.0
+margin_right = 288.0
+margin_bottom = 40.0
+
+[node name="ItemVSync" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+margin_top = 90.0
+margin_right = 358.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemVSync"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemVSync/HBoxContainer"]
+margin_top = 9.0
+margin_right = 40.0
+margin_bottom = 30.0
+text = "VSync"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemVSync/HBoxContainer"]
+margin_left = 40.0
+margin_right = 358.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="VSync" type="CheckButton" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemVSync/HBoxContainer/HBoxContainer"]
+margin_left = 254.0
+margin_right = 318.0
+margin_bottom = 40.0
+
+[node name="ItemFps" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+margin_top = 135.0
+margin_right = 358.0
+margin_bottom = 175.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFps"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFps/HBoxContainer"]
+margin_top = 9.0
+margin_right = 67.0
+margin_bottom = 30.0
+text = "Show FPS"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFps/HBoxContainer"]
+margin_left = 67.0
+margin_right = 358.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="CheckButton" type="CheckButton" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFps/HBoxContainer/HBoxContainer"]
+margin_left = 227.0
+margin_right = 291.0
+margin_bottom = 40.0
+
+[node name="ItemAntistropticFilter" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+margin_top = 180.0
+margin_right = 358.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemAntistropticFilter"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemAntistropticFilter/HBoxContainer"]
+margin_top = 9.0
+margin_right = 109.0
+margin_bottom = 30.0
+text = "Antistropic filter"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemAntistropticFilter/HBoxContainer"]
+margin_left = 109.0
+margin_right = 358.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemAntistropticFilter/HBoxContainer/HBoxContainer"]
+margin_left = 192.0
+margin_right = 249.0
+margin_bottom = 40.0
+text = "off"
+items = [ "off", null, false, 0, null, "2x", null, false, 2, null, "4x", null, false, 4, null, "8x", null, false, 8, null, "16x", null, false, 16, null ]
+selected = 0
+
+[node name="ItemMSAA" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+margin_top = 225.0
+margin_right = 358.0
+margin_bottom = 265.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemMSAA"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemMSAA/HBoxContainer"]
+margin_top = 9.0
+margin_right = 39.0
+margin_bottom = 30.0
+text = "MSAA"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemMSAA/HBoxContainer"]
+margin_left = 39.0
+margin_right = 358.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="MsaaSetting" type="OptionButton" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemMSAA/HBoxContainer/HBoxContainer"]
+margin_left = 262.0
+margin_right = 319.0
+margin_bottom = 40.0
+text = "off"
+items = [ "off", null, false, 0, null, "2x", null, false, 2, null, "4x", null, false, 4, null, "8x", null, false, 8, null, "16x", null, false, 16, null ]
+selected = 0
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer"]
+margin_left = 378.0
+margin_right = 382.0
+margin_bottom = 334.0
+
+[node name="VBoxContainerRight" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer"]
+margin_left = 402.0
+margin_right = 760.0
+margin_bottom = 334.0
+size_flags_horizontal = 3
+
+[node name="Sound" type="Tabs" parent="CenterContainer/VBoxContainer/TabContainer"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 26.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 35
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer"]
+margin_left = 10.0
+margin_top = 35.0
+margin_right = 790.0
+margin_bottom = 364.0
+custom_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer"]
+margin_right = 368.0
+margin_bottom = 329.0
+size_flags_horizontal = 3
+custom_constants/separation = 5
+
+[node name="MenuEntryMainVolume" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 368.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryMainVolume"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryMainVolume/HBoxContainer"]
+margin_top = 9.0
+margin_right = 120.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 120, 0 )
+text = "Master volume"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryMainVolume/HBoxContainer"]
+margin_left = 170.0
+margin_right = 368.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryMainVolume/HBoxContainer/HBoxContainer"]
+margin_right = 147.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryMainVolume/HBoxContainer/HBoxContainer/CenterContainer"]
+margin_left = 23.0
+margin_top = 5.0
+margin_right = 123.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_horizontal = 3
+value = 100.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryMainVolume/HBoxContainer/HBoxContainer"]
+margin_left = 151.0
+margin_right = 198.0
+margin_bottom = 40.0
+text = "100"
+align = 1
+
+[node name="MenuEntryEffectsVolume" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 45.0
+margin_right = 368.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume/HBoxContainer"]
+margin_top = 9.0
+margin_right = 120.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 120, 0 )
+text = "Effects volume"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume/HBoxContainer"]
+editor/display_folded = true
+margin_left = 170.0
+margin_right = 368.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume/HBoxContainer/HBoxContainer"]
+editor/display_folded = true
+margin_right = 147.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume/HBoxContainer/HBoxContainer/CenterContainer"]
+margin_left = 23.0
+margin_top = 5.0
+margin_right = 123.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_horizontal = 3
+value = 100.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume/HBoxContainer/HBoxContainer"]
+margin_left = 151.0
+margin_right = 198.0
+margin_bottom = 40.0
+text = "100"
+align = 1
+
+[node name="MenuEntryEffectsVolume2" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 368.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume2/HBoxContainer"]
+margin_top = 9.0
+margin_right = 120.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 120, 0 )
+text = "Music volume"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume2/HBoxContainer"]
+margin_left = 170.0
+margin_right = 368.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume2/HBoxContainer/HBoxContainer"]
+margin_right = 147.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume2/HBoxContainer/HBoxContainer/CenterContainer"]
+margin_left = 23.0
+margin_top = 5.0
+margin_right = 123.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_horizontal = 3
+value = 100.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/VBoxContainer/MenuEntryEffectsVolume2/HBoxContainer/HBoxContainer"]
+margin_left = 151.0
+margin_right = 198.0
+margin_bottom = 40.0
+text = "100"
+align = 1
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer"]
+margin_left = 388.0
+margin_right = 392.0
+margin_bottom = 329.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer"]
+margin_left = 412.0
+margin_right = 780.0
+margin_bottom = 329.0
+size_flags_horizontal = 3
+
+[node name="Input" type="Tabs" parent="CenterContainer/VBoxContainer/TabContainer"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 26.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/TabContainer/Input"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 35
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TabContainer/Input/MarginContainer"]
+margin_left = 10.0
+margin_top = 165.0
+margin_right = 790.0
+margin_bottom = 234.0
+text = "Placeholder for input remapping GUI
+
+Please edit input_mappings.json to change mappings"
+align = 1
+valign = 1
+
+[node name="Gameplay" type="Tabs" parent="CenterContainer/VBoxContainer/TabContainer"]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 26.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/TabContainer/Gameplay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 404.0
+margin_right = 800.0
+margin_bottom = 444.0
+alignment = 2
+
+[node name="Apply" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 600.0
+margin_right = 800.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+theme = ExtResource( 5 )
+text = "Apply"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/blend_in = SubResource( 1 )
+anims/blend_out = SubResource( 2 )
+
+[connection signal="toggled" from="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFullscreen/HBoxContainer/HBoxContainer/Fullscreen" to="CenterContainer/VBoxContainer/TabContainer/Graphics" method="_on_Fullscreen_toggled"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Apply" to="CenterContainer/VBoxContainer/TabContainer/Graphics" method="_apply_settings"]

@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="Warning" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 342.0
+margin_top = 225.0
+margin_right = 681.0
+margin_bottom = 375.0
+text = "WARNING
+
+This is a server build.
+It is meant to be run with a Godot server executable.
+You won't see anything in this window except for 
+this message.
+
+The server will still work.
+Check the console for output."
+align = 1
+valign = 1
+
