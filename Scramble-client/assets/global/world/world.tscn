@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="BoxShape" id=5]
+
+[node name="World" type="Node"]
+
+[node name="Entities" type="Node" parent="."]
+
+[node name="StaticBody2" type="StaticBody" parent="Entities"]
+editor/display_folded = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Entities/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99797, -4.76837e-07, -15.5839 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Entities/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99797, -4.76837e-07, -15.5839 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Entities"]
+editor/display_folded = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Entities/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3174, -4.76837e-07, -8.92053 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Entities/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3174, -4.76837e-07, -8.92053 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Sun" type="DirectionalLight" parent="Entities"]
+transform = Transform( 0.760026, 3.76712e-07, 0.649892, -0.403484, 0.783932, 0.47186, -0.509471, -0.620847, 0.595809, 0, 6.20537, 0 )
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_contact = 0.6
+
+[node name="Ground" type="KinematicBody" parent="Entities"]
+transform = Transform( 21.7771, 0, 0, 0, 1, 0, 0, 0, 21.7771, 0, -1.00082, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Entities/Ground"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Entities/Ground"]
+shape = SubResource( 5 )

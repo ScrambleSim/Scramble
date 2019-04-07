@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Scramble-server"
+run/main_scene="res://scramble.tscn"
+config/icon="res://assets/logo256.png"
+
+[autoload]
+
+Global="*res://assets/global/global.gd"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
+
+[global]
+
+_global_script_classes=[  ]
+
+[rendering]
+
+environment/default_environment="res://assets/global/default_env.tres"

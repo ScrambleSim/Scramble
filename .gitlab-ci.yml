@@ -1,0 +1,186 @@
+# CI Pipeline for Scramble
+
+stages:
+  - version
+  - build
+  - test
+  - behead
+  - deploy
+
+# ---------- Templates -------------
+
+.template-export: &template-export
+  stage: build
+  image: scramblesim/godot-desktop-export:3.1.1
+  dependencies:
+  - version-extractor:version
+  script:
+  - ls -la
+  # Set version to load during runtime
+  - mv version.txt Scramble-$TYPE/meta/version.txt
+  # Create export
+  - mkdir -p export
+  - cd Scramble-$TYPE
+  - godot -v --export $PLATFORM ../Scramble-$TYPE-$PLATFORM.$EXTENSION
+  - if ! test -f ../Scramble-$TYPE-$PLATFORM.$EXTENSION; then exit 1; fi
+  artifacts:
+    name: Scramble-$TYPE-$PLATFORM-$CI_COMMIT_SHORT_SHA
+    paths:
+    - Scramble-$TYPE-$PLATFORM.$EXTENSION
+    - Scramble-$TYPE-$PLATFORM.pck
+    expire_in: 1 hour
+
+.template-skip-lfs: &template-skip-lfs
+  variables:
+    GIT_LFS_SKIP_SMUDGE: "1"
+
+.template-only-release: &template-only-release
+  only:
+  - tags
+  except:
+  - branches
+
+# -------------- Jobs --------------
+
+# Version extract
+
+version-extractor:version:
+  <<: *template-skip-lfs
+  stage: version
+  image: alpine
+  script:
+  - if [ -z $CI_COMMIT_TAG ]; then echo $CI_COMMIT_SHORT_SHA > version.txt; else echo $CI_COMMIT_TAG > version.txt; fi
+  artifacts:
+    paths:
+    - version.txt
+    expire_in: 1 hour
+
+# Client builds
+
+linux-client:build:
+  <<: *template-export
+  variables:
+    TYPE: "client"
+    PLATFORM: "linux"
+    EXTENSION: "x64"
+
+mac-client:build:
+  <<: *template-export
+  variables:
+    TYPE: "client"
+    PLATFORM: "mac"
+    EXTENSION: "x64"
+
+windows-client:build:
+  <<: *template-export
+  variables:
+    TYPE: "client"
+    PLATFORM: "windows"
+    EXTENSION: "exe"
+
+# Server builds
+
+linux-server:build:
+  <<: *template-export
+  variables:
+    TYPE: "server"
+    PLATFORM: "linux"
+    EXTENSION: "x64"
+
+mac-server:build:
+  <<: *template-export
+  variables:
+    TYPE: "server"
+    PLATFORM: "mac"
+    EXTENSION: "x64"
+
+windows-server:build:
+  <<: *template-export
+  variables:
+    TYPE: "server"
+    PLATFORM: "windows"
+    EXTENSION: "exe"
+
+# Tests
+
+license-header:test:
+  stage: test
+  image: alpine
+  <<: *template-skip-lfs
+  script:
+  - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
+
+file-naming:test:
+  stage: test
+  image: alpine
+  <<: *template-skip-lfs
+  script:
+  - apk update && apk add bash
+  - .gitlab/fileNamingConventionCheck.sh
+
+global-logging:test:
+  stage: test
+  image: alpine
+  <<: *template-skip-lfs
+  script:
+  - apk update && apk add grep
+  - .gitlab/scrambleLoggingCheck.sh
+
+# Behead
+
+linux-server:behead:
+  stage: behead
+  image: scramblesim/godot-server-converter:3.1.1
+  <<: *template-only-release
+  dependencies:
+  - linux-server:build
+  script:
+  # Replace exported binary with Godot server binary
+  - mv /Godot_server.x64 ./Scramble-server-linux.x64
+  artifacts:
+    paths:
+      - Scramble-server-linux.x64
+      - Scramble-server-linux.pck
+    expire_in: 1 hour
+
+# Deploy
+
+releases:deploy:
+  stage: deploy
+  image:
+    name: everpeace/curl-jq
+  <<: *template-skip-lfs
+  <<: *template-only-release
+  dependencies:
+  - linux-client:build
+  - mac-client:build
+  - windows-client:build
+  - linux-server:build
+  - mac-server:build
+  - windows-server:build
+  - version-extractor:version
+  script:
+  - apt update
+  - apt install -y zip
+  - bash -c .gitlab/zipReleaseFiles.sh
+  - VERSION=`cat version.txt`
+  - VERSION=$VERSION bash -c .gitlab/uploadReleaseFiles.sh
+
+linux-docker-server:deploy:
+  stage: deploy
+  image: docker:stable
+  services:
+  - docker:dind
+  <<: *template-skip-lfs
+  <<: *template-only-release
+  dependencies:
+  - linux-server:behead
+  - version-extractor:version
+  script:
+  # Move files to copy into image to Docker context
+  - mv Scramble-server-linux.x64 Scramble-server-linux.pck .gitlab/docker/linux-server
+  - VERSION=`cat version.txt`
+  - docker build -t scramblesim/scramble-server:$VERSION --build-arg TYPE=server --build-arg PLATFORM=linux --build-arg EXTENSION=x64 .gitlab/docker/linux-server
+  - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+  - docker push scramblesim/scramble-server:$VERSION
+

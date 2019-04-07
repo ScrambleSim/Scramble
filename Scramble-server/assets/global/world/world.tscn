@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="World" type="Node"]
+
+[node name="Entities" type="Node" parent="."]
+
