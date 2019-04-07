@@ -34,7 +34,7 @@ v0.0.0
 Windows 10 64-bit
 
 **Acceptance Criteria**
-<!-- What is required for users to accept this story? Edit below -->
+<!-- What is required for users to accept this story? Edit below if applicable -->
 * Feature is red
 * Feature works in multplayer
 * Is translated
@@ -46,7 +46,6 @@ Windows 10 64-bit
 * Conforms to the [Coding Conventions](https://gitlab.com/ScrambleSim/Scramble/wikis/Workflows/Coding-Conventions)
 * Conforms to the [Gitiquette](https://gitlab.com/ScrambleSim/Scramble/wikis/Workflows/Gitiquette)
 * Pull Request is rebased and ready for merge
-<!-- DO NOT REMOVE LINES ABOVE -->
 
 /label ~bug
 <!------------- DO NOT REMOVE LINES ABOVE -------------->

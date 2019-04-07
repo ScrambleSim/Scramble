@@ -15,7 +15,7 @@ As seen in this paper, Scramble could implement this new feature.
 v0.0.0
 
 **Acceptance Criteria**
-<!-- What is required for users to accept this story? Edit below -->
+<!-- What is required for users to accept this story? Edit below if applicable-->
 * Feature is red
 * Feature works in multplayer
 * Is translated
@@ -27,7 +27,6 @@ v0.0.0
 * Conforms to the [Coding Conventions](https://gitlab.com/ScrambleSim/Scramble/wikis/Workflows/Coding-Conventions)
 * Conforms to the [Gitiquette](https://gitlab.com/ScrambleSim/Scramble/wikis/Workflows/Gitiquette)
 * Pull Request is rebased and ready for merge
-<!-- DO NOT REMOVE LINES ABOVE -->
 
 /label ~enhancement ~discussion
 <!------------- DO NOT REMOVE LINES ABOVE -------------->
