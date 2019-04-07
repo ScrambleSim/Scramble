@@ -1,13 +1,13 @@
 <div align="center">
     <a href="https://scramble-sim.org">
-        <img width=60% src="https://gitlab.com/ScrambleSim/gitlab-playground/raw/master/.gitlab/media/logo.png">
+        <img width=60% src="https://gitlab.com/ScrambleSim/Scramble/raw/master/.gitlab/media/logo.png">
     </a>
 </div>
 <div align="center">
     <a href="https://tldrlegal.com/license/gnu-affero-general-public-license-v3-(agpl-3.0)">
         <img src="https://img.shields.io/badge/license-AGPL%20v3-blue.svg"></src>
     </a>
-    <a href="https://gitlab.com/ScrambleSim/gitlab-playground/wikis/Downloads/Client">
+    <a href="https://gitlab.com/ScrambleSim/Scramble/wikis/Downloads/Client">
         <img src="https://img.shields.io/badge/download-v0.0.1-informational.svg"></src>
     <a href="https://gitlab.com/ScrambleSim/Scramble/commits/master">
         <img src="https://gitlab.com/ScrambleSim/Scramble/badges/master/pipeline.svg"></img>
@@ -17,7 +17,7 @@
     </a>
 </div>
 <div align="center">
-    <a href="https://gitlab.com/ScrambleSim/gitlab-playground/wikis/Downloads/Client">
+    <a href="https://gitlab.com/ScrambleSim/Scramble/wikis/Downloads/Client">
         <img width=130vh src="https://img.shields.io/badge/_Download_-orange.svg"></img>
     </a>
 </div>
