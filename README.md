@@ -77,7 +77,7 @@ Assets vary in license, see their directories for details.
 [scramble-website]: https://scramble-sim.org
 [scramble-releases]: https://gitlab.com/ScrambleSim/Scramble/releases
 [wiki-developer-Home]: /Homes/Developer-Home
-[wiki-developer-Home]: /Homes/Player-Home
+[wiki-player-Home]: /Homes/Player-Home
 [scramble-subreddit]: https://reddit.com/r/scramble/
 [wiki-home]: /home
 [wiki-faq]: /faq
