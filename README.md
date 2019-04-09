@@ -34,7 +34,7 @@
 
 # Getting started
 To play the simulator, download the client for your platform.
-* Download Scramble [here][scramble-releases].
+* Download Scramble [here][scramble-download].
 * Check out the [Player Home][wiki-player-home].
 * Learn by reading the manual in the [wiki][wiki-home].
 * Get in touch with the community on [Reddit][scramble-subreddit].
@@ -73,7 +73,7 @@ Assets vary in license, see their directories for details.
 [git-website]: https://git-scm.com/
 [git-lfs]: https://help.github.com/en/articles/installing-git-large-file-storage
 [scramble-website]: https://scramble-sim.org
-[scramble-releases]: https://gitlab.com/ScrambleSim/Scramble/releases
+[scramble-download]: https://gitlab.com/ScrambleSim/Scramble/wikis/Downloads/Client
 [wiki-developer-Home]: https://gitlab.com/ScrambleSim/Scramble/wikis/Homes/Developer-Home
 [wiki-player-Home]: https://gitlab.com/ScrambleSim/Scramble/wikis/Homes/Player-Home
 [scramble-subreddit]: https://reddit.com/r/scramble/
