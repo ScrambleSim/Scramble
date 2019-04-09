@@ -23,25 +23,29 @@ global-logging:
   - 'apk update && apk add grep'
   - './.gitlab/scrambleLoggingCheck.sh'
 
-linux-client:
+desktop-clients:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.0
   script:
     - 'mkdir -p export/client'
     - 'cd Scramble-client'
     - 'godot -v --export "Linux" ../export/client/Scramble-client.x64'
+    - 'godot -v --export "Mac" ../export/client/Scramble-client.x64'
+    - 'godot -v --export "Windows" ../export/client/Scramble-client.exe'
   artifacts:
     name: Scramble-client-$CI_BUILD_REF
     paths:
       - export/client
 
-linux-server:
+desktop-servers:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.0
   script:
     - 'mkdir -p export/server'
     - 'cd Scramble-server'
     - 'godot -v --export "Linux" ../export/server/Scramble-server.x64'
+    - 'godot -v --export "Mac" ../export/server/Scramble-server.x64'
+    - 'godot -v --export "Windows" ../export/server/Scramble-server.exe'
   artifacts:
     name: Scramble-server-$CI_BUILD_REF
     paths:
