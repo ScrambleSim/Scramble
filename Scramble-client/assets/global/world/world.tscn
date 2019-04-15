@@ -46,12 +46,14 @@ material/0 = null
 [node name="Sun" type="DirectionalLight" parent="Entities"]
 transform = Transform( 0.760026, 3.76712e-007, 0.649892, -0.403484, 0.783932, 0.47186, -0.509471, -0.620847, 0.595809, 0, 6.20537, 0 )
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_contact = 0.6
 
 [node name="Ground" type="KinematicBody" parent="Entities"]
-editor/display_folded = true
 transform = Transform( 21.7771, 0, 0, 0, 1, 0, 0, 0, 21.7771, 0, -1.00082, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Entities/Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = null
 
