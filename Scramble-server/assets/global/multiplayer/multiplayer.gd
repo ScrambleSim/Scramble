@@ -74,6 +74,14 @@ func _replicate_world(client_id):
     get_tree().call_group("Replicated", "replicate", client_id)
 
 
-func create_pilot_remote(client_id):
-    Global.log('Sending ' + str(client_id) + ' command to spawn pilot')
-    rpc_id(client_id, "spawn_player", client_id, PLAYER_SPAWN)
+# spawn an entity at a client based on a given path to its scene
+# spawn_data contains information about how spawning should happen
+func spawn_entity_remote(client_id, scene_path, spawn_data):
+    Global.log(
+        'Sending client %s a command to spawn an entity at path: %s' % [
+            str(client_id),
+            str(scene_path)
+        ])
+    );
+    rpc_id(client_id, "spawn_entity", scene_path, spawn_data)
+

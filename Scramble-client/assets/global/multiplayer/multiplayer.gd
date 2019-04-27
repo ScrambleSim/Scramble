@@ -20,16 +20,12 @@ const PILOT_SCENE_PATH = "res://assets/entities/characters/pilot/pilot.tscn"
 const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
 
-remote func spawn_player(id, position):
-    _create_pilot(id, position, true)
-
-
-remote func spawn_slave(id, position):
-    _create_pilot(id, position, false)
-
-
-remote func spawn_plane(id, position):
-    _create_plane(id, position)
+# spawns an entity with scene_path according to spawn_data passed to it
+remote func spawn_entity(entity_path, spawn_data):
+    const spawn_logic_path = "%s/%s" % [entity_path, "spawn.gd"]
+    const SpawnClass = load(spawn_logic_path)
+    const spawn_class = SpawnClass.new(self)
+    spawn_class.spawn(spawn_data)
 
 
 func _ready():
@@ -68,16 +64,3 @@ func _connected_fail():
 func _server_disconnected():
     Global.log("Server disconnected")
 
-
-func _create_pilot(id, position, posessed):
-    var newPilot = load(PILOT_SCENE_PATH).instance()
-    newPilot.is_posessed = posessed
-    newPilot.set_name(str(id))	# spawn players with their respective names
-    newPilot.transform.origin = position
-    get_node(ENTITIES_PATH).add_child(newPilot)
-
-
-func _create_plane(id, position):
-    # TODO create plane
-    Global.log("TODO create plane")
-    pass
