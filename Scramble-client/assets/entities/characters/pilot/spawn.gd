@@ -18,10 +18,10 @@ extends Node
 
 const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
-func spawn(spawn_settings):
-    var newPilot = load(spawn_settings.scene_path).instance()
-    newPilot.set_name(spawn_settings.id)
-    newPilot.is_posessed = spawn_settings.posessed
-    newPilot.transform.origin = spawn_settings.position
+func spawn(spawn_info):
+    var newPilot = load(spawn_info.scene_path).instance()
+    newPilot.set_name(spawn_info.id)
+    newPilot.is_posessed = spawn_info.posessed
+    newPilot.transform.origin = spawn_info.position
     get_node(ENTITIES_PATH).add_child(newPilot)
 

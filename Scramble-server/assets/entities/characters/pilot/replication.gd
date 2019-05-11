@@ -27,4 +27,4 @@ func _ready():
 
 # Replicates this node on a specific client
 func replicate(client_id):
-	self.mp.create_pilot_remote(client_id)
+	self.mp.spawn_entity_remote(client_id)

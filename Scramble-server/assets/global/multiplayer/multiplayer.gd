@@ -22,7 +22,6 @@ const ENTITIES_PATH = "/root/Scramble/World/Entities"
 const PORT = 5000
 const MAX_PLAYER_COUNT = 200
 
-const PLAYER_SPAWN = Vector3(5, 0, 0)
 
 func _ready():
     Global.log("Starting server")
@@ -76,12 +75,11 @@ func _replicate_world(client_id):
 
 # spawn an entity at a client based on a given path to its scene
 # spawn_data contains information about how spawning should happen
-func spawn_entity_remote(client_id, scene_path, spawn_data):
+func spawn_entity_remote(client_id, spawn_info):
     Global.log(
         'Sending client %s a command to spawn an entity at path: %s' % [
             str(client_id),
             str(scene_path)
         ])
     );
-    rpc_id(client_id, "spawn_entity", scene_path, spawn_data)
-
+    rpc_id(client_id, "spawn_entity", spawn_info)

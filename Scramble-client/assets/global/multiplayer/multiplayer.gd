@@ -16,16 +16,14 @@
 
 extends Node
 
-const PILOT_SCENE_PATH = "res://assets/entities/characters/pilot/pilot.tscn"
 const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
 
-# spawns an entity with scene_path according to spawn_data passed to it
-remote func spawn_entity(entity_path, spawn_data):
-    const spawn_logic_path = "%s/%s" % [entity_path, "spawn.gd"]
-    const SpawnClass = load(spawn_logic_path)
-    const spawn_class = SpawnClass.new(self)
-    spawn_class.spawn(spawn_data)
+# spawns an entity with scene_path according to spawn_info passed to it
+remote func spawn_entity(spawn_info):
+    const SpawnClass = load(spawn_info.scene_path)
+    SpawnClass = SpawnClass.new(self)
+    SpawnClass.spawn(spawn_info)
 
 
 func _ready():
@@ -48,8 +46,6 @@ func _client_connected(id):
 func _client_disconnected(id):
     Global.log("Other Player (id: " + str(id) + ") disconnected from server")
 
-    get_node(ENTITIES_PATH).get_node(str(id)).queue_free()
-
 
 # Called when connecting worked (called after network_peer_connected arrives for self)
 func _connected_ok():
@@ -63,4 +59,3 @@ func _connected_fail():
 
 func _server_disconnected():
     Global.log("Server disconnected")
-
