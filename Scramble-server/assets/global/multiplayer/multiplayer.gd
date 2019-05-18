@@ -64,7 +64,7 @@ func _client_disconnected(id):
 # Spawn player representation on server
 func _add_pilot(client_id):
     var newPlayer = load(PILOT_SCENE_PATH).instance()
-    newPlayer.set_name(str(client_id))	# spawn players with their respective names
+    newPlayer.set_name(str(client_id))  # spawn players with their respective names
     get_node(ENTITIES_PATH).add_child(newPlayer)
 
 

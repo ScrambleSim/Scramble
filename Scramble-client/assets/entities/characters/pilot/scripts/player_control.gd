@@ -24,7 +24,7 @@ func _ready():
         pitch.queue_free()
         self.queue_free()
 
-    Input.set_mouse_mode(2) 	# capture mouse
+    Input.set_mouse_mode(2)     # capture mouse
 
 
 func _process(delta):

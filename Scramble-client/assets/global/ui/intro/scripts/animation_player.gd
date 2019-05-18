@@ -17,6 +17,6 @@
 extends AnimationPlayer
 
 func _ready():
-	self.current_animation = 'FadeIn'
-	self.play()
-	pass
+    self.current_animation = 'FadeIn'
+    self.play()
+    pass

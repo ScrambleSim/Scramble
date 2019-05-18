@@ -21,12 +21,12 @@ extends Control
 signal settings_hidden
 
 func show_settings():
-	self._play_animation("blend_in")
+    self._play_animation("blend_in")
 
 
 func hide_settings():
-	self._play_animation("blend_out")
+    self._play_animation("blend_out")
 
 
 func _play_animation(animation_name):
-	get_node("AnimationPlayer").play(animation_name)
+    get_node("AnimationPlayer").play(animation_name)

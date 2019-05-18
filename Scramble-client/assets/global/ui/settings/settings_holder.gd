@@ -24,24 +24,24 @@ const SETTINGS_NODE_NAME = "Settings"
 onready var settings_scene = preload(SETTINGS_SCENE_PATH)
 
 func _ready():
-	PropertyManager.connect("show_settings_changed", self, "_show_settings")
+    PropertyManager.connect("show_settings_changed", self, "_show_settings")
 
 
 func on_settings_hidden():
-	get_node(SETTINGS_NODE_NAME).queue_free()
+    get_node(SETTINGS_NODE_NAME).queue_free()
 
 
 func _show_settings(new_val):
-	if !has_node(SETTINGS_NODE_NAME):
-		self.create_settings_node()
-		get_node(SETTINGS_NODE_NAME).connect("settings_hidden", self, "on_settings_hidden")
-	
-	if new_val == 0.0:
-		get_node(SETTINGS_NODE_NAME).hide_settings()
-	else:
-		get_node(SETTINGS_NODE_NAME).show_settings()
+    if !has_node(SETTINGS_NODE_NAME):
+        self.create_settings_node()
+        get_node(SETTINGS_NODE_NAME).connect("settings_hidden", self, "on_settings_hidden")
+    
+    if new_val == 0.0:
+        get_node(SETTINGS_NODE_NAME).hide_settings()
+    else:
+        get_node(SETTINGS_NODE_NAME).show_settings()
 
 
 func create_settings_node():
-	var instance = settings_scene.instance()
-	add_child(instance)
+    var instance = settings_scene.instance()
+    add_child(instance)

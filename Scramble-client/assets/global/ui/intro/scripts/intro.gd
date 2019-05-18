@@ -17,10 +17,10 @@
 extends Node
 
 func _ready():
-	# Hide intro in editor
-	if OS.has_feature("editor"):
-		self.queue_free()
+    # Hide intro in editor
+    if OS.has_feature("editor"):
+        self.queue_free()
 
 # Called by the intros animation player
 func _on_intro_ended():
-	self.queue_free()
+    self.queue_free()

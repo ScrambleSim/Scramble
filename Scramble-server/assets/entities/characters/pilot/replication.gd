@@ -22,9 +22,9 @@ onready var mp = get_node('/root/Scramble/Multiplayer')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+    pass
 
 
 # Replicates this node on a specific client
 func replicate(client_id):
-	self.mp.spawn_entity_remote(client_id)
+    self.mp.spawn_entity_remote(client_id)

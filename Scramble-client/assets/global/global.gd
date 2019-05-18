@@ -23,45 +23,45 @@ const PATCH_VERSION = 1
 const GAME_VERSION = "v%s.%s.%s" % [MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION]
 
 func _ready():
-	self.set_process_name()
-	self.print_client_info()
+    self.set_process_name()
+    self.print_client_info()
 
 
 func set_process_name():
-	OS.set_thread_name("Scramble %s client" % GAME_VERSION)
+    OS.set_thread_name("Scramble %s client" % GAME_VERSION)
 
 
 func print_client_info():
-	var local_time = OS.get_time(false)
-	var utc_time = OS.get_time(true)
+    var local_time = OS.get_time(false)
+    var utc_time = OS.get_time(true)
 
-	print("================================================================================")
-	print()
-	print(" ✈️  Scramble client ️✈️ ")
-	print()
-	print(" Version:    \t%s" % GAME_VERSION)
-	print(" Platform:   \t%s" % OS.get_name())
-	print(" Locale:     \t%s" % OS.get_locale())
-	print(" Process id: \t%s" % OS.get_process_id())
-	print(" Local time: \t%s" % self.format_time(local_time))
-	print(" UTC time:   \t%s" % self.format_time(utc_time))
-	print(" Exec path:  \t%s" % OS.get_executable_path())
-	print(" User path:  \t%s" % OS.get_user_data_dir())
-	print(" Debug build:\t%s" % OS.is_debug_build())
-	print()
-	print("================================================================================")
-	print()
+    print("================================================================================")
+    print()
+    print(" ✈️  Scramble client ️✈️ ")
+    print()
+    print(" Version:    \t%s" % GAME_VERSION)
+    print(" Platform:   \t%s" % OS.get_name())
+    print(" Locale:     \t%s" % OS.get_locale())
+    print(" Process id: \t%s" % OS.get_process_id())
+    print(" Local time: \t%s" % self.format_time(local_time))
+    print(" UTC time:   \t%s" % self.format_time(utc_time))
+    print(" Exec path:  \t%s" % OS.get_executable_path())
+    print(" User path:  \t%s" % OS.get_user_data_dir())
+    print(" Debug build:\t%s" % OS.is_debug_build())
+    print()
+    print("================================================================================")
+    print()
 
 
 # Prints text with an UTC time prefix
 func log(text):
-	var utc_time = OS.get_time(true)
-	print(" %s\t%s" % [self.format_time(utc_time), text])
+    var utc_time = OS.get_time(true)
+    print(" %s\t%s" % [self.format_time(utc_time), text])
 
 
 func format_time(time):
-	return "%s:%s:%s" % [
-		str(time.hour).pad_zeros(2),
-		str(time.minute).pad_zeros(2),
-		str(time.second).pad_zeros(2)
-	]
+    return "%s:%s:%s" % [
+        str(time.hour).pad_zeros(2),
+        str(time.minute).pad_zeros(2),
+        str(time.second).pad_zeros(2)
+    ]

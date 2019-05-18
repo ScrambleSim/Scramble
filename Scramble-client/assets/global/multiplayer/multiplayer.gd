@@ -40,7 +40,7 @@ func _ready():
 
 func _client_connected(id):
     if id == 1:
-        return	# ignore connect event for self
+        return  # ignore connect event for self
 
 
 func _client_disconnected(id):
