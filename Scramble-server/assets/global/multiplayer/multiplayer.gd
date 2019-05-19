@@ -74,12 +74,12 @@ func _replicate_world(client_id):
 
 
 # spawn an entity at a client based on a given path to its scene
-# spawn_data contains information about how spawning should happen
-func spawn_entity_remote(client_id, spawn_info):
+# spawn_info contains information about how spawning should happen
+func spawn_entity_remote(spawn_info):
     Global.log(
         'Sending client %s a command to spawn an entity at path: %s' % [
-            str(client_id),
-            str(scene_path)
+            str(spawn_info.client_id),
+            str(spawn_info.scene_path)
         ])
     );
     rpc_id(client_id, "spawn_entity", spawn_info)
