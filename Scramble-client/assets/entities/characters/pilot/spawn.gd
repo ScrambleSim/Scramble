@@ -16,11 +16,11 @@
 
 extends Node
 
-const ENTITIES_PATH = "/root/Scramble/World/Entities"
+const SCENE_PATH = "res://assets/entities/characters/pilot/pilot.tscn"
 
-func spawn(spawn_info):
-    var newPilot = load(spawn_info.scene_path).instance()
-    newPilot.set_name(spawn_info.client_id)
-    newPilot.is_posessed = spawn_info.posessed
-    newPilot.transform.origin = spawn_info.position
-    get_node(ENTITIES_PATH).add_child(newPilot)
+func spawn(spawn_info, parent_node):
+    var newPilot = load(SCENE_PATH).instance()
+    newPilot.set_name(str(spawn_info.client_id))
+    newPilot.is_posessed = spawn_info.is_posessed
+    parent_node.add_child(newPilot)
+    #newPilot.transform.translation = spawn_info.position

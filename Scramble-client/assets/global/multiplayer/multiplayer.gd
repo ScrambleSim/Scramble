@@ -18,12 +18,12 @@ extends Node
 
 const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
-
 # spawns an entity with scene_path according to spawn_info passed to it
 remote func spawn_entity(spawn_info):
-    const SpawnClass = load(spawn_info.scene_path)
-    SpawnClass = SpawnClass.new(self)
-    SpawnClass.spawn(spawn_info)
+    var SpawnClass = load(spawn_info.recipe_path)
+    SpawnClass = SpawnClass.new()
+    var parent_node = get_node(ENTITIES_PATH)
+    SpawnClass.spawn(spawn_info, parent_node)
 
 
 func _ready():

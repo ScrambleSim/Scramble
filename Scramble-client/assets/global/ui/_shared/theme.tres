@@ -221,4 +221,3 @@ TabContainer/styles/panel = SubResource( 14 )
 TabContainer/styles/tab_bg = SubResource( 15 )
 TabContainer/styles/tab_disabled = SubResource( 16 )
 TabContainer/styles/tab_fg = SubResource( 17 )
-

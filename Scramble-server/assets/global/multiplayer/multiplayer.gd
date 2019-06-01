@@ -80,6 +80,6 @@ func spawn_entity_remote(spawn_info):
         'Sending client %s a command to spawn an entity at path: %s' % [
             str(spawn_info.client_id),
             str(spawn_info.scene_path)
-        ])
-    );
-    rpc_id(client_id, "spawn_entity", spawn_info)
+        ]
+    )
+    rpc_id(spawn_info.client_id, "spawn_entity", spawn_info)

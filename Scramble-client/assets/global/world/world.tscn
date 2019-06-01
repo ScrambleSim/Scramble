@@ -48,10 +48,8 @@ shadow_contact = 0.6
 transform = Transform( 21.7771, 0, 0, 0, 1, 0, 0, 0, 21.7771, 0, -1.00082, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Entities/Ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Entities/Ground"]
 shape = SubResource( 5 )
-
