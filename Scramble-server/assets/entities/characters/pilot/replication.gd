@@ -30,7 +30,7 @@ func replicate(client_id):
         "client_id": client_id,
         "recipe_path": RECIPE_PATH,
         "is_posessed": true,
-        "position": self.transform.position
+        "position": get_parent().translation
     }
 
     self.mp.spawn_entity_remote(spawn_info)
