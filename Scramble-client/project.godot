@@ -69,6 +69,7 @@ test_axis_set_val={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/directional_shadow/size=8196
 quality/shadow_atlas/size=8196
 quality/shadows/filter_mode=2
