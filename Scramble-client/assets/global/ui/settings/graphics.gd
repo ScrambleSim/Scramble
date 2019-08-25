@@ -46,16 +46,19 @@ func _apply_vsync():
 
 
 func _apply_fps_counter():
-    Global.log("TODO enable fps counter")
+    Global.log("TODO apply fps counter settings")
     # TODO
 
 
 func _apply_antistropic():
-    var msaa_setting = find_node("MsaaSetting")
-    get_viewport().msaa = msaa_setting.selected
+    Global.log("TODO apply antistropic settings")
+    # TODO
+    pass
 
 
 func _apply_msaa():
+    var msaa_setting = find_node("MsaaSetting")
+    get_viewport().msaa = msaa_setting.selected
     pass
 
 
