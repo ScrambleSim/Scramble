@@ -51,7 +51,7 @@ func _apply_fps_counter():
 
 
 func _apply_antistropic():
-    var msaa_setting = get_node("MsaaSetting")
+    var msaa_setting = find_node("MsaaSetting")
     get_viewport().msaa = msaa_setting.selected
 
 
