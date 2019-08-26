@@ -20,15 +20,10 @@ stages:
 
 
 .template_client_server: &template_client_server
-  'desktop-client-$PLATFORM':
+  *PLATFORM
     <<: *template_export
     variables:
       TYPE: "client"
-
-  'desktop-server-$PLATFORM':
-    <<: *template_export
-    variables:
-      TYPE: "server"
 
 # -------------- Jobs --------------
 
