@@ -36,7 +36,7 @@ desktop-clients:
     - 'godot -v --export "Windows" ../export/client/windows/Scramble-client.exe'
     - 'echo "Checking if exports were created"'
     - 'if [ ! test -f export/client/linux/Scramble-client.x64 ] then exit 1; fi'
-    - 'if [ ! test -f export/client/mac/Scramble-client.x64 then ] exit 1; fi'
+    - 'if [ ! test -f export/client/mac/Scramble-client.x64 then ] then exit 1; fi'
     - 'if [ ! test -f export/client/windows/Scramble-client.exe ] then exit 1; fi'
   artifacts:
     name: Scramble-client-$CI_BUILD_REF
