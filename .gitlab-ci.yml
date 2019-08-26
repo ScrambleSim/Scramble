@@ -25,7 +25,7 @@ global-logging:
 
 desktop-clients:
   stage: build
-  image: mrminimal/godot-desktop-export:3.1.0
+  image: mrminimal/godot-desktop-export:3.1.1
   script:
     - 'mkdir -p export/server/linux'
     - 'mkdir -p export/server/mac'
@@ -41,7 +41,7 @@ desktop-clients:
 
 desktop-servers:
   stage: build
-  image: mrminimal/godot-desktop-export:3.1.0
+  image: mrminimal/godot-desktop-export:3.1.1
   script:
     - 'mkdir -p export/server/linux'
     - 'mkdir -p export/server/mac'
