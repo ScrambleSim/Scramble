@@ -25,17 +25,17 @@ global-logging:
   - 'apk update && apk add grep'
   - './.gitlab/scrambleLoggingCheck.sh'
 
-linux-desktop:
+linux:
   <<: *template_client_server
   variables:
     PLATFORM: "linux"
 
-mac-desktop:
+mac:
   <<: *template_client_server
   variables:
     PLATFORM: "mac"
 
-windows-desktop:
+windows:
   <<: *template_client_server
   variables:
     PLATFORM: "windows"
