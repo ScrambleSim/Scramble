@@ -20,22 +20,22 @@ var wants_to_interact = false
 
 
 func _ready():
-	PropertyManager.connect("interact_with_changed", self, "_on_interact_with")
+    PropertyManager.connect("interact_with_changed", self, "_on_interact_with")
 
 
 # Raycasts use physics to _fixed_process is used
 func _physics_process(delta):
-	if self.wants_to_interact:
-		if self.is_colliding():
-			var other = self.get_collider()
-			if other.name == "Seat1":
-				wants_to_interact = false
-				# TODO send server entry request
-				pass
+    if self.wants_to_interact:
+        if self.is_colliding():
+            var other = self.get_collider()
+            if other.name == "Seat1":
+                wants_to_interact = false
+                # TODO send server entry request
+                pass
 
 
 func _on_interact_with(newVal):
-	if newVal > 0:
-		self.wants_to_interact = true
-	else:
-		self.wants_to_interact = false
+    if newVal > 0:
+        self.wants_to_interact = true
+    else:
+        self.wants_to_interact = false

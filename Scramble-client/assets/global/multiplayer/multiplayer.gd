@@ -16,20 +16,14 @@
 
 extends Node
 
-const PILOT_SCENE_PATH = "res://assets/entities/characters/pilot/pilot.tscn"
 const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
-
-remote func spawn_player(id, position):
-    _create_pilot(id, position, true)
-
-
-remote func spawn_slave(id, position):
-    _create_pilot(id, position, false)
-
-
-remote func spawn_plane(id, position):
-    _create_plane(id, position)
+# spawns an entity with scene_path according to spawn_info passed to it
+remote func spawn_entity(spawn_info):
+    var SpawnClass = load(spawn_info.recipe_path)
+    SpawnClass = SpawnClass.new()
+    var parent_node = get_node(ENTITIES_PATH)
+    SpawnClass.spawn(spawn_info, parent_node)
 
 
 func _ready():
@@ -46,13 +40,11 @@ func _ready():
 
 func _client_connected(id):
     if id == 1:
-        return	# ignore connect event for self
+        return  # ignore connect event for self
 
 
 func _client_disconnected(id):
     Global.log("Other Player (id: " + str(id) + ") disconnected from server")
-
-    get_node(ENTITIES_PATH).get_node(str(id)).queue_free()
 
 
 # Called when connecting worked (called after network_peer_connected arrives for self)
@@ -67,17 +59,3 @@ func _connected_fail():
 
 func _server_disconnected():
     Global.log("Server disconnected")
-
-
-func _create_pilot(id, position, posessed):
-    var newPilot = load(PILOT_SCENE_PATH).instance()
-    newPilot.is_posessed = posessed
-    newPilot.set_name(str(id))	# spawn players with their respective names
-    newPilot.transform.origin = position
-    get_node(ENTITIES_PATH).add_child(newPilot)
-
-
-func _create_plane(id, position):
-    # TODO create plane
-    Global.log("TODO create plane")
-    pass

@@ -39,4 +39,3 @@ __meta__ = {
 playback_speed = 2.0
 anims/FadeIn = ExtResource( 3 )
 script = ExtResource( 4 )
-

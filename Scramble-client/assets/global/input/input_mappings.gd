@@ -18,19 +18,19 @@
 
 extends Node
 
-var mappings	# the parsed settings from JSON
+var mappings    # the parsed settings from JSON
 
 func _ready():
-	var file = File.new()
-	file.open("res://config/input_mappings.json", file.READ)
-	var content = file.get_as_text()
-	file.close()
-	
-	self.mappings = JSON.parse(content).result
+    var file = File.new()
+    file.open("res://config/input_mappings.json", file.READ)
+    var content = file.get_as_text()
+    file.close()
+    
+    self.mappings = JSON.parse(content).result
 
 
 func save_settings():
-	var file = File.new()
-	file.open("res://config/input_mappings.json", file.WRITE)
-	file.store_string(JSON.print(self.mappings))
-	file.close()
+    var file = File.new()
+    file.open("res://config/input_mappings.json", file.WRITE)
+    file.store_string(JSON.print(self.mappings))
+    file.close()

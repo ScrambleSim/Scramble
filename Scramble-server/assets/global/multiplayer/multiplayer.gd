@@ -22,7 +22,6 @@ const ENTITIES_PATH = "/root/Scramble/World/Entities"
 const PORT = 5000
 const MAX_PLAYER_COUNT = 200
 
-const PLAYER_SPAWN = Vector3(5, 0, 0)
 
 func _ready():
     Global.log("Starting server")
@@ -65,7 +64,7 @@ func _client_disconnected(id):
 # Spawn player representation on server
 func _add_pilot(client_id):
     var newPlayer = load(PILOT_SCENE_PATH).instance()
-    newPlayer.set_name(str(client_id))	# spawn players with their respective names
+    newPlayer.set_name(str(client_id))  # spawn players with their respective names
     get_node(ENTITIES_PATH).add_child(newPlayer)
 
 
@@ -74,6 +73,13 @@ func _replicate_world(client_id):
     get_tree().call_group("Replicated", "replicate", client_id)
 
 
-func create_pilot_remote(client_id):
-    Global.log('Sending ' + str(client_id) + ' command to spawn pilot')
-    rpc_id(client_id, "spawn_player", client_id, PLAYER_SPAWN)
+# spawn an entity at a client based on a given path to its scene
+# spawn_info contains information about how spawning should happen
+func spawn_entity_remote(spawn_info):
+    Global.log(
+        'Sending client %s a command to spawn an entity at path: %s' % [
+            str(spawn_info.client_id),
+            str(spawn_info.recipe_path)
+        ]
+    )
+    rpc_id(spawn_info.client_id, "spawn_entity", spawn_info)

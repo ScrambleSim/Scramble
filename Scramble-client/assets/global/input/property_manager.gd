@@ -52,49 +52,49 @@ var interact_with = 0.0
 
 
 func tmp_increase(target, amount):
-	# TODO handle tmp part
-	var tmp = self.get(target)
-	tmp += amount
-	tmp = clamp(tmp, 0.0, 1.0)
-	self.set(target, tmp)
-	emit_signal("%s_changed" % target, tmp)
+    # TODO handle tmp part
+    var tmp = self.get(target)
+    tmp += amount
+    tmp = clamp(tmp, 0.0, 1.0)
+    self.set(target, tmp)
+    emit_signal("%s_changed" % target, tmp)
 
 
 func tmp_derease(target, amount):
-	# TODO handle tmp part
-	var tmp = self.get(target)
-	tmp -= amount
-	tmp = clamp(tmp, 0.0, 1.0)
-	self.set(target, tmp)
-	emit_signal("%s_changed" % target, tmp)
+    # TODO handle tmp part
+    var tmp = self.get(target)
+    tmp -= amount
+    tmp = clamp(tmp, 0.0, 1.0)
+    self.set(target, tmp)
+    emit_signal("%s_changed" % target, tmp)
 
 
 func perma_increase(target, amount):
-	var tmp = self.get(target)
-	tmp += amount
-	tmp = clamp(tmp, 0.0, 1.0)
-	self.set(target, tmp)
-	emit_signal("%s_changed" % target, tmp)
+    var tmp = self.get(target)
+    tmp += amount
+    tmp = clamp(tmp, 0.0, 1.0)
+    self.set(target, tmp)
+    emit_signal("%s_changed" % target, tmp)
 
 
 func perma_decrease(target, amount):
-	var tmp = self.get(target)
-	tmp -= amount
-	tmp = clamp(tmp, 0.0, 1.0)
-	self.set(target, tmp)
-	emit_signal("%s_changed" % target, tmp)
+    var tmp = self.get(target)
+    tmp -= amount
+    tmp = clamp(tmp, 0.0, 1.0)
+    self.set(target, tmp)
+    emit_signal("%s_changed" % target, tmp)
 
 
 func toggle(target):
-	var tmp = self.get(target)
-	tmp = 0.0 if tmp > 0.5 else 1.0
-	self.set(target, tmp)
-	emit_signal("%s_changed" % target, tmp)
+    var tmp = self.get(target)
+    tmp = 0.0 if tmp > 0.5 else 1.0
+    self.set(target, tmp)
+    emit_signal("%s_changed" % target, tmp)
 
 
 func set_value(target, value):
-	var tmp = self.get(target)
-	tmp = value
-	#tmp = clamp(tmp, 0.0, 1.0)
-	self.set(target, tmp)
-	emit_signal("%s_changed" % target, tmp)
+    var tmp = self.get(target)
+    tmp = value
+    #tmp = clamp(tmp, 0.0, 1.0)
+    self.set(target, tmp)
+    emit_signal("%s_changed" % target, tmp)

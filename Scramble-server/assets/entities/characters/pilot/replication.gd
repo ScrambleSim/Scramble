@@ -18,13 +18,19 @@
 
 extends Node
 
-onready var mp = get_node('/root/Scramble/Multiplayer')
+# The recipe tells tells the client how to spawn an entity
+const RECIPE_PATH = 'res://assets/entities/characters/pilot/spawn.gd'
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+onready var mp = get_node('/root/Scramble/Multiplayer')
 
 
 # Replicates this node on a specific client
 func replicate(client_id):
-	self.mp.create_pilot_remote(client_id)
+    var spawn_info = {
+        "client_id": client_id,
+        "recipe_path": RECIPE_PATH,
+        "is_posessed": true,
+        "position": get_parent().translation
+    }
+
+    self.mp.spawn_entity_remote(spawn_info)

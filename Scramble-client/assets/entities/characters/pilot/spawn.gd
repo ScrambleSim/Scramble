@@ -14,9 +14,13 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-extends AnimationPlayer
+extends Node
 
-func _ready():
-    self.current_animation = 'FadeIn'
-    self.play()
-    pass
+const SCENE_PATH = "res://assets/entities/characters/pilot/pilot.tscn"
+
+func spawn(spawn_info, parent_node):
+    var newPilot = load(SCENE_PATH).instance()
+    newPilot.set_name(str(spawn_info.client_id))
+    #newPilot.is_posessed = spawn_info.is_posessed
+    parent_node.add_child(newPilot)
+    #newPilot.transform.translation = spawn_info.position

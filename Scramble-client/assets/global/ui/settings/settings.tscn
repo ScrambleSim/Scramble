@@ -63,7 +63,6 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -573,6 +572,5 @@ text = "Apply"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/blend_in = SubResource( 1 )
 anims/blend_out = SubResource( 2 )
-
 [connection signal="toggled" from="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft/ItemFullscreen/HBoxContainer/HBoxContainer/Fullscreen" to="CenterContainer/VBoxContainer/TabContainer/Graphics" method="_on_Fullscreen_toggled"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Apply" to="CenterContainer/VBoxContainer/TabContainer/Graphics" method="_apply_settings"]
