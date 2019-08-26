@@ -53,13 +53,13 @@ global-logging:
 
 <<: *template_client_server
 variables:
-PLATFORM: "linux"
+  PLATFORM: "linux"
 
 <<: *template_client_server
 variables:
-PLATFORM: "mac"
+  PLATFORM: "mac"
 
 <<: *template_client_server
 variables:
-PLATFORM: "windows"
+  PLATFORM: "windows"
 
