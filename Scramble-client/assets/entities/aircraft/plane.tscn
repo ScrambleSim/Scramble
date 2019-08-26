@@ -1,14 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/entities/aircraft/plane.gd" type="Script" id=1]
-[ext_resource path="res://assets/entities/aircraft/model/F-18.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://assets/entities/aircraft/model/A-10.obj" type="ArrayMesh" id=3]
 
 [sub_resource type="SphereShape" id=1]
 
 [sub_resource type="SphereShape" id=2]
-
-[sub_resource type="CubeMesh" id=3]
 
 [node name="Plane" type="Spatial"]
 script = ExtResource( 1 )
@@ -26,75 +22,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.62941 )
 shape = SubResource( 2 )
 
 [node name="Visuals" type="Spatial" parent="."]
-
-[node name="MeshInstance" type="MeshInstance" parent="Visuals"]
-transform = Transform( -1.28902e-007, 0, -2.94894, 0, 2.94894, 0, 2.94894, 0, -1.28902e-007, 0, 1.34047, 0.618485 )
-visible = false
-mesh = ExtResource( 2 )
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
-material/4 = null
-material/5 = null
-material/6 = null
-material/7 = null
-material/8 = null
-material/9 = null
-material/10 = null
-material/11 = null
-material/12 = null
-material/13 = null
-material/14 = null
-material/15 = null
-material/16 = null
-material/17 = null
-material/18 = null
-material/19 = null
-material/20 = null
-material/21 = null
-material/22 = null
-material/23 = null
-material/24 = null
-material/25 = null
-material/26 = null
-material/27 = null
-material/28 = null
-material/29 = null
-material/30 = null
-material/31 = null
-material/32 = null
-material/33 = null
-material/34 = null
-material/35 = null
-material/36 = null
-material/37 = null
-material/38 = null
-material/39 = null
-material/40 = null
-material/41 = null
-material/42 = null
-material/43 = null
-material/44 = null
-material/45 = null
-material/46 = null
-material/47 = null
-material/48 = null
-material/49 = null
-material/50 = null
-material/51 = null
-material/52 = null
-material/53 = null
-
-[node name="MeshInstance2" type="MeshInstance" parent="Visuals"]
-transform = Transform( -2.943, 0, -4.44381e-007, 0, 2.943, 0, 4.44381e-007, 0, -2.943, 0, 0.96481, 0 )
-mesh = ExtResource( 3 )
-material/0 = null
-material/1 = null
-
-[node name="MeshInstance3" type="MeshInstance" parent="Visuals"]
-transform = Transform( 8.765, 0, 0, 0, 8.765, 0, 0, 0, 8.765, 0, 0, 0 )
-visible = false
-mesh = SubResource( 3 )
-material/0 = null
-
