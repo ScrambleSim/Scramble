@@ -52,14 +52,14 @@ global-logging:
   - './.gitlab/scrambleLoggingCheck.sh'
 
 <<: *template_client_server
-  variables:
-    PLATFORM: "linux"
+variables:
+PLATFORM: "linux"
 
 <<: *template_client_server
-  variables:
-    PLATFORM: "mac"
+variables:
+PLATFORM: "mac"
 
 <<: *template_client_server
-  variables:
-    PLATFORM: "windows"
+variables:
+PLATFORM: "windows"
 
