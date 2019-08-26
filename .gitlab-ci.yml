@@ -25,7 +25,7 @@ stages:
     variables:
       TYPE: "client"
 
-  `desktop-server-$PLATFORM`:
+  'desktop-server-$PLATFORM':
     <<: *template_export
     variables:
       TYPE: "server"
