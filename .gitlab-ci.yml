@@ -27,16 +27,17 @@ desktop-clients:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.0
   script:
-    - 'mkdir -p export/server/linux'
-    - 'mkdir -p export/server/mac'
-    - 'mkdir -p export/server/window'
+    - 'mkdir -p export/client/linux'
+    - 'mkdir -p export/client/mac'
+    - 'mkdir -p export/client/windows'
     - 'cd Scramble-client'
-    - 'godot -v --export "Linux" ../export/client/linux/Scramble-client.x64'
-    - 'echo $?'
-    - 'godot -v --export "Mac" ../export/client/mac/Scramble-client.x64'
-    - 'echo $?'
+    - 'godot -v --export "Linux"   ../export/client/linux/Scramble-client.x64'
+    - 'godot -v --export "Mac"     ../export/client/mac/Scramble-client.x64'
     - 'godot -v --export "Windows" ../export/client/windows/Scramble-client.exe'
-    - 'echo $?'
+    - 'echo "Checking if exports were created"'
+    - 'if ! test -f export/client/linux/Scramble*; then exit 1; fi'
+    - 'if ! test -f export/client/mac/Scramble*; then exit 1; fi'
+    - 'if ! test -f export/client/windows/Scramble*; then exit 1; fi'
   artifacts:
     name: Scramble-client-$CI_BUILD_REF
     paths:
@@ -48,12 +49,17 @@ desktop-servers:
   script:
     - 'mkdir -p export/server/linux'
     - 'mkdir -p export/server/mac'
-    - 'mkdir -p export/server/window'
+    - 'mkdir -p export/server/windows'
     - 'cd Scramble-server'
-    - 'godot -v --export "Linux" ../export/server/linux/Scramble-server.x64'
-    - 'godot -v --export "Mac" ../export/server/mac/Scramble-server.x64'
+    - 'godot -v --export "Linux"   ../export/server/linux/Scramble-server.x64'
+    - 'godot -v --export "Mac"     ../export/server/mac/Scramble-server.x64'
     - 'godot -v --export "Windows" ../export/server/windows/Scramble-server.exe'
+    - 'echo "Checking if exports were created"'
+    - 'if ! test -f export/server/linux/Scramble*; then exit 1; fi'
+    - 'if ! test -f export/server/mac/Scramble*; then exit 1; fi'
+    - 'if ! test -f export/server/windows/Scramble*; then exit 1; fi'
   artifacts:
     name: Scramble-server-$CI_BUILD_REF
     paths:
       - export/server
+
