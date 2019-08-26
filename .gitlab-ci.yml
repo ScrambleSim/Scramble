@@ -23,18 +23,67 @@ global-logging:
   - 'apk update && apk add grep'
   - './.gitlab/scrambleLoggingCheck.sh'
 
-desktop-clients:
+
+desktop-client-linux:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
     - 'mkdir -p export/client/linux'
-    - 'mkdir -p export/client/mac'
-    - 'mkdir -p export/client/windows'
     - 'cd Scramble-client'
     - 'godot -v --export "Linux"   ../export/client/linux/Scramble-client.x64'
     - 'if ! test -f export/client/linux/Scramble-client.x64;   then exit 1; fi'
+  artifacts:
+    name: Scramble-client-$CI_BUILD_REF
+    paths:
+      - export/client
+
+desktop-server-linux:
+  stage: build
+  image: mrminimal/godot-desktop-export:3.1.1
+  script:
+    - 'mkdir -p export/server/linux'
+    - 'cd Scramble-server'
+    - 'godot -v --export "Linux"   ../export/server/linux/Scramble-server.x64'
+    - 'if ! test -f export/server/linux/Scramble-client.x64;   then exit 1; fi'
+  artifacts:
+    name: Scramble-server-$CI_BUILD_REF
+    paths:
+      - export/server
+
+
+desktop-client-mac:
+  stage: build
+  image: mrminimal/godot-desktop-export:3.1.1
+  script:
+    - 'mkdir -p export/client/mac'
+    - 'cd Scramble-client'
     - 'godot -v --export "Mac"     ../export/client/mac/Scramble-client.x64'
     - 'if ! test -f export/client/mac/Scramble-client.x64;     then exit 1; fi'
+  artifacts:
+    name: Scramble-client-$CI_BUILD_REF
+    paths:
+      - export/client
+
+desktop-server-mac:
+  stage: build
+  image: mrminimal/godot-desktop-export:3.1.1
+  script:
+    - 'mkdir -p export/server/mac'
+    - 'cd Scramble-server'
+    - 'godot -v --export "Mac"     ../export/server/mac/Scramble-server.x64'
+    - 'if ! test -f export/server/mac/Scramble-client.x64;     then exit 1; fi'
+  artifacts:
+    name: Scramble-server-$CI_BUILD_REF
+    paths:
+      - export/server
+
+
+desktop-client-windows:
+  stage: build
+  image: mrminimal/godot-desktop-export:3.1.1
+  script:
+    - 'mkdir -p export/client/windows'
+    - 'cd Scramble-client'
     - 'godot -v --export "Windows" ../export/client/windows/Scramble-client.exe'
     - 'if ! test -f export/client/windows/Scramble-client.exe; then exit 1; fi'
   artifacts:
@@ -42,22 +91,15 @@ desktop-clients:
     paths:
       - export/client
 
-desktop-servers:
+desktop-server-windows:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
-    - 'mkdir -p export/server/linux'
-    - 'mkdir -p export/server/mac'
     - 'mkdir -p export/server/windows'
     - 'cd Scramble-server'
-    - 'godot -v --export "Linux"   ../export/server/linux/Scramble-server.x64'
-    - 'if ! test -f export/server/linux/Scramble-client.x64;   then exit 1; fi'
-    - 'godot -v --export "Mac"     ../export/server/mac/Scramble-server.x64'
-    - 'if ! test -f export/server/mac/Scramble-client.x64;     then exit 1; fi'
     - 'godot -v --export "Windows" ../export/server/windows/Scramble-server.exe'
     - 'if ! test -f export/server/windows/Scramble-client.exe; then exit 1; fi'
   artifacts:
     name: Scramble-server-$CI_BUILD_REF
     paths:
       - export/server
-
