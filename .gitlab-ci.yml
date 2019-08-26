@@ -3,6 +3,32 @@ stages:
   - build
   - deploy
 
+# ---------- Templates -------------
+
+.template_export: &template_export
+  stage: build
+  image: mrminimal/godot-desktop-export:3.1.1
+  script:
+    - mkdir -p export/$TYPE/$PLATFORM
+    - cd Scramble-$TYPE
+    - godot -v --export "$PLATFORM"   ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64
+    - if ! test -f export/$TYPE/$PLATFORM/Scramble-$TYPE.x64; then exit 1; fi
+  artifacts:
+    name: Scramble-$TYPE-$CI_BUILD_REF
+    paths:
+      - export/$TYPE
+
+.template_client_server: &template_client_server
+  desktop-client-$PLATFORM:
+    <<: *template_export
+    variables:
+      TYPE: "client"
+
+  desktop-server-$PLATFORM:
+    <<: *template_export
+    variables:
+      TYPE: "server"
+
 # -------------- Jobs --------------
 
 license-header:
@@ -39,31 +65,4 @@ windows:
   <<: *template_client_server
   variables:
     PLATFORM: "windows"
-
-# ---------- Templates -------------
-
-.template_client_server: &template_client_server
-  desktop-client-$PLATFORM:
-    <<: *template_export
-    variables:
-      TYPE: "client"
-
-  desktop-server-$PLATFORM:
-    <<: *template_export
-    variables:
-      TYPE: "server"
-
-
-.template_export: &template_export
-  stage: build
-  image: mrminimal/godot-desktop-export:3.1.1
-  script:
-    - mkdir -p export/$TYPE/$PLATFORM
-    - cd Scramble-$TYPE
-    - godot -v --export "$PLATFORM"   ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64
-    - if ! test -f export/$TYPE/$PLATFORM/Scramble-$TYPE.x64; then exit 1; fi
-  artifacts:
-    name: Scramble-$TYPE-$CI_BUILD_REF
-    paths:
-      - export/$TYPE
 
