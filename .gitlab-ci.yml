@@ -1,13 +1,13 @@
 stages:
   - test
   - build
-  - deployment
+  - deploy
 
 license-header:
   stage: test
   image: alpine
   script:
-  - './.gitlab/licenseHeaderCheck.sh ./.gitlab/license/LICENSE_HEADER'
+  - '.gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER'
 
 file-naming:
   stage: test
@@ -32,8 +32,11 @@ desktop-clients:
     - 'mkdir -p export/server/window'
     - 'cd Scramble-client'
     - 'godot -v --export "Linux" ../export/client/linux/Scramble-client.x64'
+    - 'echo $?'
     - 'godot -v --export "Mac" ../export/client/mac/Scramble-client.x64'
+    - 'echo $?'
     - 'godot -v --export "Windows" ../export/client/windows/Scramble-client.exe'
+    - 'echo $?'
   artifacts:
     name: Scramble-client-$CI_BUILD_REF
     paths:
