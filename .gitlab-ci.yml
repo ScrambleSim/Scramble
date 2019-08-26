@@ -18,6 +18,7 @@ stages:
     paths:
       - export/$TYPE
 
+
 .template_client_server: &template_client_server
   desktop-client-$PLATFORM:
     <<: *template_export
