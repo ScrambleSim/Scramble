@@ -9,15 +9,10 @@ stages:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
-    - echo $TYPE
-    - echo "$TYPE"
-    - echo '$TYPE'
-    - 'echo $TYPE'
-    - "echo $TYPE"
     - mkdir -p export/$TYPE/$PLATFORM
     - cd Scramble-$TYPE
-    - godot -v --export "$PLATFORM"   ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64
-    - if ! test -f "../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64"; then exit 1; fi
+    - godot -v --export $PLATFORM ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64
+    - if ! test -f ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64; then exit 1; fi
   artifacts:
     name: Scramble-$TYPE-$CI_BUILD_REF
     paths:
@@ -29,21 +24,21 @@ license-header:
   stage: test
   image: alpine
   script:
-  - '.gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER'
+  - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
 
 file-naming:
   stage: test
   image: alpine
   script:
-  - 'apk update && apk add bash'
-  - './.gitlab/fileNamingConventionCheck.sh'
+  - apk update && apk add bash
+  - ./.gitlab/fileNamingConventionCheck.sh
 
 global-logging:
   stage: test
   image: alpine
   script:
-  - 'apk update && apk add grep'
-  - './.gitlab/scrambleLoggingCheck.sh'
+  - apk update && apk add grep
+  - ./.gitlab/scrambleLoggingCheck.sh
 
 # Client
 
