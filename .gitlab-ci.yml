@@ -17,7 +17,7 @@ stages:
     - mkdir -p export/$TYPE/$PLATFORM
     - cd Scramble-$TYPE
     - godot -v --export "$PLATFORM"   ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64
-    - if ! test -f "export/$TYPE/$PLATFORM/Scramble-$TYPE.x64"; then exit 1; fi
+    - if ! test -f "../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64"; then exit 1; fi
   artifacts:
     name: Scramble-$TYPE-$CI_BUILD_REF
     paths:
