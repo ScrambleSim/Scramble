@@ -108,9 +108,9 @@ global-logging:
 linux-client:upload:
   stage: upload
   image: alpine
-  needs: ["linux-client:build"]
   dependencies:
   - linux-client:build
   script:
   - echo "testing"
+  - ls -la 
 
