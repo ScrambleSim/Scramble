@@ -24,12 +24,16 @@ stages:
 license-header:
   stage: test
   image: alpine
+  variables:
+    GIT_LFS_SKIP_SMUDGE: "1"
   script:
   - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
 
 file-naming:
   stage: test
   image: alpine
+  variables:
+    GIT_LFS_SKIP_SMUDGE: "1"
   script:
   - apk update && apk add bash
   - ./.gitlab/fileNamingConventionCheck.sh
@@ -37,11 +41,13 @@ file-naming:
 global-logging:
   stage: test
   image: alpine
+  variables:
+    GIT_LFS_SKIP_SMUDGE: "1"
   script:
   - apk update && apk add grep
   - ./.gitlab/scrambleLoggingCheck.sh
 
-# Client
+# Client exports
 
 linux-client:
   <<: *template_export
@@ -64,7 +70,7 @@ windows-client:
     PLATFORM: "windows"
     EXTENSION: "exe"
 
-# Server
+# Server exports
 
 linux-server:
   <<: *template_export
