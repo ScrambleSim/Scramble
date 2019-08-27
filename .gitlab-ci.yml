@@ -5,35 +5,44 @@ stages:
 
 # ---------- Templates -------------
 
-.template_export: &template_export
+.template-export: &template-export
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
-    - mkdir -p export
-    - cd Scramble-$TYPE
-    - godot -v --export $PLATFORM ../Scramble-$TYPE.$EXTENSION
-    - if ! test -f ../Scramble-$TYPE.$EXTENSION; then exit 1; fi
+  - mkdir -p export
+  - cd Scramble-$TYPE
+  - godot -v --export $PLATFORM ../Scramble-$TYPE.$EXTENSION
+  - if ! test -f ../Scramble-$TYPE.$EXTENSION; then exit 1; fi
   artifacts:
     name: Scramble-$TYPE-$CI_BUILD_REF
     paths:
-      - Scramble-$TYPE.$EXTENSION
-      - Scramble-$TYPE.pck
+    - Scramble-$TYPE.$EXTENSION
+    - Scramble-$TYPE.pck
+
+.template-skip-lfs: &template-skip-lfs
+  variables:
+    GIT_LFS_SKIP_SMUDGE: "1"
+
+.template-only-build-code: &template-only-build-code
+  only:
+    changes:
+    - Scramble-*/**/*
 
 # -------------- Jobs --------------
 
 license-header:
   stage: test
   image: alpine
-  variables:
-    GIT_LFS_SKIP_SMUDGE: "1"
+  <<: *template-skip-lfs
+  <<: *template-only-build-code
   script:
   - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
 
 file-naming:
   stage: test
   image: alpine
-  variables:
-    GIT_LFS_SKIP_SMUDGE: "1"
+  <<: *template-skip-lfs
+  <<: *template-only-build-code
   script:
   - apk update && apk add bash
   - ./.gitlab/fileNamingConventionCheck.sh
@@ -41,8 +50,8 @@ file-naming:
 global-logging:
   stage: test
   image: alpine
-  variables:
-    GIT_LFS_SKIP_SMUDGE: "1"
+  <<: *template-skip-lfs
+  <<: *template-only-build-code
   script:
   - apk update && apk add grep
   - ./.gitlab/scrambleLoggingCheck.sh
@@ -50,21 +59,24 @@ global-logging:
 # Client exports
 
 linux-client:
-  <<: *template_export
+  <<: *template-export
+  <<: *template-only-build-code
   variables:
     TYPE: "client"
     PLATFORM: "linux"
     EXTENSION: "x64"
 
 mac-client:
-  <<: *template_export
+  <<: *template-export
+  <<: *template-only-build-code
   variables:
     TYPE: "client"
     PLATFORM: "mac"
     EXTENSION: "x64"
 
 windows-client:
-  <<: *template_export
+  <<: *template-export
+  <<: *template-only-build-code
   variables:
     TYPE: "client"
     PLATFORM: "windows"
@@ -73,21 +85,24 @@ windows-client:
 # Server exports
 
 linux-server:
-  <<: *template_export
+  <<: *template-export
+  <<: *template-only-build-code
   variables:
     TYPE: "server"
     PLATFORM: "linux"
     EXTENSION: "x64"
 
 mac-server:
-  <<: *template_export
+  <<: *template-export
+  <<: *template-only-build-code
   variables:
     TYPE: "server"
     PLATFORM: "mac"
     EXTENSION: "x64"
 
 windows-server:
-  <<: *template_export
+  <<: *template-export
+  <<: *template-only-build-code
   variables:
     TYPE: "server"
     PLATFORM: "windows"
