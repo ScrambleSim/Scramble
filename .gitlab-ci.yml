@@ -24,10 +24,15 @@ stages:
   variables:
     GIT_LFS_SKIP_SMUDGE: "1"
 
-.template-only-build-code: &template-only-build-code
+.template-only-client-changes: &template-only-client-changes
   only:
     changes:
-    - Scramble-*/**/*
+    - Scramble-client/**/*
+
+.template-only-server-changes: &template-only-server-changes
+  only:
+    changes:
+    - Scramble-server/**/*
 
 # -------------- Jobs --------------
 
@@ -36,6 +41,7 @@ stages:
 
 linux-client:build:
   <<: *template-export
+  #<<: *template-only-client-changes
   variables:
     TYPE: "client"
     PLATFORM: "linux"
@@ -43,6 +49,7 @@ linux-client:build:
 
 mac-client:build:
   <<: *template-export
+  #<<: *template-only-client-changes
   variables:
     TYPE: "client"
     PLATFORM: "mac"
@@ -50,6 +57,7 @@ mac-client:build:
 
 windows-client:build:
   <<: *template-export
+  #<<: *template-only-client-changes
   variables:
     TYPE: "client"
     PLATFORM: "windows"
@@ -59,6 +67,7 @@ windows-client:build:
 
 linux-server:build:
   <<: *template-export
+  #<<: *template-only-server-changes
   variables:
     TYPE: "server"
     PLATFORM: "linux"
@@ -66,6 +75,7 @@ linux-server:build:
 
 mac-server:build:
   <<: *template-export
+  #<<: *template-only-server-changes
   variables:
     TYPE: "server"
     PLATFORM: "mac"
@@ -73,6 +83,7 @@ mac-server:build:
 
 windows-server:build:
   <<: *template-export
+  #<<: *template-only-server-changes
   variables:
     TYPE: "server"
     PLATFORM: "windows"
@@ -113,4 +124,5 @@ linux-client:upload:
   script:
   - echo "testing"
   - ls -la 
+  #<<: *template-only-client-changes
 
