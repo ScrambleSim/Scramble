@@ -1,6 +1,6 @@
 stages:
-  - test
   - build
+  - test
   - upload
 
 # ---------- Templates -------------
@@ -31,33 +31,8 @@ stages:
 
 # -------------- Jobs --------------
 
-license-header:
-  stage: test
-  image: alpine
-  <<: *template-skip-lfs
-  <<: *template-only-build-code
-  script:
-  - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
 
-file-naming:
-  stage: test
-  image: alpine
-  <<: *template-skip-lfs
-  <<: *template-only-build-code
-  script:
-  - apk update && apk add bash
-  - ./.gitlab/fileNamingConventionCheck.sh
-
-global-logging:
-  stage: test
-  image: alpine
-  <<: *template-skip-lfs
-  <<: *template-only-build-code
-  script:
-  - apk update && apk add grep
-  - ./.gitlab/scrambleLoggingCheck.sh
-
-# Client exports
+# Client builds
 
 linux-client:build:
   <<: *template-export
@@ -68,7 +43,6 @@ linux-client:build:
 
 mac-client:build:
   <<: *template-export
-  <<: *template-only-build-code
   variables:
     TYPE: "client"
     PLATFORM: "mac"
@@ -76,17 +50,15 @@ mac-client:build:
 
 windows-client:build:
   <<: *template-export
-  <<: *template-only-build-code
   variables:
     TYPE: "client"
     PLATFORM: "windows"
     EXTENSION: "exe"
 
-# Server exports
+# Server builds
 
 linux-server:build:
   <<: *template-export
-  <<: *template-only-build-code
   variables:
     TYPE: "server"
     PLATFORM: "linux"
@@ -94,7 +66,6 @@ linux-server:build:
 
 mac-server:build:
   <<: *template-export
-  <<: *template-only-build-code
   variables:
     TYPE: "server"
     PLATFORM: "mac"
@@ -102,11 +73,35 @@ mac-server:build:
 
 windows-server:build:
   <<: *template-export
-  <<: *template-only-build-code
   variables:
     TYPE: "server"
     PLATFORM: "windows"
     EXTENSION: "exe"
+
+# Tests
+
+license-header:
+  stage: test
+  image: alpine
+  <<: *template-skip-lfs
+  script:
+  - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
+
+file-naming:
+  stage: test
+  image: alpine
+  <<: *template-skip-lfs
+  script:
+  - apk update && apk add bash
+  - ./.gitlab/fileNamingConventionCheck.sh
+
+global-logging:
+  stage: test
+  image: alpine
+  <<: *template-skip-lfs
+  script:
+  - apk update && apk add grep
+  - ./.gitlab/scrambleLoggingCheck.sh
 
 # Upload
 
