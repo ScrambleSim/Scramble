@@ -9,14 +9,14 @@ stages:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
-    - mkdir -p export/$TYPE/$PLATFORM
+    - mkdir -p export
     - cd Scramble-$TYPE
-    - godot -v --export $PLATFORM ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64
-    - if ! test -f ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64; then exit 1; fi
+    - godot -v --export $PLATFORM ../export/Scramble-$TYPE.$EXTENSION
+    - if ! test -f ../export/Scramble-$TYPE.$EXTENSION; then exit 1; fi
   artifacts:
     name: Scramble-$TYPE-$CI_BUILD_REF
     paths:
-      - export/$TYPE
+      - export
 
 # -------------- Jobs --------------
 
@@ -47,18 +47,21 @@ linux-client:
   variables:
     TYPE: "client"
     PLATFORM: "linux"
+    EXTENSION: "x64"
 
 mac-client:
   <<: *template_export
   variables:
     TYPE: "client"
     PLATFORM: "mac"
+    EXTENSION: "x64"
 
 windows-client:
   <<: *template_export
   variables:
     TYPE: "client"
     PLATFORM: "windows"
+    EXTENSION: "exe"
 
 # Server
 
@@ -67,16 +70,19 @@ linux-server:
   variables:
     TYPE: "server"
     PLATFORM: "linux"
+    EXTENSION: "x64"
 
 mac-server:
   <<: *template_export
   variables:
     TYPE: "server"
     PLATFORM: "mac"
+    EXTENSION: "x64"
 
 windows-server:
   <<: *template_export
   variables:
     TYPE: "server"
     PLATFORM: "windows"
+    EXTENSION: "exe"
 
