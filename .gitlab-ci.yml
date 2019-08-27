@@ -46,13 +46,13 @@ linux-desktop-client:
     TYPE: "client"
     PLATFORM: "linux"
 
-linux-desktop-client:
+mac-desktop-client:
   <<: *template_export
   variables:
     TYPE: "client"
     PLATFORM: "mac"
 
-linux-desktop-client:
+windows-desktop-client:
   <<: *template_export
   variables:
     TYPE: "client"
