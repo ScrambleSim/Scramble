@@ -7,7 +7,7 @@ stages:
 
 .template_export: &template_export
   stage: build
-  image: mrminimal/godot-export:3.1.1
+  image: mrminimal/godot-desktop-export:3.1.1
   script:
     - mkdir -p export/$TYPE/$PLATFORM
     - cd Scramble-$TYPE
