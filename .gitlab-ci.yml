@@ -113,6 +113,4 @@ linux-client:upload:
   - linux-client:build
   script:
   - echo "testing"
-  except:
-  - branches
 
