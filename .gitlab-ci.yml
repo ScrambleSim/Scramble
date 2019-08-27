@@ -124,7 +124,7 @@ linux-client:upload:
   variables:
     GIT_STRATEGY: none
   script:
-  - echo "testing"
+  - echo "$RELEASE_TOKEN"
   - ls -la 
   #<<: *template-only-client-changes
   only:
