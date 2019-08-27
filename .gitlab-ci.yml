@@ -18,13 +18,6 @@ stages:
     paths:
       - export/$TYPE
 
-
-.template_client_server: &template_client_server
-  *PLATFORM
-    <<: *template_export
-    variables:
-      TYPE: "client"
-
 # -------------- Jobs --------------
 
 license-header:
@@ -47,15 +40,21 @@ global-logging:
   - 'apk update && apk add grep'
   - './.gitlab/scrambleLoggingCheck.sh'
 
-<<: *template_client_server
-variables:
-  PLATFORM: "linux"
+linux-desktop-client:
+  <<: *template_export
+  variables:
+    TYPE: "client"
+    PLATFORM: "linux"
 
-<<: *template_client_server
-variables:
-  PLATFORM: "mac"
+linux-desktop-client:
+  <<: *template_export
+  variables:
+    TYPE: "client"
+    PLATFORM: "mac"
 
-<<: *template_client_server
-variables:
-  PLATFORM: "windows"
+linux-desktop-client:
+  <<: *template_export
+  variables:
+    TYPE: "client"
+    PLATFORM: "windows"
 
