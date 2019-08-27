@@ -127,4 +127,6 @@ linux-client:upload:
   - echo "testing"
   - ls -la 
   #<<: *template-only-client-changes
+  only:
+  - master@ScrambleSim/Scramble
 
