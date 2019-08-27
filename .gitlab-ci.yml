@@ -121,6 +121,8 @@ linux-client:upload:
   image: alpine
   dependencies:
   - linux-client:build
+  variables:
+    GIT_STRATEGY: none
   script:
   - echo "testing"
   - ls -la 
