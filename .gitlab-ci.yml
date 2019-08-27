@@ -61,7 +61,6 @@ global-logging:
 
 linux-client:build:
   <<: *template-export
-  <<: *template-only-build-code
   variables:
     TYPE: "client"
     PLATFORM: "linux"
@@ -122,4 +121,3 @@ linux-client:upload:
   except:
   - branches
 
-  
