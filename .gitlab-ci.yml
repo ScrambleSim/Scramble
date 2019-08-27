@@ -17,7 +17,7 @@ stages:
     name: Scramble-$TYPE-$CI_BUILD_REF
     paths:
       - Scramble-$TYPE.$EXTENSION
-      - Scramble-$TYPE.pkg
+      - Scramble-$TYPE.pck
 
 # -------------- Jobs --------------
 
