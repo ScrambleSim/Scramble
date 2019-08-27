@@ -9,6 +9,11 @@ stages:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
+    - echo $TYPE
+    - echo "$TYPE"
+    - echo '$TYPE'
+    - 'echo $TYPE'
+    - "echo $TYPE"
     - mkdir -p export/$TYPE/$PLATFORM
     - cd Scramble-$TYPE
     - godot -v --export "$PLATFORM"   ../export/$TYPE/$PLATFORM/Scramble-$TYPE.x64
