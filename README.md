@@ -26,10 +26,9 @@
 [Scramble][scramble-website] is a free/libre flight simulator built on open-source technologies.
 
 # Features
-* Cross-platform
-* Coop gameplay
-* Realistic flight-physics
 * Multiplayer
+* Realistic flight-physics
+* Cross-platform
 * Dedicated Servers
 
 # Getting started
