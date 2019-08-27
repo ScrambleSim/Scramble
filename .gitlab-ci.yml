@@ -11,8 +11,8 @@ stages:
   script:
     - mkdir -p export
     - cd Scramble-$TYPE
-    - godot -v --export $PLATFORM Scramble-$TYPE.$EXTENSION
-    - if ! test -f Scramble-$TYPE.$EXTENSION; then exit 1; fi
+    - godot -v --export $PLATFORM ../Scramble-$TYPE.$EXTENSION
+    - if ! test -f ../Scramble-$TYPE.$EXTENSION; then exit 1; fi
   artifacts:
     name: Scramble-$TYPE-$CI_BUILD_REF
     paths:
