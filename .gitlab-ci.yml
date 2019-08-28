@@ -10,6 +10,8 @@ stages:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
+  - echo "testing"
+  - cat new_version.txt
   - mkdir -p export
   - cd Scramble-$TYPE
   - godot -v --export $PLATFORM ../Scramble-$TYPE.$EXTENSION
@@ -19,7 +21,7 @@ stages:
     paths:
     - Scramble-$TYPE.$EXTENSION
     - Scramble-$TYPE.pck
-    expire_in: 1 day
+    expire_in: 1 hour
 
 .template-skip-lfs: &template-skip-lfs
   variables:
@@ -42,8 +44,11 @@ resolve-version:version:
   stage: version
   image: alpine/semver
   script:
-  - semver -c -i minor 1.0.2
-  - echo "testing"
+  - semver -c -i minor 1.0.2 > new_version.txt
+  artifacts:
+    paths:
+    - new_version.txt
+    expire_in: 1 hour
 
 # Client builds
 
