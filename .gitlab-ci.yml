@@ -144,6 +144,7 @@ linux-client:upload:
   image: alpine
   dependencies:
   - linux-client:build
+  - resolve-version:version
   variables:
     GIT_STRATEGY: none
   script:
