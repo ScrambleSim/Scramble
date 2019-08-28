@@ -42,12 +42,18 @@ stages:
     changes:
     - Scramble-server/**/*
 
+.template-enable-job: &template-enable-job
+  only:
+  - branches
+  - merge_requests
+
 # -------------- Jobs --------------
 
 # Find current version and increase
 resolve-version:version:
   stage: version
   image: alpine/semver
+  <<: *template-enable-job
   <<: *template-skip-lfs
   script:
   - apk add git
@@ -64,6 +70,7 @@ resolve-version:version:
 # Client builds
 
 linux-client:build:
+  <<: *template-enable-job
   <<: *template-export
   #<<: *template-only-client-changes
   variables:
@@ -72,6 +79,7 @@ linux-client:build:
     EXTENSION: "x64"
 
 mac-client:build:
+  <<: *template-enable-job
   <<: *template-export
   #<<: *template-only-client-changes
   variables:
@@ -80,6 +88,7 @@ mac-client:build:
     EXTENSION: "x64"
 
 windows-client:build:
+  <<: *template-enable-job
   <<: *template-export
   #<<: *template-only-client-changes
   variables:
@@ -90,6 +99,7 @@ windows-client:build:
 # Server builds
 
 linux-server:build:
+  <<: *template-enable-job
   <<: *template-export
   #<<: *template-only-server-changes
   variables:
@@ -98,6 +108,7 @@ linux-server:build:
     EXTENSION: "x64"
 
 mac-server:build:
+  <<: *template-enable-job
   <<: *template-export
   #<<: *template-only-server-changes
   variables:
@@ -106,6 +117,7 @@ mac-server:build:
     EXTENSION: "x64"
 
 windows-server:build:
+  <<: *template-enable-job
   <<: *template-export
   #<<: *template-only-server-changes
   variables:
@@ -118,6 +130,7 @@ windows-server:build:
 license-header:test:
   stage: test
   image: alpine
+  <<: *template-enable-job
   <<: *template-skip-lfs
   script:
   - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
@@ -125,6 +138,7 @@ license-header:test:
 file-naming:test:
   stage: test
   image: alpine
+  <<: *template-enable-job
   <<: *template-skip-lfs
   script:
   - apk update && apk add bash
@@ -133,6 +147,7 @@ file-naming:test:
 global-logging:test:
   stage: test
   image: alpine
+  <<: *template-enable-job
   <<: *template-skip-lfs
   script:
   - apk update && apk add grep
