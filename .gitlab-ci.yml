@@ -154,6 +154,5 @@ linux-client:upload:
   - ls -la 
   #<<: *template-only-client-changes
   only:
-    refs:
-      - merge_requests
+  - merge_requests
 
