@@ -1,4 +1,5 @@
 stages:
+  - version
   - build
   - test
   - upload
@@ -35,6 +36,13 @@ stages:
     - Scramble-server/**/*
 
 # -------------- Jobs --------------
+
+# Find current version and increase
+resolve-version:version:
+  stage: version
+  image: alpine
+  script:
+  - echo "TODO"
 
 
 # Client builds
