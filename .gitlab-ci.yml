@@ -1,3 +1,5 @@
+# CI Pipeline for Scramble
+
 stages:
   - version
   - build
@@ -10,8 +12,10 @@ stages:
   stage: build
   image: mrminimal/godot-desktop-export:3.1.1
   script:
-  - echo "testing"
-  - cat new_version.txt
+  # Set version for Scramble release
+  - mkdir -p Scramble-$TYPE/meta
+  - cp version Scramble-$TYPE/meta/version
+  # Create export
   - mkdir -p export
   - cd Scramble-$TYPE
   - godot -v --export $PLATFORM ../Scramble-$TYPE.$EXTENSION
@@ -44,10 +48,11 @@ resolve-version:version:
   stage: version
   image: alpine/semver
   script:
-  - semver -c -i minor 1.0.2 > new_version.txt
+  - semver -c -i minor 1.0.2 > version
+  - if [ $? -ne 0 ]; then echo "TODOOO write 0.0.0"; fi
   artifacts:
     paths:
-    - new_version.txt
+    - version
     expire_in: 1 hour
 
 # Client builds
