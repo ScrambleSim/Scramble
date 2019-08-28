@@ -151,5 +151,5 @@ linux-client:upload:
   - ls -la 
   #<<: *template-only-client-changes
   only:
-  - [merge-requests]
+  - merge-requests
 
