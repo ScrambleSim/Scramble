@@ -48,8 +48,11 @@ resolve-version:version:
   stage: version
   image: alpine/semver
   script:
-  - semver -c -i minor 1.0.2 > version
-  - if [ $? -ne 0 ]; then echo "TODOOO write 0.0.0"; fi
+  - PREV_VERSION=`git describe --abbrev=0`
+  - semver -c -i minor $PREV_VERSION > version
+  - if [ $? -ne 0 ]; then echo "0.0.0" > version; fi
+  - echo "New version will be:"
+  - cat version
   artifacts:
     paths:
     - version
