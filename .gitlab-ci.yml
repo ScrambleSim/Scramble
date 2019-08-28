@@ -47,7 +47,9 @@ stages:
 resolve-version:version:
   stage: version
   image: alpine/semver
+  <<: *template-skip-lfs
   script:
+  - apk add git
   - PREV_VERSION=`git describe --abbrev=0`
   - semver -c -i minor $PREV_VERSION > version
   - if [ $? -ne 0 ]; then echo "0.0.0" > version; fi
