@@ -148,6 +148,7 @@ linux-client:upload:
   variables:
     GIT_STRATEGY: none
   script:
+  - echo "I found some labels $CI_MERGE_REQUEST_LABELS"
   - echo "$RELEASE_TOKEN"
   - ls -la 
   #<<: *template-only-client-changes
