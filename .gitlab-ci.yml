@@ -40,10 +40,10 @@ stages:
 # Find current version and increase
 resolve-version:version:
   stage: version
-  image: alpine
+  image: alpine/semver
   script:
-  - echo "TODO"
-
+  - semver -c -i minor 1.0.2
+  - echo "testing"
 
 # Client builds
 
