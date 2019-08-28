@@ -154,6 +154,7 @@ linux-client:upload:
   - ls -la 
   #<<: *template-only-client-changes
   only:
-  - master@ScrambleSim/Scramble
+    refs:
+    - master
     variables:
     - $CI_COMMIT_MESSAGE =~ /Merge/
