@@ -114,14 +114,14 @@ windows-server:build:
 
 # Tests
 
-license-header:
+license-header:test:
   stage: test
   image: alpine
   <<: *template-skip-lfs
   script:
   - .gitlab/licenseHeaderCheck.sh .gitlab/license/LICENSE_HEADER
 
-file-naming:
+file-naming:test:
   stage: test
   image: alpine
   <<: *template-skip-lfs
@@ -129,7 +129,7 @@ file-naming:
   - apk update && apk add bash
   - ./.gitlab/fileNamingConventionCheck.sh
 
-global-logging:
+global-logging:test:
   stage: test
   image: alpine
   <<: *template-skip-lfs
