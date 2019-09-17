@@ -85,7 +85,7 @@ RELEASE_JSON_TEMPLATE='{
     }
 }'
 
-RELEASE_DESCRIPTION='Enjoy the lastest Scramble release on your desired platform.'
+RELEASE_DESCRIPTION='🎉 Enjoy the lastest Scramble release 🎉'
 
 RELEASE_DATA_JSON=$(printf "$RELEASE_JSON_TEMPLATE" \
 "Scramble release $VERSION" \
