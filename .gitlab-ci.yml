@@ -152,13 +152,13 @@ releases:deploy:
   <<: *template-skip-lfs
   <<: *template-only-release
   dependencies:
-  - linux-client:build
-  - mac-client:build
-  - windows-client:build
-  - linux-server:build
-  - mac-server:build
-  - windows-server:build
   - version-extractor:version
+  - linux-client:build
+  - linux-server:behead
+  - mac-client:build
+  - mac-server:build
+  - windows-client:build
+  - windows-server:build
   script:
   - apt update
   - apt install -y zip
