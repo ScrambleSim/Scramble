@@ -105,7 +105,7 @@ margin_bottom = 334.0
 size_flags_horizontal = 3
 custom_constants/separation = 5
 
-[node name="ItemResolution" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="ItemResolution" type="Control" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
 margin_right = 358.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -152,7 +152,7 @@ margin_bottom = 40.0
 text = "720"
 align = 1
 
-[node name="ItemFullscreen" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="ItemFullscreen" type="Control" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
 margin_top = 45.0
 margin_right = 358.0
 margin_bottom = 85.0
@@ -183,7 +183,7 @@ margin_left = 224.0
 margin_right = 288.0
 margin_bottom = 40.0
 
-[node name="ItemVSync" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="ItemVSync" type="Control" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
 margin_top = 90.0
 margin_right = 358.0
 margin_bottom = 130.0
@@ -214,7 +214,7 @@ margin_left = 254.0
 margin_right = 318.0
 margin_bottom = 40.0
 
-[node name="ItemFps" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="ItemFps" type="Control" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
 margin_top = 135.0
 margin_right = 358.0
 margin_bottom = 175.0
@@ -245,7 +245,7 @@ margin_left = 227.0
 margin_right = 291.0
 margin_bottom = 40.0
 
-[node name="ItemAntistropticFilter" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="ItemAntistropticFilter" type="Control" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
 margin_top = 180.0
 margin_right = 358.0
 margin_bottom = 220.0
@@ -279,7 +279,7 @@ text = "off"
 items = [ "off", null, false, 0, null, "2x", null, false, 2, null, "4x", null, false, 4, null, "8x", null, false, 8, null, "16x", null, false, 16, null ]
 selected = 0
 
-[node name="ItemMSAA" type="Container" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="ItemMSAA" type="Control" parent="CenterContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/HBoxContainer/VBoxContainerLeft"]
 margin_top = 225.0
 margin_right = 358.0
 margin_bottom = 265.0
