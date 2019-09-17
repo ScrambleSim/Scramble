@@ -16,15 +16,23 @@
 
 extends Node
 
-# Semantic versioning
-const MAJOR_VERSION = 0
-const MINOR_VERSION = 0
-const PATCH_VERSION = 1
-const GAME_VERSION = "v%s.%s.%s" % [MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION]
+var GAME_VERSION = "local"
 
 func _ready():
+    self.set_version()
     self.set_process_name()
     self.print_client_info()
+
+
+func set_version():
+    var file = File.new()
+    file.open("res://meta/version.txt", file.READ)
+    var content = file.get_as_text()
+    file.close()
+
+    # Only change default value if in exported mode
+    if content:
+        self.GAME_VERSION = content
 
 
 func set_process_name():
