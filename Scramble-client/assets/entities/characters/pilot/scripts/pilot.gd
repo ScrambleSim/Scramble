@@ -16,7 +16,7 @@
 
 extends KinematicBody
 
-export(bool) var is_posessed = false
+var is_posessed = false
 
 var target_pos = Vector3(0,0,0)
 
