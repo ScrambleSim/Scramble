@@ -29,7 +29,7 @@ func replicate(target_client):
     var spawn_info = {
         "recipe_path": RECIPE_PATH,
         "node_name": get_parent().get_name(),
-        "is_posessed": true,
+        "is_posessed": str(target_client) == get_parent().get_name(),
         "position": get_parent().translation
     }
 
