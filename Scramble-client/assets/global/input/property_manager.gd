@@ -21,6 +21,7 @@
 
 extends Node
 
+# Player movement
 signal player_move_LR_changed(new_value)
 var player_move_LR = 0.0
 

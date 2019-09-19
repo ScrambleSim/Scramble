@@ -25,12 +25,12 @@ onready var mp = get_node('/root/Scramble/Multiplayer')
 
 
 # Replicates this node on a specific client
-func replicate(client_id):
+func replicate(target_client):
     var spawn_info = {
-        "client_id": client_id,
         "recipe_path": RECIPE_PATH,
-        "is_posessed": true,
+        "node_name": get_parent().get_name(),
+        "is_posessed": str(target_client) == get_parent().get_name(),
         "position": get_parent().translation
     }
 
-    self.mp.spawn_entity_remote(spawn_info)
+    self.mp.spawn_entity_remote(target_client, spawn_info)

@@ -16,12 +16,12 @@
 
 extends KinematicBody
 
-export(bool) var is_posessed = false
+var is_posessed = false
 
 var target_pos = Vector3(0,0,0)
 
-# Relevant if this instance is a slave
-slave func _update_position(new_transform):
+# Relevant if this instance is a slave/puppet
+puppet func _update_position(new_transform):
     if get_tree().get_rpc_sender_id() == 1:
         self.target_pos = new_transform.origin
 

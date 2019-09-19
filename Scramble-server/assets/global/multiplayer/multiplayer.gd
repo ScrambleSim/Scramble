@@ -44,11 +44,11 @@ func _client_connected(new_id):
     Global.log('Client ' + str(new_id) + ' connected to Server')
     Global.player_ids.append(new_id)
 
-    Global.log('Spawning pilot')
-    self._add_pilot(new_id)
-
     Global.log('Replicating world on client')
     self._replicate_world(new_id)
+
+    Global.log('Spawning pilot on all clients')
+    self._add_pilot(new_id)
 
 
 # Called if a player closes a game gracefully
@@ -62,24 +62,27 @@ func _client_disconnected(id):
 
 
 # Spawn player representation on server
-func _add_pilot(client_id):
+func _add_pilot(target_client):
     var newPlayer = load(PILOT_SCENE_PATH).instance()
-    newPlayer.set_name(str(client_id))  # spawn players with their respective names
+    newPlayer.set_name(str(target_client))  # spawn players with their respective names
     get_node(ENTITIES_PATH).add_child(newPlayer)
+
+    for client_id in Global.player_ids:
+        newPlayer.get_node("Replication").replicate(client_id)
 
 
 # Replicates the server's world on a passed client
-func _replicate_world(client_id):
-    get_tree().call_group("Replicated", "replicate", client_id)
+func _replicate_world(target_client):
+    get_tree().call_group("Replicated", "replicate", target_client)
 
 
 # spawn an entity at a client based on a given path to its scene
 # spawn_info contains information about how spawning should happen
-func spawn_entity_remote(spawn_info):
+func spawn_entity_remote(target_client, spawn_info):
     Global.log(
         'Sending client %s a command to spawn an entity at path: %s' % [
-            str(spawn_info.client_id),
+            str(target_client),
             str(spawn_info.recipe_path)
         ]
     )
-    rpc_id(spawn_info.client_id, "spawn_entity", spawn_info)
+    rpc_id(target_client, "spawn_entity", spawn_info)

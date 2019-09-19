@@ -20,7 +20,7 @@ const SCENE_PATH = "res://assets/entities/characters/pilot/pilot.tscn"
 
 func spawn(spawn_info, parent_node):
     var newPilot = load(SCENE_PATH).instance()
-    newPilot.set_name(str(spawn_info.client_id))
-    #newPilot.is_posessed = spawn_info.is_posessed
+    newPilot.set_name(str(spawn_info.node_name))
+    newPilot.is_posessed = spawn_info.is_posessed
     parent_node.add_child(newPilot)
     #newPilot.transform.translation = spawn_info.position
