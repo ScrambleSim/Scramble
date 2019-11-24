@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/development/asset_showcase/LightRotation.gd" type="Script" id=1]
-[ext_resource path="res://assets/development/asset_showcase/Camera.gd" type="Script" id=2]
+[ext_resource path="res://assets/development/asset_showcase/light_rotation.gd" type="Script" id=1]
+[ext_resource path="res://assets/development/asset_showcase/camera.gd" type="Script" id=2]
 [ext_resource path="res://assets/development/asset_showcase/test_environment.tres" type="Environment" id=3]
 
 [sub_resource type="CubeMesh" id=1]
