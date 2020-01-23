@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/entities/aircraft/c172p/scenes/model.tscn" type="PackedScene" id=1]
+
+[sub_resource type="SphereShape" id=1]
+
+[sub_resource type="SphereShape" id=2]
+
+[node name="Plane" type="Spatial"]
+
+[node name="PilotSeatEnterArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13171, -2.19964 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PilotSeatEnterArea"]
+shape = SubResource( 1 )
+
+[node name="CoPilotSeatEnterArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.62941 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CoPilotSeatEnterArea"]
+shape = SubResource( 2 )
+
+[node name="Visuals" type="Spatial" parent="."]
+
+[node name="c172p" parent="Visuals" instance=ExtResource( 1 )]
