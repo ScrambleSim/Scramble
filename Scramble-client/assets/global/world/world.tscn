@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/global/environments/environment.tres" type="Environment" id=1]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -38,12 +40,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3174, -4.76837e-07, -8.9205
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Sun" type="DirectionalLight" parent="Entities"]
-transform = Transform( 0.760026, 3.76712e-07, 0.649892, -0.403484, 0.783932, 0.47186, -0.509471, -0.620847, 0.595809, 0, 6.20537, 0 )
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_contact = 0.6
-
 [node name="Ground" type="KinematicBody" parent="Entities"]
 transform = Transform( 21.7771, 0, 0, 0, 1, 0, 0, 0, 21.7771, 0, -1.00082, 0 )
 
@@ -53,3 +49,12 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Entities/Ground"]
 shape = SubResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="Sun" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, -0.836557, 0.54788, 0, -0.54788, -0.836557, 0, 7.09763, 0 )
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_contact = 0.6
