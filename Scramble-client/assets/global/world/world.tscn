@@ -17,7 +17,6 @@
 [node name="Entities" type="Node" parent="."]
 
 [node name="StaticBody2" type="StaticBody" parent="Entities"]
-editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Entities/StaticBody2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99797, -4.76837e-07, -15.5839 )
@@ -29,7 +28,6 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Entities"]
-editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Entities/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3174, -4.76837e-07, -8.92053 )

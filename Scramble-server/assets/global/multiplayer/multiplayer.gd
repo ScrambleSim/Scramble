@@ -37,11 +37,9 @@ func _ready():
 
     Global.log("Server started, listening on port %s" % PORT)
 
-    self._replicate_world('1234')
-
 
 func _client_connected(new_id):
-    Global.log('Client ' + str(new_id) + ' connected to Server')
+    Global.log("Client %s' connected to Server" % str(new_id))
     Global.player_ids.append(new_id)
 
     Global.log('Replicating world on client')
@@ -54,7 +52,7 @@ func _client_connected(new_id):
 # Called if a player closes a game gracefully
 # Clients also time out if not gracefully disconnecting
 func _client_disconnected(id):
-    Global.log('Client ' + str(id) + ' disconnected from Server')
+    Global.log('Client %s disconnected from Server' % str(id))
 
     Global.player_ids.erase(id)
 
@@ -80,7 +78,7 @@ func _replicate_world(target_client):
 # spawn_info contains information about how spawning should happen
 func spawn_entity_remote(target_client, spawn_info):
     Global.log(
-        'Sending client %s a command to spawn an entity at path: %s' % [
+        'Sending client %s a command to spawn an entity from: %s' % [
             str(target_client),
             str(spawn_info.recipe_path)
         ]

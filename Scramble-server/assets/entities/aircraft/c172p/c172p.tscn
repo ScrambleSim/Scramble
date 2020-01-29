@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/entities/aircraft/c172p/replication.gd" type="Script" id=1]
+
+[node name="C172p" type="Spatial"]
+
+[node name="Replication" type="Node" parent="." groups=[
+"Replicated",
+]]
+script = ExtResource( 1 )

@@ -1,6 +1,9 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/entities/aircraft/c172p/c172p.tscn" type="PackedScene" id=1]
 
 [node name="World" type="Node"]
 
 [node name="Entities" type="Node" parent="."]
 
+[node name="C172p" parent="Entities" instance=ExtResource( 1 )]

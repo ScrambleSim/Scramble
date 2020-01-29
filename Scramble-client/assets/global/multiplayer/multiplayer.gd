@@ -20,6 +20,7 @@ const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
 # spawns an entity with scene_path according to spawn_info passed to it
 remote func spawn_entity(spawn_info):
+    Global.log("Recieved command to spawn entity from %s" % spawn_info.recipe_path)
     var SpawnClass = load(spawn_info.recipe_path)
     SpawnClass = SpawnClass.new()
     var parent_node = get_node(ENTITIES_PATH)
@@ -44,13 +45,13 @@ func _client_connected(id):
 
 
 func _client_disconnected(id):
-    Global.log("Other Player (id: " + str(id) + ") disconnected from server")
+    Global.log("Other Player (id: %s) disconnected from server" % str(id))
 
 
 # Called when connecting worked (called after network_peer_connected arrives for self)
 func _connected_ok():
     Global.log("Successfully connected to server!")
-    Global.log("Unique ID of this client: " + str(get_tree().get_network_unique_id()))
+    Global.log("Unique ID of this client: %s" % str(get_tree().get_network_unique_id()))
 
 
 func _connected_fail():
