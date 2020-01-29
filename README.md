@@ -7,6 +7,9 @@
     <a href="https://tldrlegal.com/license/gnu-affero-general-public-license-v3-(agpl-3.0)">
         <img src="https://img.shields.io/badge/license-AGPL%20v3-blue.svg"></src>
     </a>
+    <a href="https://scramble-sim.org">
+        <img src="https://img.shields.io/website/https/scramble-sim.org.svg"></src>
+    </a>
     <a href="https://gitlab.com/ScrambleSim/Scramble/commits/master">
         <img src="https://gitlab.com/ScrambleSim/Scramble/badges/master/pipeline.svg"></img>
     </a>
