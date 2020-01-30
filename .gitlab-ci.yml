@@ -1,5 +1,8 @@
 # CI Pipeline for Scramble
 
+variables:
+  GODOT_VERSION: "3.2"
+
 stages:
   - version
   - build
@@ -11,7 +14,7 @@ stages:
 
 .template-export: &template-export
   stage: build
-  image: scramblesim/godot-desktop-export:3.1.1
+  image: scramblesim/godot-desktop-export:$GODOT_VERSION
   dependencies:
   - version-extractor:version
   script:
@@ -130,7 +133,7 @@ global-logging:test:
 
 linux-server:behead:
   stage: behead
-  image: scramblesim/godot-server-converter:3.1.1
+  image: scramblesim/godot-server-converter:$GODOT_VERSION
   <<: *template-only-release
   dependencies:
   - linux-server:build

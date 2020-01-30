@@ -25,29 +25,29 @@ function uploadFile {
 
 PROJECT_ID=9172002
 
-uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-client-linux.zip" 
+uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-client-linux.zip"
 LINUX_CLIENT_FILENAME=$ALT
 LINUX_CLIENT_URL=$URL
 
-uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-server-linux.zip" 
+uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-server-linux.zip"
 LINUX_SERVER_FILENAME=$ALT
 LINUX_SERVER_URL=$URL
 
 
-uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-client-mac.zip" 
+uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-client-mac.zip"
 MAC_CLIENT_FILENAME=$ALT
 MAC_CLIENT_URL=$URL
 
-uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-server-mac.zip" 
+uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-server-mac.zip"
 MAC_SERVER_FILENAME=$ALT
 MAC_SERVER_URL=$URL
 
 
-uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-client-windows.zip" 
+uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-client-windows.zip"
 WINDOWS_CLIENT_FILENAME=$ALT
 WINDOWS_CLIENT_URL=$URL
 
-uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-server-windows.zip" 
+uploadFile "$PRIVATE_TOKEN" "$PROJECT_ID" "Scramble-server-windows.zip"
 WINDOWS_SERVER_FILENAME=$ALT
 WINDOWS_SERVER_URL=$URL
 
