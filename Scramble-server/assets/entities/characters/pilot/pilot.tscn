@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/entities/characters/pilot/pilot.gd" type="Script" id=1]
-[ext_resource path="res://assets/entities/characters/pilot/replication.gd" type="Script" id=2]
+[ext_resource path="res://assets/entities/characters/pilot/scripts/pilot.gd" type="Script" id=1]
+[ext_resource path="res://assets/entities/characters/pilot/scripts/replication.gd" type="Script" id=2]
+
+
 
 [node name="Pilot" type="Spatial"]
 script = ExtResource( 1 )
