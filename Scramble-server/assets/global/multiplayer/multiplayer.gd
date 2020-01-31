@@ -37,7 +37,9 @@ func _ready():
     
     # Creating the server fails if other server has already bound to it.
     if peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_DISCONNECTED:
-        Global.log("Failed to bind to port. Maybe a server is already running?")  
+        Global.log("Failed to bind to port %s. Maybe a server is already running on it?" % [
+            PORT
+        ])  
         Global.log("Shutting server down...")
         get_tree().quit()  
     else:
