@@ -34,8 +34,14 @@ func _ready():
     var peer = NetworkedMultiplayerENet.new()
     peer.create_server(PORT, MAX_PLAYER_COUNT)
     get_tree().set_network_peer(peer)
-
-    Global.log("Server started, listening on port %s" % PORT)
+    
+    # Creating the server fails if other server has already bound to it.
+    if peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_DISCONNECTED:
+        Global.log("Failed to bind to port. Maybe a server is already running?")  
+        Global.log("Shutting server down...")
+        get_tree().quit()  
+    else:
+        Global.log("Server started, listening on port %s" % PORT)    
 
 
 func _client_connected(new_id):
