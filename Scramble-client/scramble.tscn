@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/global/multiplayer/multiplayer.gd" type="Script" id=1]
 [ext_resource path="res://assets/global/world/world.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/global/ui/settings/settings_holder.gd" type="Script" id=3]
 [ext_resource path="res://assets/global/ui/intro/intro.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/global/debug_camera/debug_camera.tscn" type="PackedScene" id=5]
 
 [node name="Scramble" type="Node"]
 
@@ -17,5 +16,3 @@ script = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Intro" parent="." instance=ExtResource( 4 )]
-
-[node name="DebugCamera" parent="." instance=ExtResource( 5 )]
