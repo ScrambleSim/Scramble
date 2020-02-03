@@ -23,7 +23,7 @@ remote func spawn_entity(spawn_info):
     Global.log("Recieved command to spawn entity from %s" % spawn_info.recipe_path)
     var SpawnClass = load(spawn_info.recipe_path)
     SpawnClass = SpawnClass.new()
-    var parent_node = get_node(spawn_info.parent_node_path)
+    var parent_node = get_node(ENTITIES_PATH)
     SpawnClass.spawn(spawn_info, parent_node)
 
 
@@ -60,11 +60,3 @@ func _connected_fail():
 
 func _server_disconnected():
     Global.log("Server disconnected")
-
-
-func reparent_entitiy(source_node_path, target_parent_node_path):
-    var child_node = get_node(source_node_path)
-    child_node.get_parent().remove_child(child_node)
-    get_node(target_parent_node_path).add_child(child_node)
-
-    rpc_id(1, "reparent_entity", source_node_path, target_parent_node_path)

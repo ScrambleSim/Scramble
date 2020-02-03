@@ -16,11 +16,9 @@
 
 extends KinematicBody
 
-onready var mp = get_node('/root/Scramble/Multiplayer')
-
 var is_posessed = false
-var target_pos = Vector3(0,0,0)
 
+var target_pos = Vector3(0,0,0)
 
 # Relevant if this instance is a slave/puppet
 puppet func _update_position(new_transform):
@@ -28,18 +26,7 @@ puppet func _update_position(new_transform):
         self.target_pos = new_transform.origin
 
 
-var timer = 0
-var done = false
 func _process(delta):
-    timer += delta
-    if timer > 3.0 and not done:
-        if self.is_posessed:
-            mp.reparent_entitiy(
-                get_path(),
-                get_parent().get_node("C172p").get_path()
-            )
-            done = true
-    
     if self.is_posessed:
         rpc_id(1, "_update_position", self.transform)
     else:

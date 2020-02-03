@@ -64,7 +64,7 @@ func _client_disconnected(id):
 
     Global.player_ids.erase(id)
 
-    get_node(ENTITIES_PATH + "/C172p" + ('/%s' % str(id))).queue_free()
+    get_node(ENTITIES_PATH + ('/%s' % str(id))).queue_free()
 
 
 # Spawn player representation on server
@@ -92,9 +92,3 @@ func spawn_entity_remote(target_client, spawn_info):
         ]
     )
     rpc_id(target_client, "spawn_entity", spawn_info)
-
-
-remote func reparent_entity(source_node_path, target_parent_node_path):
-    var child_node = get_node(source_node_path)
-    child_node.get_parent().remove_child(child_node)
-    get_node(target_parent_node_path).add_child(child_node)
