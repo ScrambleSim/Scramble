@@ -27,7 +27,9 @@ func _ready():
     Global.log("Starting server")
 
     # Event setup
+# warning-ignore:return_value_discarded
     get_tree().connect("network_peer_connected", self, "_client_connected")
+# warning-ignore:return_value_discarded
     get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
 
     # Start server
@@ -63,8 +65,7 @@ func _client_disconnected(id):
     Global.log('Client %s disconnected from Server' % str(id))
 
     Global.player_ids.erase(id)
-
-    get_node(ENTITIES_PATH + ('/%s' % str(id))).queue_free()
+    get_node('%s/%s' % [ENTITIES_PATH, id]).queue_free()
 
 
 # Spawn player representation on server
