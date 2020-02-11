@@ -25,6 +25,8 @@ remote func spawn_entity(spawn_info):
     SpawnClass = SpawnClass.new()
     var parent_node = get_node(ENTITIES_PATH)
     SpawnClass.spawn(spawn_info, parent_node)
+    SpawnClass.queue_free()
+    
 
 
 func _ready():
@@ -59,4 +61,5 @@ func _connected_fail():
 
 
 func _server_disconnected():
-    Global.log("Server disconnected")
+    Global.log("Server disconnected. Closing client")
+    get_tree().quit()
