@@ -4,7 +4,7 @@ https://gitlab.com/ScrambleSim/Scramble/issues?scope=all&utf8=%E2%9C%93&state=al
 
 **Story**
 <!-- summarize the enhancement concisely-->
-As a ROLE I want ENHANCEMENT
+As a ROLE I want ENHANCEMENT because it improves UX.
 
 **Inspiration**
 <!-- Concept art, diagram, resources to get an understanding of the enhancement-->
@@ -16,9 +16,9 @@ v0.0.0
 
 **Acceptance Criteria**
 <!-- What is required for users to accept this story? Edit below if applicable-->
-* Feature is red
-* Feature works in multplayer
-* Is translated
+* [ ] Feature is red
+* [ ] Feature works in multplayer
+* [ ] Is translated
 
 <!------------- DO NOT REMOVE LINES BELOW -------------->
 **Definition of done**
@@ -30,3 +30,4 @@ v0.0.0
 
 /label ~enhancement ~discussion
 <!------------- DO NOT REMOVE LINES ABOVE -------------->
+

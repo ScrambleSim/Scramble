@@ -35,9 +35,9 @@ Windows 10 64-bit
 
 **Acceptance Criteria**
 <!-- What is required for users to accept this story? Edit below if applicable -->
-* Feature is red
-* Feature works in multplayer
-* Is translated
+* [ ] Feature is red
+* [ ] Feature works in multplayer
+* [ ] Is translated
 
 <!------------- DO NOT REMOVE LINES BELOW -------------->
 **Definition of done**
@@ -49,3 +49,4 @@ Windows 10 64-bit
 
 /label ~bug
 <!------------- DO NOT REMOVE LINES ABOVE -------------->
+
