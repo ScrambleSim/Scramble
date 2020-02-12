@@ -21,13 +21,6 @@ v0.0.0
 * [ ] Is translated
 
 <!------------- DO NOT REMOVE LINES BELOW -------------->
-**Definition of done**
-<!-- What the team requires BEFORE this ticket shall be reviewed -->
-* All unit tests pass
-* Conforms to the [Coding Conventions](https://gitlab.com/ScrambleSim/Scramble/wikis/Workflows/Coding-Conventions)
-* Conforms to the [Gitiquette](https://gitlab.com/ScrambleSim/Scramble/wikis/Workflows/Gitiquette)
-* Pull Request is rebased and ready for merge
-
 /label ~enhancement ~discussion
 <!------------- DO NOT REMOVE LINES ABOVE -------------->
 
