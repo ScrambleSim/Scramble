@@ -1,6 +1,7 @@
 **Associated Issue**
-<! Merge Requests have to have a linked issue>
+<!-- Merge Requests have to have a linked issue -->
 This MR is linked to issue: #12
+Code is discussed here, the story in the associated issue.
 
 
 <!------------- DO NOT REMOVE LINES BELOW -------------->
