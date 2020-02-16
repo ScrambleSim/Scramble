@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/entities/aircraft/c172p/scenes/model.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/entities/aircraft/c172p/scripts/c172p.gd" type="Script" id=2]
+[ext_resource path="res://assets/entities/aircraft/fa18f/models/LowPolyPlaceholder.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/entities/aircraft/fa18f/scripts/fa18f.gd" type="Script" id=2]
 
 [sub_resource type="SphereShape" id=1]
 
 [sub_resource type="SphereShape" id=2]
 
-[node name="C172p" type="Spatial"]
+[node name="Fa18f" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="PilotSeatEnterArea" type="Area" parent="."]
@@ -24,4 +24,4 @@ shape = SubResource( 2 )
 
 [node name="Visuals" type="Spatial" parent="."]
 
-[node name="c172p" parent="Visuals" instance=ExtResource( 1 )]
+[node name="LowPolyPlaceholder" parent="Visuals" instance=ExtResource( 1 )]

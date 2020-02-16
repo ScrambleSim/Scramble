@@ -19,7 +19,7 @@
 extends Node
 
 # The recipe tells tells the client how to spawn an entity
-const RECIPE_PATH = 'res://assets/entities/aircraft/c172p/spawn.gd'
+const RECIPE_PATH = 'res://assets/entities/aircraft/fa18f/spawn.gd'
 
 onready var mp = get_node('/root/Scramble/Multiplayer')
 

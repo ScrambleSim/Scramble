@@ -14,10 +14,11 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-extends Spatial
+extends Node
 
-func _physics_process(delta):
-    self.translate(Vector3(-1 * delta, 0, 0))
-    
-    for id in Global.player_ids:
-        rpc_id(id, "_update_position", self.transform)
+const SCENE_PATH = "res://assets/entities/aircraft/fa18f/fa18f.tscn"
+
+func spawn(spawn_info, parent_node):
+    var newPlane = load(SCENE_PATH).instance()
+    newPlane.set_name(str(spawn_info.node_name))
+    parent_node.add_child(newPlane)
