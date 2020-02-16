@@ -4,7 +4,7 @@ https://gitlab.com/ScrambleSim/Scramble/issues?scope=all&utf8=%E2%9C%93&state=al
 
 **Story**
 <!-- summarize the enhancement concisely-->
-As a ROLE I want ENHANCEMENT because it improves UX.
+As a ROLE I want ENHANCEMENT because REASON.
 
 **Inspiration**
 <!-- Concept art, diagram, resources to get an understanding of the enhancement-->
