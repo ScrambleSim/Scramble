@@ -30,10 +30,15 @@ remote func spawn_entity(spawn_info):
 
 
 func _ready():
+# warning-ignore:return_value_discarded
     get_tree().connect("network_peer_connected", self, "_client_connected")
+# warning-ignore:return_value_discarded
     get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
+# warning-ignore:return_value_discarded
     get_tree().connect("connected_to_server", self, "_connected_ok")
+# warning-ignore:return_value_discarded
     get_tree().connect("connection_failed", self, "_connected_fail")
+# warning-ignore:return_value_discarded
     get_tree().connect("server_disconnected", self, "_server_disconnected")
 
     var peer = NetworkedMultiplayerENet.new()
@@ -58,8 +63,10 @@ func _connected_ok():
 
 func _connected_fail():
     Global.log("Connect to server failed!")
+    get_tree().set_network_peer(null)
 
 
 func _server_disconnected():
     Global.log("Server disconnected. Closing client")
+    get_tree().set_network_peer(null)
     get_tree().quit()

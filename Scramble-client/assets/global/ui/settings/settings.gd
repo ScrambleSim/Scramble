@@ -18,6 +18,7 @@
 
 extends Control
 
+# warning-ignore:unused_signal
 signal settings_hidden
 
 func show_settings():

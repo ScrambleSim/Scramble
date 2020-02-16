@@ -36,6 +36,7 @@ func set_version():
 
 
 func set_process_name():
+# warning-ignore:return_value_discarded
     OS.set_thread_name("Scramble %s client" % GAME_VERSION)
 
 

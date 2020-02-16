@@ -26,7 +26,7 @@ puppet func _update_position(new_transform):
         self.target_pos = new_transform.origin
 
 
-func _process(delta):
+func _process(_delta):
     if self.is_posessed:
         rpc_id(1, "_update_position", self.transform)
     else:

@@ -22,32 +22,41 @@
 extends Node
 
 # Player movement
+# warning-ignore:unused_signal
 signal player_move_LR_changed(new_value)
 var player_move_LR = 0.0
 
+# warning-ignore:unused_signal
 signal player_move_FB_changed(new_value)
 var player_move_FB = 0.0
 
+# warning-ignore:unused_signal
 signal look_vertical_changed(new_value)
 var look_vertical = 0.0
 
+# warning-ignore:unused_signal
 signal look_horizontal_changed(new_value)
 var look_horizontal = 0.0
 
 # Settings
+# warning-ignore:unused_signal
 signal show_settings_changed(new_value)
 var show_settings = 0.0
 
 # Debug gamera
+# warning-ignore:unused_signal
 signal debug_cam_forward_back_changed(new_value)
 var debug_cam_forward_back = 0.0
 
+# warning-ignore:unused_signal
 signal debug_cam_up_down_changed(new_value)
 var debug_cam_up_down = 0.0
 
+# warning-ignore:unused_signal
 signal debug_cam_left_right_changed(new_value)
 var debug_cam_left_right = 0.0
 
+# warning-ignore:unused_signal
 signal interact_with_changed(new_value)
 var interact_with = 0.0
 

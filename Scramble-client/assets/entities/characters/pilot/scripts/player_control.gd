@@ -32,7 +32,7 @@ func _process(delta):
     self.look(delta)
 
 
-func move(delta):
+func move(_delta):
     var p = self.get_parent()
     var forward =  p.global_transform.basis.z * PropertyManager.player_move_FB
     var sideways = p.global_transform.basis.x * PropertyManager.player_move_LR

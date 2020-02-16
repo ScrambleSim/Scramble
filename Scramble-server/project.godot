@@ -25,7 +25,6 @@ Global="*res://assets/global/global.gd"
 
 [debug]
 
-settings/stdout/verbose_stdout=true
 gdscript/warnings/treat_warnings_as_errors=true
 
 [global]

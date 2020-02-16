@@ -24,6 +24,7 @@ const SETTINGS_NODE_NAME = "Settings"
 onready var settings_scene = preload(SETTINGS_SCENE_PATH)
 
 func _ready():
+# warning-ignore:return_value_discarded
     PropertyManager.connect("show_settings_changed", self, "_show_settings")
 
 
@@ -34,6 +35,7 @@ func on_settings_hidden():
 func _show_settings(new_val):
     if !has_node(SETTINGS_NODE_NAME):
         self.create_settings_node()
+# warning-ignore:return_value_discarded
         get_node(SETTINGS_NODE_NAME).connect("settings_hidden", self, "on_settings_hidden")
     
     if new_val == 0.0:
