@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://_shared/terrain_material.tres" type="Material" id=1]
+[ext_resource path="res://floor_tile/floor_tile.gltf" type="PackedScene" id=2]
+
+[node name="floor_tile" instance=ExtResource( 2 )]
+
+[node name="Hanger" parent="." index="0"]
+material/0 = ExtResource( 1 )
