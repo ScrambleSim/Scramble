@@ -433,7 +433,7 @@ transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 12, -82, 0, 32 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 38 )
 
 [node name="floor_tile5" parent="Entities/Base" instance=ExtResource( 6 )]
-transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, -92, -0.2, 60 )
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, -92, -0.1, 60 )
 
 [node name="floor_tile_dashed_line40" parent="Entities/Base" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, 38 )

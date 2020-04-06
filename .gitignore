@@ -1,6 +1,4 @@
 # Godot-specific ignores
-.import/
-**/*.import
 *.x64
 *.64
 *.pck
