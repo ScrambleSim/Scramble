@@ -1,16 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/global/environments/environment.tres" type="Environment" id=1]
+[ext_resource path="res://assets/entities/structures/floor_tile/scenes/floor_tile_asphalt.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/entities/structures/hangar/hangar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/entities/structures/floor_tile_dashed_line/scenes/floor_tile_dashed_line.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/entities/structures/floor_tile_drawn_through_line/scenes/floor_tile_drawn_through_line.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/entities/structures/floor_tile/scenes/floor_tile_sand.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/entities/structures/taxiway_tile_center_line/scenes/taxiway_tile_center_line.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/entities/vegetation/shrub_0/scenes/shrub_0.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/entities/structures/taxiway_tile_corner/scenes/taxiway_tile_corner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/entities/structures/taxiway_tile_t/scenes/taxiway_tile_t.tscn" type="PackedScene" id=10]
 
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="BoxShape" id=3]
-
-[sub_resource type="CubeMesh" id=4]
-
-[sub_resource type="BoxShape" id=5]
 
 [node name="World" type="Node"]
 
@@ -38,21 +43,481 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3174, -4.76837e-07, -8.9205
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Ground" type="KinematicBody" parent="Entities"]
-transform = Transform( 21.7771, 0, 0, 0, 1, 0, 0, 0, 21.7771, 0, -1.00082, 0 )
+[node name="Base" type="Spatial" parent="Entities"]
 
-[node name="MeshInstance" type="MeshInstance" parent="Entities/Ground"]
-mesh = SubResource( 4 )
-material/0 = null
+[node name="floor_tile" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Entities/Ground"]
-shape = SubResource( 5 )
+[node name="floor_tile11" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 24, 0, 0 )
+
+[node name="hangar" parent="Entities/Base" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20 )
+
+[node name="hangar2" parent="Entities/Base" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, -20 )
+
+[node name="floor_tile8" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+
+[node name="floor_tile12" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 2 )
+
+[node name="floor_tile18" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 2, -92, 0, -22 )
+
+[node name="floor_tile19" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 12, 62, 0, 2 )
+
+[node name="floor_tile21" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 12, 102, 0, 2 )
+
+[node name="floor_tile9" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -20 )
+
+[node name="floor_tile17" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -20 )
+
+[node name="floor_tile22" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 13, 0, 0, 0, 1, 0, 0, 0, 2, 70, 0, 2 )
+
+[node name="floor_tile10" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 3, -92, 0, 8 )
+
+[node name="taxiway_tile_center_line" parent="Entities/Base" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -16, 0, 0 )
+
+[node name="taxiway_tile_corner" parent="Entities/Base" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 0 )
+
+[node name="taxiway_tile_center_line4" parent="Entities/Base" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, -16, 0, 2 )
+
+[node name="taxiway_tile_center_line5" parent="Entities/Base" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, -28, 0, 2 )
+
+[node name="taxiway_tile_center_line6" parent="Entities/Base" instance=ExtResource( 7 )]
+transform = Transform( -2.8213e-07, 0, 26, 0, 1, 0, -1, 0, -7.33538e-06, -40, 0, 2 )
+
+[node name="taxiway_tile_center_line2" parent="Entities/Base" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -28, 0, 0 )
+
+[node name="taxiway_tile_center_line3" parent="Entities/Base" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -40, 0, 0 )
+
+[node name="floor_tile_dashed_line" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 82, 0, 38 )
+
+[node name="floor_tile_dashed_line2" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 84, 0, 38 )
+
+[node name="floor_tile_dashed_line6" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 88, 0, 38 )
+
+[node name="floor_tile_dashed_line5" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 90, 0, 38 )
+
+[node name="floor_tile_dashed_line9" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94, 0, 38 )
+
+[node name="floor_tile_dashed_line8" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 96, 0, 38 )
+
+[node name="floor_tile_dashed_line12" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 0, 38 )
+
+[node name="floor_tile16" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 39, 0, 0, 0, 1, 0, 0, 0, 2, -92, 0, -12 )
+
+[node name="floor_tile13" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 6, -26, 0, 0 )
+
+[node name="floor_tile15" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 6, -38, 0, 0 )
+
+[node name="floor_tile20" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 26, 0, 0, 0, 1, 0, 0, 0, 6, -92, 0, 0 )
+
+[node name="floor_tile_dashed_line11" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102, 0, 38 )
+
+[node name="floor_tile7" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 9, -14, 0, 2 )
+
+[node name="taxiway_tile_t" parent="Entities/Base" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28, 0, 0 )
+
+[node name="taxiway_tile_t2" parent="Entities/Base" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, 0, 0 )
+
+[node name="floor_tile_dashed_line26" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 58, 0, 38 )
+
+[node name="floor_tile_dashed_line25" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 0, 38 )
+
+[node name="floor_tile_dashed_line24" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, 0, 38 )
+
+[node name="floor_tile_dashed_line23" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 66, 0, 38 )
+
+[node name="floor_tile_dashed_line22" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 70, 0, 38 )
+
+[node name="floor_tile_dashed_line21" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 72, 0, 38 )
+
+[node name="floor_tile_dashed_line90" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -42, 0, 38 )
+
+[node name="floor_tile_dashed_line89" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 0, 38 )
+
+[node name="floor_tile_dashed_line88" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36, 0, 38 )
+
+[node name="floor_tile_dashed_line87" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34, 0, 38 )
+
+[node name="floor_tile_dashed_line86" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 0, 38 )
+
+[node name="floor_tile_dashed_line85" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28, 0, 38 )
+
+[node name="floor_tile_dashed_line84" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24, 0, 38 )
+
+[node name="floor_tile_dashed_line83" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22, 0, 38 )
+
+[node name="floor_tile_dashed_line82" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -66, 0, 38 )
+
+[node name="floor_tile_dashed_line81" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -64, 0, 38 )
+
+[node name="floor_tile_dashed_line80" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 0, 38 )
+
+[node name="floor_tile_dashed_line79" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -58, 0, 38 )
+
+[node name="floor_tile_dashed_line78" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 38 )
+
+[node name="floor_tile_dashed_line77" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52, 0, 38 )
+
+[node name="floor_tile_dashed_line115" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -90, 0, 38 )
+
+[node name="floor_tile_dashed_line114" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -86, 0, 38 )
+
+[node name="floor_tile_dashed_line113" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -84, 0, 38 )
+
+[node name="floor_tile_dashed_line112" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 0, 38 )
+
+[node name="floor_tile_dashed_line111" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -78, 0, 38 )
+
+[node name="floor_tile_dashed_line58" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18, 0, 38 )
+
+[node name="floor_tile_dashed_line57" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 38 )
+
+[node name="floor_tile_dashed_line56" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24, 0, 38 )
+
+[node name="floor_tile_dashed_line55" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26, 0, 38 )
+
+[node name="floor_tile_dashed_line54" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 0, 38 )
+
+[node name="floor_tile_dashed_line53" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32, 0, 38 )
+
+[node name="floor_tile_dashed_line20" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 76, 0, 38 )
+
+[node name="floor_tile_dashed_line19" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 78, 0, 38 )
+
+[node name="floor_tile_dashed_line76" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48, 0, 38 )
+
+[node name="floor_tile_dashed_line75" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46, 0, 38 )
+
+[node name="floor_tile_dashed_line38" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 34, 0, 38 )
+
+[node name="floor_tile_dashed_line37" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 36, 0, 38 )
+
+[node name="floor_tile_dashed_line36" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 0, 38 )
+
+[node name="floor_tile_dashed_line35" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42, 0, 38 )
+
+[node name="floor_tile_dashed_line34" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 46, 0, 38 )
+
+[node name="floor_tile_dashed_line33" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 48, 0, 38 )
+
+[node name="floor_tile_dashed_line32" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 52, 0, 38 )
+
+[node name="floor_tile_dashed_line31" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 54, 0, 38 )
+
+[node name="floor_tile_dashed_line74" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70, 0, 38 )
+
+[node name="floor_tile_dashed_line52" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 38 )
+
+[node name="floor_tile_dashed_line51" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, 38 )
+
+[node name="floor_tile_dashed_line61" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 0, 38 )
+
+[node name="floor_tile_dashed_line62" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 0, 38 )
+
+[node name="floor_tile_dashed_line60" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 38 )
+
+[node name="floor_tile_dashed_line50" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 38 )
+
+[node name="floor_tile_dashed_line49" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 38 )
+
+[node name="floor_tile_dashed_line48" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 38 )
+
+[node name="floor_tile_dashed_line47" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 38 )
+
+[node name="floor_tile_dashed_line46" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 38 )
+
+[node name="floor_tile_dashed_line45" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14, 0, 38 )
+
+[node name="floor_tile_dashed_line15" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 106, 0, 38 )
+
+[node name="floor_tile_dashed_line14" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 108, 0, 38 )
+
+[node name="floor_tile_dashed_line73" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18, 0, 38 )
+
+[node name="floor_tile_dashed_line72" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 0, 38 )
+
+[node name="floor_tile_dashed_line101" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -74, 0, 38 )
+
+[node name="floor_tile_dashed_line100" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -72, 0, 38 )
+
+[node name="floor_tile2" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 100, 0, 1, 0, -1, 0, -4.37114e-06, 108, 0, 36 )
+
+[node name="floor_tile3" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 100, 0, 1, 0, -1, 0, -4.37114e-06, 108, 0, 40 )
+
+[node name="floor_tile_dashed_line3" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86, 0, 38 )
+
+[node name="floor_tile_dashed_line4" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 92, 0, 38 )
+
+[node name="floor_tile_dashed_line7" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 98, 0, 38 )
+
+[node name="floor_tile_dashed_line10" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 104, 0, 38 )
+
+[node name="floor_tile_dashed_line18" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 62, 0, 38 )
+
+[node name="floor_tile_dashed_line17" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 68, 0, 38 )
+
+[node name="floor_tile_dashed_line71" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38, 0, 38 )
+
+[node name="floor_tile_dashed_line70" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32, 0, 38 )
+
+[node name="floor_tile_dashed_line69" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26, 0, 38 )
+
+[node name="floor_tile_dashed_line68" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, 38 )
+
+[node name="floor_tile_dashed_line67" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -62, 0, 38 )
+
+[node name="floor_tile_dashed_line66" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -56, 0, 38 )
+
+[node name="floor_tile_dashed_line98" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -88, 0, 38 )
+
+[node name="floor_tile_dashed_line97" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -82, 0, 38 )
+
+[node name="floor_tile_dashed_line96" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -76, 0, 38 )
+
+[node name="floor_tile_dashed_line44" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22, 0, 38 )
+
+[node name="floor_tile_dashed_line43" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 28, 0, 38 )
+
+[node name="floor_tile_dashed_line16" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 74, 0, 38 )
+
+[node name="floor_tile_dashed_line13" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 80, 0, 38 )
+
+[node name="floor_tile_dashed_line65" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0, 38 )
+
+[node name="floor_tile_dashed_line64" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -44, 0, 38 )
+
+[node name="floor_tile_dashed_line30" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38, 0, 38 )
+
+[node name="floor_tile_dashed_line29" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 44, 0, 38 )
+
+[node name="floor_tile_dashed_line28" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 0, 38 )
+
+[node name="floor_tile_dashed_line27" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 56, 0, 38 )
+
+[node name="floor_tile_dashed_line63" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -68, 0, 38 )
+
+[node name="floor_tile_dashed_line42" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 38 )
+
+[node name="floor_tile_dashed_line59" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, 38 )
+
+[node name="floor_tile4" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 12, -10, 0, 32 )
+
+[node name="floor_tile6" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 12, -82, 0, 32 )
+
+[node name="floor_tile_dashed_line41" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 38 )
+
+[node name="floor_tile5" parent="Entities/Base" instance=ExtResource( 6 )]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, -92, -0.2, 60 )
+
+[node name="floor_tile_dashed_line40" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, 38 )
+
+[node name="floor_tile_dashed_line39" parent="Entities/Base" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 0, 38 )
+
+[node name="floor_tile_drawn_through_line" parent="Entities/Base" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 100, 0, 1, 0, -1, 0, -4.37114e-06, 108, 0, 34 )
+
+[node name="floor_tile_drawn_through_line2" parent="Entities/Base" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 100, 0, 1, 0, -1, 0, -4.37114e-06, 108, 0, 42 )
+
+[node name="floor_tile14" parent="Entities/Base" instance=ExtResource( 2 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 12, 80, 0, 32 )
+
+[node name="shrub_0" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, -0.25, 22 )
+
+[node name="shrub_1" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38, -0.25, 18 )
+
+[node name="shrub_2" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62, -0.25, 26 )
+
+[node name="shrub_3" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72, -0.25, 16 )
+
+[node name="shrub_19" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -92, -0.25, 54 )
+
+[node name="shrub_18" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72, -0.25, 50 )
+
+[node name="shrub_17" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48, -0.25, 58 )
+
+[node name="shrub_16" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38, -0.25, 48 )
+
+[node name="shrub_15" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 52, -0.25, 54 )
+
+[node name="shrub_14" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -0.25, 50 )
+
+[node name="shrub_13" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 96, -0.25, 58 )
+
+[node name="shrub_12" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 106, -0.25, 48 )
+
+[node name="shrub_7" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, -0.25, 54 )
+
+[node name="shrub_6" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.25, 50 )
+
+[node name="shrub_5" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -0.25, 58 )
+
+[node name="shrub_4" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32, -0.25, 48 )
+
+[node name="shrub_11" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -72, -0.25, 20 )
+
+[node name="shrub_10" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52, -0.25, 16 )
+
+[node name="shrub_20" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, -0.25, 16 )
+
+[node name="shrub_9" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -0.25, 24 )
+
+[node name="shrub_8" parent="Entities/Base" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, -0.25, 14 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
 
 [node name="Sun" type="DirectionalLight" parent="WorldEnvironment"]
-transform = Transform( 1, 0, 0, 0, -0.642788, 0.766045, 0, -0.766045, -0.642788, 0, 7.09763, 0 )
+transform = Transform( -0.34202, -0.719846, -0.604023, 0, -0.642788, 0.766044, -0.939693, 0.262002, 0.219846, 0, 15.0976, 0 )
 shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 shadow_bias = 0.0
