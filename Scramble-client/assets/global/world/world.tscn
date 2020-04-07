@@ -96,19 +96,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -16, 0, 0 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 0 )
 
 [node name="taxiway_tile_center_line4" parent="Entities/Base" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, -16, 0, 2 )
+transform = Transform( -4.37114e-08, 0, 6, 0, 1, 0, -1, 0, -2.62268e-07, -16, 0, 2 )
 
 [node name="taxiway_tile_center_line5" parent="Entities/Base" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, -28, 0, 2 )
+transform = Transform( -4.37114e-08, 0, 6, 0, 1, 0, -1, 0, -2.62268e-07, -30, 0, 2 )
 
 [node name="taxiway_tile_center_line6" parent="Entities/Base" instance=ExtResource( 7 )]
-transform = Transform( -2.8213e-07, 0, 26, 0, 1, 0, -1, 0, -7.33538e-06, -40, 0, 2 )
+transform = Transform( -2.8213e-07, 0, 24, 0, 1, 0, -1, 0, -6.77112e-06, -44, 0, 2 )
 
 [node name="taxiway_tile_center_line2" parent="Entities/Base" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -28, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -30, 0, 0 )
 
 [node name="taxiway_tile_center_line3" parent="Entities/Base" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -40, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -44, 0, 0 )
 
 [node name="floor_tile_dashed_line" parent="Entities/Base" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 82, 0, 38 )
@@ -135,13 +135,13 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 0,
 transform = Transform( 39, 0, 0, 0, 1, 0, 0, 0, 2, -92, 0, -12 )
 
 [node name="floor_tile13" parent="Entities/Base" instance=ExtResource( 2 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 6, -26, 0, 0 )
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 6, -28, 0, 0 )
 
 [node name="floor_tile15" parent="Entities/Base" instance=ExtResource( 2 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 6, -38, 0, 0 )
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 6, -42, 0, 0 )
 
 [node name="floor_tile20" parent="Entities/Base" instance=ExtResource( 2 )]
-transform = Transform( 26, 0, 0, 0, 1, 0, 0, 0, 6, -92, 0, 0 )
+transform = Transform( 25, 0, 0, 0, 1, 0, 0, 0, 6, -92, 0, 0 )
 
 [node name="floor_tile_dashed_line11" parent="Entities/Base" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102, 0, 38 )
@@ -150,10 +150,10 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102, 0,
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 9, -14, 0, 2 )
 
 [node name="taxiway_tile_t" parent="Entities/Base" instance=ExtResource( 10 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -30, 0, 0 )
 
 [node name="taxiway_tile_t2" parent="Entities/Base" instance=ExtResource( 10 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44, 0, 0 )
 
 [node name="floor_tile_dashed_line26" parent="Entities/Base" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 58, 0, 38 )
@@ -549,4 +549,13 @@ directional_shadow_bias_split_scale = 0.97
 directional_shadow_max_distance = 250.0
 
 [node name="F13" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98, 1, -9 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -73, 1.87555, -4 )
+
+[node name="F16" parent="." instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49, 1.87555, -4 )
+
+[node name="F14" parent="." instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -112, 1.87555, -4 )
+
+[node name="F15" parent="." instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -126, 1.87555, -4 )
