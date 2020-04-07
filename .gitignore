@@ -1,4 +1,6 @@
 # Godot-specific ignores
+Scramble-client/.import/
+Scramble-server/.import/
 *.x64
 *.64
 *.pck
