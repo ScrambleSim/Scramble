@@ -35,6 +35,7 @@ gdscript/warnings/treat_warnings_as_errors=true
 
 window/size/width=1280
 window/size/height=720
+window/vsync/use_vsync=false
 
 [editor_plugins]
 
@@ -73,6 +74,15 @@ test_axis_set_val={
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+quality/filters/anisotropic_filter_level=8
+quality/directional_shadow/size=8192
+quality/shadow_atlas/size=8192
+quality/shadow_atlas/quadrant_0_subdiv=3
+quality/shadow_atlas/quadrant_1_subdiv=4
+quality/shadow_atlas/quadrant_2_subdiv=5
+quality/shadow_atlas/quadrant_3_subdiv=5
+quality/shadows/filter_mode=2
+quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
+quality/filters/msaa=3
 environment/default_environment="res://assets/global/environments/environment.tres"

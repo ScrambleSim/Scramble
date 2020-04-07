@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/color_3.png-514337bd616d09dc3da0cfcf742635e9.s3tc.stex"
-path.etc2="res://.import/color_3.png-514337bd616d09dc3da0cfcf742635e9.etc2.stex"
+path.s3tc="res://.import/low_poly_look.png-910ba92f6347628e76f795febd5acdc4.s3tc.stex"
+path.etc2="res://.import/low_poly_look.png-910ba92f6347628e76f795febd5acdc4.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/entities/_shared/color_3.png"
-dest_files=[ "res://.import/color_3.png-514337bd616d09dc3da0cfcf742635e9.s3tc.stex", "res://.import/color_3.png-514337bd616d09dc3da0cfcf742635e9.etc2.stex" ]
+source_file="res://low_poly_look.png"
+dest_files=[ "res://.import/low_poly_look.png-910ba92f6347628e76f795febd5acdc4.s3tc.stex", "res://.import/low_poly_look.png-910ba92f6347628e76f795febd5acdc4.etc2.stex" ]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
