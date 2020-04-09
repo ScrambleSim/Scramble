@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/entities/characters/pilot/scripts/pilot.gd" type="Script" id=1]
 [ext_resource path="res://assets/entities/characters/pilot/scripts/player_control.gd" type="Script" id=2]
+[ext_resource path="res://assets/entities/characters/pilot/models/human/Human Armature.scn" type="PackedScene" id=3]
+[ext_resource path="res://assets/entities/characters/pilot/models/human/AnimationPlayer.scn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.3
@@ -12,12 +14,18 @@ height = 1.01314
 [node name="Pilot" type="KinematicBody"]
 script = ExtResource( 1 )
 
-[node name="Body" type="CollisionShape" parent="."]
+[node name="human" type="CollisionShape" parent="."]
 transform = Transform( 1.08483, 0, 0, 0, -4.74196e-08, 1.08483, 0, -1.08483, -4.74196e-08, 0, 0.883671, 0 )
 shape = SubResource( 1 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="Body"]
-transform = Transform( 0.253525, 0, 0, 0, 0.253525, 8.88178e-16, 0, -8.88178e-16, 0.253525, 0, -2.41697e-08, 0.552937 )
+[node name="Human Armature" parent="human" instance=ExtResource( 3 )]
+transform = Transform( 0.691827, 0, 0, 0, -0.691827, 1.04463e-07, 0, -1.04463e-07, -0.691827, -0.0234197, -0.452785, -0.733732 )
+
+[node name="AnimationPlayer" parent="human/Human Armature/Skeleton" index="0" instance=ExtResource( 4 )]
+root_node = NodePath("../../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="human"]
+transform = Transform( 0.253525, 0, 0, 0, 0.253525, -8.88178e-16, 0, 8.88178e-16, 0.253525, 0, -2.41697e-08, 0.552937 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -34,3 +42,5 @@ collide_with_bodies = false
 
 [node name="PlayerControl" type="Node" parent="."]
 script = ExtResource( 2 )
+
+[editable path="human/Human Armature"]
