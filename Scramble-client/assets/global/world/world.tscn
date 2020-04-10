@@ -553,7 +553,7 @@ directional_shadow_max_distance = 250.0
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49, 1.87555, -4 )
 
 [node name="a10" parent="." instance=ExtResource( 12 )]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -98, 1.7121, -3.93629 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -98, 1.77049, -3.93629 )
 
 [node name="F14" parent="." instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -73, 1.87555, -4 )
