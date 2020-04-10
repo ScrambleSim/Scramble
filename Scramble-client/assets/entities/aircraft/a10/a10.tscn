@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_right.scn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_left.scn" type="PackedScene" id=2]
@@ -15,8 +15,11 @@
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/gun.scn" type="PackedScene" id=13]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/rudder_right.scn" type="PackedScene" id=14]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/gear_right.scn" type="PackedScene" id=15]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/seat.scn" type="PackedScene" id=16]
 
 [node name="a10" type="Spatial"]
+
+[node name="seat" parent="." instance=ExtResource( 16 )]
 
 [node name="aileron_left" parent="." instance=ExtResource( 2 )]
 
