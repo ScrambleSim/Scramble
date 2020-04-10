@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/global/environments/environment.tres" type="Environment" id=1]
 [ext_resource path="res://assets/entities/structures/floor_tile/scenes/floor_tile_asphalt.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/entities/structures/taxiway_tile_corner/scenes/taxiway_tile_corner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/entities/structures/taxiway_tile_t/scenes/taxiway_tile_t.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/entities/aircraft/f13/f13.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/entities/aircraft/a10/a10.tscn" type="PackedScene" id=12]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -548,14 +549,14 @@ directional_shadow_blend_splits = true
 directional_shadow_bias_split_scale = 0.97
 directional_shadow_max_distance = 250.0
 
-[node name="F13" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -73, 1.87555, -4 )
-
 [node name="F16" parent="." instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49, 1.87555, -4 )
 
+[node name="a10" parent="." instance=ExtResource( 12 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -98, 1.7121, -3.93629 )
+
 [node name="F14" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -112, 1.87555, -4 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -73, 1.87555, -4 )
 
 [node name="F15" parent="." instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -126, 1.87555, -4 )

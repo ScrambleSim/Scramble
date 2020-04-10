@@ -1,0 +1,49 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_right.scn" type="PackedScene" id=1]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_left.scn" type="PackedScene" id=2]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/canopy.scn" type="PackedScene" id=3]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/body.scn" type="PackedScene" id=4]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/elevator_right.scn" type="PackedScene" id=5]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/elevator_left.scn" type="PackedScene" id=6]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/gear_left.scn" type="PackedScene" id=7]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/gear_front.scn" type="PackedScene" id=8]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/tire_front.scn" type="PackedScene" id=9]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/tire_left.scn" type="PackedScene" id=10]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/rudder_left.scn" type="PackedScene" id=11]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/tire_right.scn" type="PackedScene" id=12]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/gun.scn" type="PackedScene" id=13]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/rudder_right.scn" type="PackedScene" id=14]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/gear_right.scn" type="PackedScene" id=15]
+
+[node name="a10" type="Spatial"]
+
+[node name="aileron_left" parent="." instance=ExtResource( 2 )]
+
+[node name="aileron_right" parent="." instance=ExtResource( 1 )]
+
+[node name="body" parent="." instance=ExtResource( 4 )]
+
+[node name="canopy" parent="." instance=ExtResource( 3 )]
+
+[node name="elevator_left" parent="." instance=ExtResource( 6 )]
+
+[node name="elevator_right" parent="." instance=ExtResource( 5 )]
+
+[node name="gear_front" parent="." instance=ExtResource( 8 )]
+
+[node name="gear_left" parent="." instance=ExtResource( 7 )]
+
+[node name="gear_right" parent="." instance=ExtResource( 15 )]
+
+[node name="gun" parent="." instance=ExtResource( 13 )]
+
+[node name="rudder_left" parent="." instance=ExtResource( 11 )]
+
+[node name="rudder_right" parent="." instance=ExtResource( 14 )]
+
+[node name="tire_front" parent="." instance=ExtResource( 9 )]
+
+[node name="tire_left" parent="." instance=ExtResource( 10 )]
+
+[node name="tire_right" parent="." instance=ExtResource( 12 )]
