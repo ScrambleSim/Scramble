@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_right.scn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_left.scn" type="PackedScene" id=2]
@@ -16,6 +16,32 @@
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/rudder_right.scn" type="PackedScene" id=14]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/gear_right.scn" type="PackedScene" id=15]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/seat.scn" type="PackedScene" id=16]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/altitude_wheel_1.scn" type="PackedScene" id=17]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/altitude_wheel_2.scn" type="PackedScene" id=18]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_distance_wheel_1.scn" type="PackedScene" id=19]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_hdg_knob.scn" type="PackedScene" id=20]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_crs_knob.scn" type="PackedScene" id=21]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_distance_wheel_0.scn" type="PackedScene" id=22]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/altimeter_hand.scn" type="PackedScene" id=23]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_case.scn" type="PackedScene" id=24]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hud_glass_pane.scn" type="PackedScene" id=25]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/altitude_case.scn" type="PackedScene" id=26]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hud.scn" type="PackedScene" id=27]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/joystick.scn" type="PackedScene" id=28]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_distance_wheel_2.scn" type="PackedScene" id=29]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/adi_ball.scn" type="PackedScene" id=30]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/altitude_wheel_3.scn" type="PackedScene" id=31]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/speed_hand.scn" type="PackedScene" id=32]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/vario_case.scn" type="PackedScene" id=33]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/altitude_wheel_4.scn" type="PackedScene" id=34]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/rwr.scn" type="PackedScene" id=35]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_crs_wheel_1.scn" type="PackedScene" id=36]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_crs_wheel_0.scn" type="PackedScene" id=37]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/hsi_crs_wheel_2.scn" type="PackedScene" id=38]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/adi_case.scn" type="PackedScene" id=39]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/altitude_wheel_0.scn" type="PackedScene" id=40]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/speed_case.scn" type="PackedScene" id=41]
+[ext_resource path="res://assets/entities/aircraft/a10/models/a10/vario_arm.scn" type="PackedScene" id=42]
 
 [node name="a10" type="Spatial"]
 
@@ -50,3 +76,55 @@
 [node name="tire_left" parent="." instance=ExtResource( 10 )]
 
 [node name="tire_right" parent="." instance=ExtResource( 12 )]
+
+[node name="adi_ball" parent="." instance=ExtResource( 30 )]
+
+[node name="adi_case" parent="." instance=ExtResource( 39 )]
+
+[node name="altimeter_hand" parent="." instance=ExtResource( 23 )]
+
+[node name="altitude_case" parent="." instance=ExtResource( 26 )]
+
+[node name="altitude_wheel_0" parent="." instance=ExtResource( 40 )]
+
+[node name="altitude_wheel_1" parent="." instance=ExtResource( 17 )]
+
+[node name="altitude_wheel_2" parent="." instance=ExtResource( 18 )]
+
+[node name="altitude_wheel_3" parent="." instance=ExtResource( 31 )]
+
+[node name="altitude_wheel_4" parent="." instance=ExtResource( 34 )]
+
+[node name="hsi_case" parent="." instance=ExtResource( 24 )]
+
+[node name="hsi_crs_knob" parent="." instance=ExtResource( 21 )]
+
+[node name="hsi_crs_wheel_0" parent="." instance=ExtResource( 37 )]
+
+[node name="hsi_crs_wheel_1" parent="." instance=ExtResource( 36 )]
+
+[node name="hsi_crs_wheel_2" parent="." instance=ExtResource( 38 )]
+
+[node name="hsi_distance_wheel_0" parent="." instance=ExtResource( 22 )]
+
+[node name="hsi_distance_wheel_1" parent="." instance=ExtResource( 19 )]
+
+[node name="hsi_distance_wheel_2" parent="." instance=ExtResource( 29 )]
+
+[node name="hsi_hdg_knob" parent="." instance=ExtResource( 20 )]
+
+[node name="hud" parent="." instance=ExtResource( 27 )]
+
+[node name="hud_glass_pane" parent="." instance=ExtResource( 25 )]
+
+[node name="joystick" parent="." instance=ExtResource( 28 )]
+
+[node name="rwr" parent="." instance=ExtResource( 35 )]
+
+[node name="speed_case" parent="." instance=ExtResource( 41 )]
+
+[node name="speed_hand" parent="." instance=ExtResource( 32 )]
+
+[node name="vario_arm" parent="." instance=ExtResource( 42 )]
+
+[node name="vario_case" parent="." instance=ExtResource( 33 )]
