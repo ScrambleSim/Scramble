@@ -22,16 +22,16 @@ var target_pos = Vector3(0,0,0)
 
 # Relevant if this instance is a slave/puppet
 puppet func _update_position(new_transform):
-    if get_tree().get_rpc_sender_id() == 1:
-        self.target_pos = new_transform.origin
+	if get_tree().get_rpc_sender_id() == 1:
+		self.target_pos = new_transform.origin
 
 
 func _process(_delta):
-    if self.is_posessed:
-        rpc_id(1, "_update_position", self.transform)
-    else:
-        self.transform.origin = self.transform.origin.linear_interpolate(self.target_pos, 0.3)
+	if self.is_posessed:
+		rpc_id(1, "_update_position", self.transform)
+	else:
+		self.transform.origin = self.transform.origin.linear_interpolate(self.target_pos, 0.3)
 
 
 func _vehicle_enter_request():
-    pass
+	pass
