@@ -26,10 +26,7 @@ InputMappings="*res://assets/global/input/input_mappings.gd"
 MappingsExecutor="*res://assets/global/input/mappings_executor.gd"
 PropertyManager="*res://assets/global/input/property_manager.gd"
 Global="*res://assets/global/global.gd"
-
-[debug]
-
-gdscript/warnings/treat_warnings_as_errors=true
+plz="*res://DrawLine3D.gd"
 
 [display]
 
