@@ -21,7 +21,7 @@ var is_posessed = false
 var target_pos = Vector3(0,0,0)
 
 # Relevant if this instance is a slave/puppet
-puppet func _update_position(new_transform):
+remote func _update_position(new_transform):
     if get_tree().get_rpc_sender_id() == 1:
         self.target_pos = new_transform.origin
 

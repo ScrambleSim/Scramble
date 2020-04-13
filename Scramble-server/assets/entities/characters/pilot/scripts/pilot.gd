@@ -18,7 +18,7 @@ extends Spatial
 
 var last_update = OS.get_unix_time()
 
-master func _update_position(new_transform):
+remote func _update_position(new_transform):
     var sender_id = get_tree().get_rpc_sender_id()
 
     self.transform = new_transform
@@ -34,7 +34,7 @@ master func _update_position(new_transform):
     self.last_update = OS.get_unix_time()
 
 
-func _process(delta):
+func _process(_delta):
     if (OS.get_unix_time() - self.last_update) > 3.0:
         # TODO fade player because outdated
         pass

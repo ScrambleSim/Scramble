@@ -17,6 +17,6 @@
 extends Spatial
 
 # Relevant if this instance is a slave/puppet
-puppet func _update_position(new_transform):
+remote func _update_position(new_transform):
     if get_tree().get_rpc_sender_id() == 1:
         self.transform = new_transform

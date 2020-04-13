@@ -10,8 +10,7 @@
 radius = 0.3
 height = 1.4
 
-[sub_resource type="AnimationNodeAnimation" id=2]
-animation = "Walk_loop"
+[sub_resource type="AnimationNodeBlend3" id=5]
 
 [sub_resource type="AnimationNodeAnimation" id=3]
 animation = "Run_loop"
@@ -19,19 +18,20 @@ animation = "Run_loop"
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Idle_loop"
 
-[sub_resource type="AnimationNodeBlend3" id=5]
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Walk_loop"
 
 [sub_resource type="AnimationNodeBlendTree" id=6]
-graph_offset = Vector2( 0, 63.5 )
-nodes/Animation/node = SubResource( 4 )
-nodes/Animation/position = Vector2( -160, 180 )
-"nodes/Animation 2/node" = SubResource( 2 )
-"nodes/Animation 2/position" = Vector2( -160, 60 )
-"nodes/Animation 3/node" = SubResource( 3 )
-"nodes/Animation 3/position" = Vector2( -160, 300 )
-nodes/Blend3/node = SubResource( 5 )
-nodes/Blend3/position = Vector2( 80, 140 )
-node_connections = [ "output", 0, "Blend3", "Blend3", 0, "Animation 2", "Blend3", 1, "Animation", "Blend3", 2, "Animation 3" ]
+graph_offset = Vector2( -472, 93 )
+nodes/movement/node = SubResource( 5 )
+nodes/movement/position = Vector2( 80, 140 )
+nodes/run/node = SubResource( 3 )
+nodes/run/position = Vector2( -160, 300 )
+nodes/stand/node = SubResource( 4 )
+nodes/stand/position = Vector2( -160, 180 )
+nodes/walk/node = SubResource( 2 )
+nodes/walk/position = Vector2( -160, 60 )
+node_connections = [ "output", 0, "movement", "movement", 0, "walk", "movement", 1, "stand", "movement", 2, "run" ]
 
 [node name="Pilot" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -69,4 +69,4 @@ transform = Transform( 0.637447, 0, 0, 0, 0.637447, 0, 0, 0, 0.637447, 0, 0, 0 )
 tree_root = SubResource( 6 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Blend3/blend_amount = 0.0
+parameters/movement/blend_amount = 0.0

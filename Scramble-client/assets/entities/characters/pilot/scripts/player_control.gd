@@ -31,7 +31,7 @@ func _process(delta):
     self.move(delta)
     self.look(delta)
 
-
+var movement_animation = 0
 func move(_delta):
     var p = self.get_parent()
     var forward =  p.global_transform.basis.z * PropertyManager.player_move_FB * -1
@@ -40,8 +40,8 @@ func move(_delta):
     move_vel = move_vel.normalized()
     p.move_and_slide(move_vel * MAX_MOVEMENT_SPEED, Vector3(0, 1, 0))
     
-    print("doing")
-    $"../Visuals/AnimationTree".set("Blend3", move_vel.length())
+    movement_animation = lerp(movement_animation, PropertyManager.player_move_FB * -1, 0.02)
+    $"../Visuals/AnimationTree".set("parameters/movement/blend_amount", movement_animation)
 
 
 func look(delta):
