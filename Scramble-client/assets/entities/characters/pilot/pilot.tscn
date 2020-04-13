@@ -1,13 +1,36 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/entities/characters/pilot/scripts/pilot.gd" type="Script" id=1]
 [ext_resource path="res://assets/entities/characters/pilot/scripts/player_control.gd" type="Script" id=2]
 [ext_resource path="res://assets/entities/characters/pilot/models/Soldier_Male/AnimationPlayer.scn" type="PackedScene" id=3]
 [ext_resource path="res://assets/entities/characters/pilot/models/Soldier_Male/CharacterArmature.scn" type="PackedScene" id=4]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape" id=8]
 radius = 0.3
 height = 1.4
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Walk_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Run_loop"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Idle_loop"
+
+[sub_resource type="AnimationNodeBlend3" id=7]
+
+[sub_resource type="AnimationNodeBlendTree" id=2]
+graph_offset = Vector2( -484.456, 22.5 )
+nodes/Animation/node = SubResource( 3 )
+nodes/Animation/position = Vector2( -160, 180 )
+"nodes/Animation 2/node" = SubResource( 5 )
+"nodes/Animation 2/position" = Vector2( -160, 60 )
+"nodes/Animation 3/node" = SubResource( 6 )
+"nodes/Animation 3/position" = Vector2( -160, 300 )
+nodes/Blend3/node = SubResource( 7 )
+nodes/Blend3/position = Vector2( 80, 140 )
+node_connections = [ "output", 0, "Blend3", "Blend3", 0, "Animation 2", "Blend3", 1, "Animation", "Blend3", 2, "Animation 3" ]
 
 [node name="Pilot" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -29,7 +52,7 @@ script = ExtResource( 2 )
 
 [node name="Collision" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 8 )
 
 [node name="Visuals" type="Spatial" parent="."]
 
@@ -37,3 +60,9 @@ shape = SubResource( 1 )
 
 [node name="CharacterArmature" parent="Visuals" instance=ExtResource( 4 )]
 transform = Transform( 0.637447, 0, 0, 0, 0.637447, 0, 0, 0, 0.637447, 0, 0, 0 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Visuals"]
+tree_root = SubResource( 2 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Blend3/blend_amount = 0.0
