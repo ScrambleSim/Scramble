@@ -39,6 +39,9 @@ func move(_delta):
     var move_vel = (forward + sideways)
     move_vel = move_vel.normalized()
     p.move_and_slide(move_vel * MAX_MOVEMENT_SPEED, Vector3(0, 1, 0))
+    
+    print("doing")
+    $"../Visuals/AnimationTree".set("Blend3", move_vel.length())
 
 
 func look(delta):

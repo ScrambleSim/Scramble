@@ -22,7 +22,7 @@ animation = "Idle_loop"
 [sub_resource type="AnimationNodeBlend3" id=5]
 
 [sub_resource type="AnimationNodeBlendTree" id=6]
-graph_offset = Vector2( -518, -11 )
+graph_offset = Vector2( 0, 63.5 )
 nodes/Animation/node = SubResource( 4 )
 nodes/Animation/position = Vector2( -160, 180 )
 "nodes/Animation 2/node" = SubResource( 2 )
