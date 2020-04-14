@@ -71,15 +71,16 @@ test_axis_set_val={
 
 [rendering]
 
-quality/filters/anisotropic_filter_level=8
-quality/directional_shadow/size=8192
-quality/shadow_atlas/size=8192
-quality/shadow_atlas/quadrant_0_subdiv=3
-quality/shadow_atlas/quadrant_1_subdiv=4
-quality/shadow_atlas/quadrant_2_subdiv=5
-quality/shadow_atlas/quadrant_3_subdiv=5
-quality/shadows/filter_mode=2
+quality/filters/anisotropic_filter_level=1
+quality/directional_shadow/size=1024
+quality/directional_shadow/size.mobile=1024
+quality/shadow_atlas/size=1024
+quality/shadow_atlas/size.mobile=1024
+quality/shadow_atlas/quadrant_0_subdiv=0
+quality/shadow_atlas/quadrant_1_subdiv=0
+quality/shadow_atlas/quadrant_2_subdiv=0
+quality/shadow_atlas/quadrant_3_subdiv=0
+quality/shadows/filter_mode=0
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-quality/filters/msaa=3
 environment/default_environment="res://assets/global/environments/environment.tres"

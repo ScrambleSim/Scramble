@@ -542,7 +542,6 @@ environment = ExtResource( 1 )
 
 [node name="Sun" type="DirectionalLight" parent="WorldEnvironment"]
 transform = Transform( -0.340718, -0.661084, -0.66849, -0.0298086, -0.703081, 0.710485, -0.939693, 0.262002, 0.219846, 0, 15.0976, 0 )
-shadow_enabled = true
 shadow_bias = 0.2
 directional_shadow_split_3 = 0.3
 directional_shadow_blend_splits = true
