@@ -18,10 +18,10 @@ extends Spatial
 
 var last_update = OS.get_unix_time()
 
-remote func _update_position(new_transform):
+remote func _update_position(new_position, new_rotation):
     var sender_id = get_tree().get_rpc_sender_id()
 
-    self.transform = new_transform
+    self.translation = new_position
 
     # Send all other clients the updates of this player too
     for id in Global.player_ids:
@@ -29,7 +29,7 @@ remote func _update_position(new_transform):
         if id == sender_id:
             continue
 
-        rpc_id(id, "_update_position", new_transform)
+        rpc_id(id, "_update_position", new_position, new_rotation)
 
     self.last_update = OS.get_unix_time()
 

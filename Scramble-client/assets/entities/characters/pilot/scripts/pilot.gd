@@ -18,19 +18,21 @@ extends KinematicBody
 
 var is_posessed = false
 
-var target_pos = Vector3(0,0,0)
+var target_position = Vector3(0,0,0)
+var target_rotation = Vector3(0,0,0)
 
 # Relevant if this instance is a slave/puppet
-remote func _update_position(new_transform):
+remote func _update_position(new_position, new_rotation):
     if get_tree().get_rpc_sender_id() == 1:
-        self.target_pos = new_transform.origin
-
+        self.target_position = new_position
+        self.target_rotation = new_rotation
 
 func _process(_delta):
     if self.is_posessed:
-        rpc_id(1, "_update_position", self.transform)
+        rpc_id(1, "_update_position", self.translation, self.rotation)
     else:
-        self.transform.origin = self.transform.origin.linear_interpolate(self.target_pos, 0.3)
+        self.transform.origin = self.transform.origin.linear_interpolate(self.target_position, 0.3)
+        self.rotation = self.rotation.linear_interpolate(self.target_rotation, 0.1)
 
 
 func _vehicle_enter_request():
