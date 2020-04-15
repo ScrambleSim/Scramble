@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/entities/characters/pilot/scripts/pilot.gd" type="Script" id=1]
 [ext_resource path="res://assets/entities/characters/pilot/scripts/player_control.gd" type="Script" id=2]
 [ext_resource path="res://assets/entities/characters/pilot/models/Soldier_Male/AnimationPlayer.scn" type="PackedScene" id=3]
 [ext_resource path="res://assets/entities/characters/pilot/models/Soldier_Male/CharacterArmature.scn" type="PackedScene" id=4]
 [ext_resource path="res://assets/entities/characters/pilot/scripts/head_visibility.gd" type="Script" id=5]
+[ext_resource path="res://assets/entities/characters/pilot/scripts/walk_animation.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.3
 height = 1.4
 
-[sub_resource type="AnimationNodeBlend3" id=5]
+[sub_resource type="AnimationNodeBlend3" id=2]
 
 [sub_resource type="AnimationNodeAnimation" id=3]
 animation = "Run_loop"
@@ -18,20 +19,20 @@ animation = "Run_loop"
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Idle_loop"
 
-[sub_resource type="AnimationNodeAnimation" id=2]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Walk_loop"
 
 [sub_resource type="AnimationNodeBlendTree" id=6]
-graph_offset = Vector2( -472, 93 )
-nodes/movement/node = SubResource( 5 )
+graph_offset = Vector2( -345.453, 41.75 )
+nodes/movement/node = SubResource( 2 )
 nodes/movement/position = Vector2( 80, 140 )
 nodes/run/node = SubResource( 3 )
 nodes/run/position = Vector2( -160, 300 )
 nodes/stand/node = SubResource( 4 )
-nodes/stand/position = Vector2( -160, 180 )
-nodes/walk/node = SubResource( 2 )
-nodes/walk/position = Vector2( -160, 60 )
-node_connections = [ "output", 0, "movement", "movement", 0, "walk", "movement", 1, "stand", "movement", 2, "run" ]
+nodes/stand/position = Vector2( -160, 60 )
+nodes/walk/node = SubResource( 5 )
+nodes/walk/position = Vector2( -160, 180 )
+node_connections = [ "output", 0, "movement", "movement", 0, "stand", "movement", 1, "walk", "movement", 2, "run" ]
 
 [node name="Pilot" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -41,6 +42,11 @@ script = ExtResource( 5 )
 
 [node name="PlayerControl" type="Node" parent="."]
 script = ExtResource( 2 )
+
+[node name="WalkAnimation" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="WalkTween" type="Tween" parent="WalkAnimation"]
 
 [node name="Pitch" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61653, 0 )
@@ -69,4 +75,4 @@ transform = Transform( 0.637447, 0, 0, 0, 0.637447, 0, 0, 0, 0.637447, 0, 0, 0 )
 tree_root = SubResource( 6 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/movement/blend_amount = 0.0
+parameters/movement/blend_amount = -1.0

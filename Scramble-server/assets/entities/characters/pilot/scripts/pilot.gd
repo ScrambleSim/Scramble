@@ -18,7 +18,7 @@ extends Spatial
 
 var last_update = OS.get_unix_time()
 
-remote func _update_position(new_position, new_rotation):
+remote func _update_position(new_position, new_rotation, target_animation_state):
     var sender_id = get_tree().get_rpc_sender_id()
 
     self.translation = new_position
@@ -29,7 +29,7 @@ remote func _update_position(new_position, new_rotation):
         if id == sender_id:
             continue
 
-        rpc_id(id, "_update_position", new_position, new_rotation)
+        rpc_id(id, "_update_position", new_position, new_rotation, target_animation_state)
 
     self.last_update = OS.get_unix_time()
 

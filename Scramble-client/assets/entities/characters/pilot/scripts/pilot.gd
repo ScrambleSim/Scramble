@@ -22,14 +22,17 @@ var target_position = Vector3(0,0,0)
 var target_rotation = Vector3(0,0,0)
 
 # Relevant if this instance is a slave/puppet
-remote func _update_position(new_position, new_rotation):
+remote func _update_position(new_position, new_rotation, target_animation_state):
     if get_tree().get_rpc_sender_id() == 1:
         self.target_position = new_position
         self.target_rotation = new_rotation
+        print("setting replicated animation to %s " % target_animation_state)
+        $"WalkAnimation".set_animation(target_animation_state)
 
 func _process(_delta):
     if self.is_posessed:
-        rpc_id(1, "_update_position", self.translation, self.rotation)
+        var animation_state = $"Visuals/AnimationTree".get("parameters/movement/blend_amount")
+        rpc_id(1, "_update_position", self.translation, self.rotation, animation_state)
     else:
         self.transform.origin = self.transform.origin.linear_interpolate(self.target_position, 0.3)
         self.rotation = self.rotation.linear_interpolate(self.target_rotation, 0.1)
