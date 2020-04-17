@@ -7,7 +7,8 @@ func set_animation(animation_index):
         "parameters/movement/blend_amount",
         $"../Visuals/AnimationTree".get("parameters/movement/blend_amount"),
         animation_index,
-        0.1,
-        Tween.TRANS_LINEAR
+        0.2,
+        Tween.TRANS_EXPO,
+        Tween.EASE_OUT
     )
     $"WalkTween".start()

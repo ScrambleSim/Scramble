@@ -26,7 +26,6 @@ remote func spawn_entity(spawn_info):
     var parent_node = get_node(ENTITIES_PATH)
     SpawnClass.spawn(spawn_info, parent_node)
     SpawnClass.queue_free()
-    
 
 
 func _ready():
