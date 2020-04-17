@@ -16,7 +16,8 @@
 
 extends Node
 
-const MAX_MOVEMENT_SPEED = 5
+const MAX_WALK_SPEED = 1.5
+const MAX_RUN_SPEED = 4.5
 
 func _ready():
     if not get_parent().is_posessed:
@@ -38,8 +39,17 @@ func move(_delta):
     var sideways = p.global_transform.basis.x * PropertyManager.player_move_LR * -1
     var move_vel = (forward + sideways)
     move_vel = move_vel.normalized()
-    p.move_and_slide(move_vel * MAX_MOVEMENT_SPEED, Vector3(0, 1, 0))
-    $"../WalkAnimation".set_animation((PropertyManager.player_move_FB * -1) - 1)
+    
+    var speed = MAX_WALK_SPEED
+    if (PropertyManager.player_run):
+        speed = MAX_RUN_SPEED
+    
+    p.move_and_slide(move_vel * speed, Vector3(0, 1, 0))
+    
+    if PropertyManager.player_run:
+        $"../WalkAnimation".set_animation(PropertyManager.player_move_FB * -1)
+    else:
+        $"../WalkAnimation".set_animation((PropertyManager.player_move_FB * -1) - 1)
 
 
 func look(delta):

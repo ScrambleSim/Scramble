@@ -161,9 +161,30 @@
 				{
 					"device_id":-1,
 					"button_id":16777217,
-					"react_to":1,
+					"react_to":0,
 					"type":4,
 				}
+			],
+			"axis_mappings":[
+			]
+		},
+		"player_run":{
+			"button_mappings":[
+				{
+					"device_id":-1,
+					"button_id":16777237,
+					"react_to":0,
+					"type":5,
+					"value_to_set":1.0
+				},
+				{
+					"device_id":-1,
+					"button_id":16777237,
+					"react_to":1,
+					"type":5,
+					"value_to_set":0.0
+				}
+
 			],
 			"axis_mappings":[
 			]

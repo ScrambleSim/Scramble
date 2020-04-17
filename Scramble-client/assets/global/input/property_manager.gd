@@ -31,6 +31,10 @@ signal player_move_FB_changed(new_value)
 var player_move_FB = 0.0
 
 # warning-ignore:unused_signal
+signal player_run_changed(new_value)
+var player_run = 0.0
+
+# warning-ignore:unused_signal
 signal look_vertical_changed(new_value)
 var look_vertical = 0.0
 
