@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_right.scn" type="PackedScene" id=1]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/aileron_left.scn" type="PackedScene" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/speed_case.scn" type="PackedScene" id=41]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/vario_arm.scn" type="PackedScene" id=42]
 [ext_resource path="res://assets/entities/aircraft/a10/models/a10/hud_refelction.scn" type="PackedScene" id=43]
+[ext_resource path="res://assets/entities/aircraft/a10/hud/hud_reflex_material.tres" type="Material" id=44]
 
 [node name="a10" type="Spatial"]
 
@@ -131,3 +132,5 @@
 [node name="vario_case" parent="." instance=ExtResource( 33 )]
 
 [node name="hud_refelction" parent="." instance=ExtResource( 43 )]
+transform = Transform( 1.36532, 0, 0, 0, 0, -1.36532, 0, 1.36532, 0, 0, 1.48346, 2.26275 )
+material/0 = ExtResource( 44 )

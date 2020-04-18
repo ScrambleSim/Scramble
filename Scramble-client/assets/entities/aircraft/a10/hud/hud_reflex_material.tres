@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://assets/entities/aircraft/a10/hud/HudShader.shader" type="Shader" id=1]
+[ext_resource path="res://assets/entities/aircraft/a10/hud/holo.png" type="Texture" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/tex_scale = 0.2
+shader_param/intensity_factor = 10.0
+shader_param/texture_albedo = ExtResource( 2 )
