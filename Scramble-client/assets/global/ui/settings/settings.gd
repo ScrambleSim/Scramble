@@ -19,14 +19,23 @@
 extends Control
 
 # warning-ignore:unused_signal
-signal settings_hidden
+signal settings_opened
+# warning-ignore:unused_signal
+signal settings_closed
+
+var previous_mouse_mode = 0
 
 func show_settings():
     self._play_animation("blend_in")
+    self.previous_mouse_mode = Input.get_mouse_mode()
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+    emit_signal("settings_opened")
 
 
 func hide_settings():
     self._play_animation("blend_out")
+    Input.set_mouse_mode(previous_mouse_mode)
+    emit_signal("settings_closed")
 
 
 func _play_animation(animation_name):
