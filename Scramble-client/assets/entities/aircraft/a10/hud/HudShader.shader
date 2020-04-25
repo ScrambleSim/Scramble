@@ -26,7 +26,7 @@
         mat3 mat = mat3(
             -tangent,
             cross(-normal, -tangent),
-            normal
+            vec3(normal.x, -normal.y, normal.z)
         );
         
         offset = mat * offset;
