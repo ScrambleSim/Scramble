@@ -68,6 +68,7 @@
 [node name="gear_right" parent="." instance=ExtResource( 15 )]
 
 [node name="gun" parent="." instance=ExtResource( 13 )]
+transform = Transform( 0.999997, 0.0023307, -7.99688e-05, -0.00233075, 0.999997, -0.000668455, 7.84223e-05, 0.000668639, 1, -0.0899626, -0.0785032, 0.806879 )
 
 [node name="rudder_left" parent="." instance=ExtResource( 11 )]
 

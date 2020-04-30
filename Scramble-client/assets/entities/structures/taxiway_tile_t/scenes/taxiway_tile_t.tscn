@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/entities/_shared/color_1.tres" type="Material" id=1]
-[ext_resource path="res://assets/entities/_shared/color_4.tres" type="Material" id=2]
+[ext_resource path="res://assets/entities/_shared/color_5.tres" type="Material" id=2]
 [ext_resource path="res://assets/entities/structures/taxiway_tile_t/model/taxiway_tile_t.gltf" type="PackedScene" id=3]
 
 [node name="taxiway_tile_t" instance=ExtResource( 3 )]
