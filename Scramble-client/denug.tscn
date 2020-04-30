@@ -12,7 +12,7 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18207, 2.42619 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.42041 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.47295 )
 
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
 mesh = SubResource( 1 )
@@ -22,7 +22,7 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="KinematicBody2" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70013, 0, 1.91401 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70013, 0, 0.966546 )
 
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody2"]
 mesh = SubResource( 1 )
@@ -32,7 +32,7 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="KinematicBody3" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64258, 0, 1.91401 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64258, 0, 0.966546 )
 
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody3"]
 mesh = SubResource( 1 )
