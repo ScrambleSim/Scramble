@@ -26,7 +26,6 @@ remote func _update_position(new_position, new_rotation, target_animation_state)
     if get_tree().get_rpc_sender_id() == 1:
         self.target_position = new_position
         self.target_rotation = new_rotation
-        print("setting replicated animation to %s " % target_animation_state)
         $"WalkAnimation".set_animation(target_animation_state)
 
 func _process(_delta):
