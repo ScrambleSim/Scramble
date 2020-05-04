@@ -42,7 +42,7 @@ To play the simulator, download the client for your platform.
 # Development
 If you want to contribute or build Scramle yourself, follow these steps to get going.
 You need to have [Git][git-website] and [Git LFS][git-lfs] installed.
-To start the project you need [Godot 3.1][godot-download].
+To start the project you need [Godot 3.2.1][godot-download].
 ```bash
 # Get the source code and dependencies
 $ git clone https://gitlab.com/ScrambleSim/Scramble.git
@@ -68,7 +68,7 @@ Main components include but are not limited to:
 
 # License
 The source code is licensed under AGPL 3.0 or later.
-Assets vary in license, see their directories for details.
+Assets are licensed as [CC BY-NC-SA 2.0][cc-by-sa] unless otherwise specified in their directory.
 
 [git-website]: https://git-scm.com/
 [git-lfs]: https://help.github.com/en/articles/installing-git-large-file-storage
@@ -80,4 +80,5 @@ Assets vary in license, see their directories for details.
 [wiki-home]: https://gitlab.com/ScrambleSim/Scramble/wikis/Home
 [wiki-faq]: https://gitlab.com/ScrambleSim/Scramble/wikis/General/FAQ
 [godot-download]: https://godotengine.org/download/
+[cc-by-sa]: https://creativecommons.org/licenses/by-nc-sa/2.0/
 
