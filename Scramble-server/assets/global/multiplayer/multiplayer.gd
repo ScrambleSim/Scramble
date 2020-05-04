@@ -19,9 +19,10 @@ extends Node
 const PILOT_SCENE_PATH = "res://assets/entities/characters/pilot/pilot.tscn"
 const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
-const PORT = 5000
+const PORT = 9080
 const MAX_PLAYER_COUNT = 200
 
+var server
 
 func _ready():
     Global.log("Starting server")
@@ -33,12 +34,12 @@ func _ready():
     get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
 
     # Start server
-    var peer = NetworkedMultiplayerENet.new()
-    peer.create_server(PORT, MAX_PLAYER_COUNT)
-    get_tree().set_network_peer(peer)
+    self.server = WebSocketServer.new()
+    self.server.listen(PORT, PoolStringArray(), true);
+    get_tree().set_network_peer(self.server)
     
     # Creating the server fails if other server has already bound to it.
-    if peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_DISCONNECTED:
+    if self.server.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_DISCONNECTED:
         Global.log("Failed to bind to port %s. Maybe a server is already running on it?" % [
             PORT
         ])  
@@ -46,6 +47,11 @@ func _ready():
         get_tree().quit()  
     else:
         Global.log("Server started, listening on port %s" % PORT)    
+
+
+func _process(_delta):
+    if self.server.is_listening(): # is_listening is true when the server is active and listening
+        self.server.poll();
 
 
 func _client_connected(new_id):

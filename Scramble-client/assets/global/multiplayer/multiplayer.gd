@@ -18,6 +18,8 @@ extends Node
 
 const ENTITIES_PATH = "/root/Scramble/World/Entities"
 
+var client
+
 # spawns an entity with scene_path according to spawn_info passed to it
 remote func spawn_entity(spawn_info):
     Global.log("Recieved command to spawn entity from %s" % spawn_info.recipe_path)
@@ -40,9 +42,15 @@ func _ready():
 # warning-ignore:return_value_discarded
     get_tree().connect("server_disconnected", self, "_server_disconnected")
 
-    var peer = NetworkedMultiplayerENet.new()
-    peer.create_client("127.0.0.1", 5000)
-    get_tree().set_network_peer(peer)
+    self.client =  WebSocketClient.new()
+    self.client.connect_to_url("ws://127.0.0.1:9080", PoolStringArray(), true);
+    get_tree().set_network_peer(self.client)
+
+
+func _process(_delta):
+    if (self.client.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTED \
+        || self.client.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
+        self.client.poll()
 
 
 func _client_connected(id):
