@@ -1,0 +1,16 @@
+# Blender MTL File: 'tunguska.blend'
+# Material Count: 1
+
+newmtl zz_TextureAtlas_NO_Material
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.009091 0.009091 0.009091
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump /home/tom/Dev/Scramble/Scramble-client/assets/entities/vehicles/tunguska/models/textures/zz_TextureAtlas_NO_Material_Normal_OpenGL.png
+map_Kd /home/tom/Dev/Scramble/Scramble-client/assets/entities/vehicles/tunguska/models/textures/zz_TextureAtlas_NO_Material_Base_Color.png
+map_Ns /home/tom/Dev/Scramble/Scramble-client/assets/entities/vehicles/tunguska/models/textures/zz_TextureAtlas_NO_Material_Roughness.png
+refl /home/tom/Dev/Scramble/Scramble-client/assets/entities/vehicles/tunguska/models/textures/zz_TextureAtlas_NO_Material_Metallic.png
