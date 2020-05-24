@@ -7,4 +7,4 @@ func _ready():
 
 # not just running a single scene
 func full_game_running():
-    return not (get_node("/root/Scramble") == null)
+    return not (get_node_or_null("/root/Scramble") == null)
