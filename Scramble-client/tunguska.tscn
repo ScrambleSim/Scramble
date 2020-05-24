@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/entities/vehicles/tunguska/models/export/tunguska.glb" type="PackedScene" id=1]
+
+[node name="tunguska" instance=ExtResource( 1 )]

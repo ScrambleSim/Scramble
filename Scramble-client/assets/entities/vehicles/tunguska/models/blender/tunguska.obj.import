@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tunguska.obj-1bd50918da82057060bdd644b3382e2d.mesh"
+
+[deps]
+
+files=[ "res://.import/tunguska.obj-1bd50918da82057060bdd644b3382e2d.mesh" ]
+
+source_file="res://assets/entities/vehicles/tunguska/models/blender/tunguska.obj"
+dest_files=[ "res://.import/tunguska.obj-1bd50918da82057060bdd644b3382e2d.mesh", "res://.import/tunguska.obj-1bd50918da82057060bdd644b3382e2d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
