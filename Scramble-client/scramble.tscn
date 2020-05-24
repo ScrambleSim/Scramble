@@ -19,4 +19,8 @@ script = ExtResource( 3 )
 [node name="Intro" parent="." instance=ExtResource( 4 )]
 
 [node name="tunguska" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.1825, -0.127255, 22.0633 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.405, -0.169495, 31.9233 )
+
+[node name="target1" type="Spatial" parent="."]
+
+[node name="target2" type="Spatial" parent="."]
