@@ -8,9 +8,44 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "AtmScatter",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Sky/AtmScatter.gd"
+}, {
+"base": "Reference",
+"class": "DateTimeUtil",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Util/DateTimeUtil.gd"
+}, {
+"base": "Reference",
+"class": "OrbitalElements",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/TimeOfDay/OrbitalElements.gd"
+}, {
+"base": "Node",
+"class": "SkyManager",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Sky/SkyManager.gd"
+}, {
+"base": "Reference",
+"class": "SkyMath",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/Util/SkyMath.gd"
+}, {
+"base": "Node",
+"class": "TimeOfDay",
+"language": "GDScript",
+"path": "res://addons/jc.godot.universal-sky/Code/TimeOfDay/TimeOfDay.gd"
+} ]
 _global_script_class_icons={
-
+"AtmScatter": "",
+"DateTimeUtil": "",
+"OrbitalElements": "",
+"SkyManager": "",
+"SkyMath": "",
+"TimeOfDay": ""
 }
 
 [application]
@@ -36,7 +71,7 @@ window/vsync/use_vsync=false
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/jc.godot.universal-sky/plugin.cfg" )
 
 [input]
 
@@ -75,16 +110,8 @@ common/physics_fps=100
 
 [rendering]
 
-quality/filters/anisotropic_filter_level=1
-quality/directional_shadow/size=1024
-quality/directional_shadow/size.mobile=1024
-quality/shadow_atlas/size=1024
-quality/shadow_atlas/size.mobile=1024
-quality/shadow_atlas/quadrant_0_subdiv=0
-quality/shadow_atlas/quadrant_1_subdiv=0
-quality/shadow_atlas/quadrant_2_subdiv=0
-quality/shadow_atlas/quadrant_3_subdiv=0
 quality/shadows/filter_mode=0
+quality/filters/anisotropic_filter_level=1
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://assets/global/environments/environment.tres"

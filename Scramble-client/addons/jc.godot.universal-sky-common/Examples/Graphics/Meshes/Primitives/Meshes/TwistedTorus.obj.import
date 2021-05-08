@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/TwistedTorus.obj-953c3c88426e0260ee4425500dd8cf6e.mesh"
+
+[deps]
+
+files=[ "res://.import/TwistedTorus.obj-953c3c88426e0260ee4425500dd8cf6e.mesh" ]
+
+source_file="res://addons/jc.godot.universal-sky-common/Examples/Graphics/Meshes/Primitives/Meshes/TwistedTorus.obj"
+dest_files=[ "res://.import/TwistedTorus.obj-953c3c88426e0260ee4425500dd8cf6e.mesh", "res://.import/TwistedTorus.obj-953c3c88426e0260ee4425500dd8cf6e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

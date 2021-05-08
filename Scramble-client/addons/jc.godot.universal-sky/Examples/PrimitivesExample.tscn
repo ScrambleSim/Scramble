@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/jc.godot.universal-sky-common/Examples/Scenes/PrimitivesBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/jc.godot.universal-sky/Code/Sky/SkyManager.gd" type="Script" id=2]
+[ext_resource path="res://addons/jc.godot.universal-sky-common/Resources/SNoise.tres" type="Texture" id=3]
+[ext_resource path="res://addons/jc.godot.universal-sky/Examples/EnviroTest.tres" type="Environment" id=9]
+[ext_resource path="res://addons/jc.godot.universal-sky/Code/TimeOfDay/TimeOfDay.gd" type="Script" id=10]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 1
+period = 3.0
+persistence = 0.365
+lacunarity = 1.77
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
+
+[node name="Main" type="Spatial"]
+
+[node name="SunLight" type="DirectionalLight" parent="."]
+transform = Transform( 0, -0.996338, 0.0855038, -1.00368e-07, 0.0855038, 0.996338, -1, -8.58181e-09, -1e-07, 0.0855039, 0.996338, 5.2356e-18 )
+light_color = Color( 0.960784, 0.878431, 0.843137, 1 )
+shadow_enabled = true
+
+[node name="MoonLight" type="DirectionalLight" parent="."]
+transform = Transform( 0, -0.231663, -0.972796, -4.31662e-07, -0.972796, 0.231663, -1, 4.19919e-07, -1e-07, -0.972796, 0.231663, -1.787e-16 )
+visible = false
+light_color = Color( 0.572549, 0.776471, 0.956863, 1 )
+light_energy = 0.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 9 )
+
+[node name="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.845344, 11.9188, 5.06955 )
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28389, 0 )
+layers = 8
+update_mode = 1
+max_distance = 16384.0
+extents = Vector3( 2000, 2000, 2000 )
+cull_mask = 4
+interior_ambient_color = Color( 0.172549, 0.2, 0.321569, 1 )
+
+[node name="TimeOfDay" type="Node" parent="."]
+script = ExtResource( 10 )
+system_sync = false
+total_cycle_in_minutes = 0.0
+total_hours = 11.673
+day = 1
+month = 3
+year = 2021
+celestial_calculations = 0
+compute_moon_coords = true
+moon_coords_offset = Vector2( 0, 0 )
+latitude = 90.0
+longitude = 0.0
+utc = 0.0
+celestials_update_time = 0.0
+sky_node_path = NodePath("../SkyManager")
+
+[node name="SkyManager" type="Node" parent="."]
+script = ExtResource( 2 )
+sky_visible = true
+skydome_radius = 1000.0
+contrast_level = 0.0
+tonemaping = 0.0
+exposure = 1.5
+ground_color = Color( 0.3, 0.3, 0.3, 1 )
+sky_layers = 4
+sky_render_priority = -128
+sun_altitude = 4.905
+sun_azimuth = 90.0
+sun_disk_color = Color( 0.996078, 0.541176, 0.141176, 1 )
+sun_disk_multiplier = 2.0
+sun_disk_size = 0.023
+sun_light_path = NodePath("../SunLight")
+sun_light_color = Color( 0.960784, 0.878431, 0.843137, 1 )
+sun_horizon_light_color = Color( 1, 0.384314, 0.243137, 1 )
+sun_light_energy = 1.0
+moon_altitude = 175.095
+moon_azimuth = 270.0
+moon_color = Color( 0.996078, 0.988235, 1, 1 )
+moon_size = 0.057
+moon_texture_size = 1
+enable_set_moon_texture = false
+moon_light_path = NodePath("../MoonLight")
+moon_light_color = Color( 0.572549, 0.776471, 0.956863, 1 )
+moon_light_energy = 0.3
+deep_space_follow_sun = false
+deep_space_euler = Vector3( 5.96046e-08, -1.5708, -1.48519 )
+background_color = Color( 0.745098, 0.745098, 0.745098, 1 )
+enable_set_background_texture = false
+stars_field_color = Color( 1, 1, 1, 1 )
+enable_set_stars_field_texture = false
+stars_scintillation = 0.637
+stars_scintillation_speed = 0.02
+atm_quality = 1
+atm_darkness = 0.34
+atm_wavelenghts = Vector3( 680, 550, 440 )
+atm_sun_intensity = 30.0
+atm_day_tint = Color( 0.839216, 0.890196, 0.984314, 1 )
+atm_horizon_light_tint = Color( 0.945098, 0.682353, 0.521569, 1 )
+atm_night_scatter_mode = 0
+atm_night_tint = Color( 0.294118, 0.34902, 0.447059, 1 )
+atm_params = Vector3( 1, 0, 0 )
+atm_thickness = 0.637
+atm_mie = 0.07
+atm_turbidity = 0.001
+atm_sun_mie_tint = Color( 1, 0.854902, 0.721569, 1 )
+atm_sun_mie_intensity = 0.403
+atm_sun_mie_anisotropy = 0.8
+atm_moon_mie_tint = Color( 0.137255, 0.184314, 0.290196, 1 )
+atm_moon_mie_intensity = 1.0
+atm_moon_mie_anisotropy = 0.784
+fog_visible = true
+fog_density = 0.0023072
+fog_rayleigh_depth = 0.00989119
+fog_mie_depth = 0.000937017
+fog_layers = 524288
+fog_render_priority = 123
+clouds_thickness = 1.968
+clouds_coverage = 0.505
+clouds_absorption = 6.978
+clouds_sky_tint_fade = 0.0
+clouds_intensity = 32.686
+clouds_size = 0.958
+clouds_uv = Vector2( 0.086, -0.075 )
+clouds_offset = Vector2( -0.395, 0.148 )
+clouds_offset_speed = 0.005
+clouds_enable_set_texture = true
+clouds_texture = ExtResource( 3 )
+clouds_cumulus_visible = true
+clouds_cumulus_thickness = 0.025
+clouds_cumulus_coverage = 0.538
+clouds_cumulus_absorption = 11.517
+clouds_cumulus_mie_intensity = 1.5
+clouds_cumulus_mie_anisotropy = 0.428
+clouds_cumulus_noise_frequency = 3.045
+clouds_cumulus_intensity = 2.731
+clouds_cumulus_size = 0.568
+clouds_cumulus_offset = Vector3( 2, -2.885, 0.84 )
+clouds_cumulus_offset_speed = 0.005
+clouds_cumulus_enable_set_texture = true
+clouds_cumulus_texture = SubResource( 2 )
+enviro = ExtResource( 9 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.1461, 0, -0.98927, 0, 1, 0, 0.98927, 0, -0.1461, -4.93062, 15.7413, -1.9376 )
+far = 8192.0

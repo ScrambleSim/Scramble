@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/global/environments/environment.tres" type="Environment" id=1]
 [ext_resource path="res://assets/entities/structures/floor_tile/scenes/floor_tile_asphalt.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/entities/structures/taxiway_tile_t/scenes/taxiway_tile_t.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/entities/aircraft/f13/f13.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/entities/aircraft/a10/a10.tscn" type="PackedScene" id=12]
+[ext_resource path="res://addons/jc.godot.universal-sky/Code/Sky/SkyManager.gd" type="Script" id=13]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -541,12 +542,17 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, -0
 environment = ExtResource( 1 )
 
 [node name="Sun" type="DirectionalLight" parent="WorldEnvironment"]
-transform = Transform( -0.340718, -0.661084, -0.66849, -0.0298086, -0.703081, 0.710485, -0.939693, 0.262002, 0.219846, 0, 15.0976, 0 )
-shadow_bias = 0.2
-directional_shadow_split_3 = 0.3
-directional_shadow_blend_splits = true
-directional_shadow_bias_split_scale = 0.97
-directional_shadow_max_distance = 250.0
+transform = Transform( 0, -1, -1e-07, -0.648771, -7.60984e-08, 0.760984, -0.760984, 6.48771e-08, -0.648771, 0, 0.760984, -0.648771 )
+light_color = Color( 0.992157, 0.992157, 0.992157, 1 )
+light_energy = 1.6
+shadow_reverse_cull_face = true
+
+[node name="Moon" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 0, -1, -1e-07, -1e-07, -1e-07, 1, -1, 1e-14, -1e-07, 0, 1, 0 )
+visible = false
+light_color = Color( 0.72549, 0.843137, 0.94902, 1 )
+light_energy = 0.0
+shadow_reverse_cull_face = true
 
 [node name="F16" parent="." instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49, 1.87555, -4 )
@@ -559,3 +565,87 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -73, 1.
 
 [node name="F15" parent="." instance=ExtResource( 11 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -126, 1.87555, -4 )
+
+[node name="SkyManager" type="Node" parent="."]
+script = ExtResource( 13 )
+sky_visible = true
+skydome_radius = 10.0
+contrast_level = 0.0
+tonemaping = 0.0
+exposure = 1.0
+ground_color = Color( 0.3, 0.3, 0.3, 1 )
+sky_layers = 4
+sky_render_priority = -128
+sun_altitude = -40.449
+sun_azimuth = 0.0
+sun_disk_color = Color( 0.996094, 0.541334, 0.140076, 1 )
+sun_disk_multiplier = 2.0
+sun_disk_size = 0.069
+sun_light_path = NodePath("../WorldEnvironment/Sun")
+sun_light_color = Color( 0.992157, 0.992157, 0.992157, 1 )
+sun_horizon_light_color = Color( 1, 0.384314, 0.243137, 1 )
+sun_light_energy = 1.6
+moon_altitude = 0.0
+moon_azimuth = 0.0
+moon_color = Color( 1, 1, 1, 1 )
+moon_size = 0.07
+moon_texture_size = 2
+enable_set_moon_texture = false
+moon_light_path = NodePath("../WorldEnvironment/Moon")
+moon_light_color = Color( 0.72549, 0.843137, 0.94902, 1 )
+moon_light_energy = 0.03
+deep_space_follow_sun = true
+deep_space_euler = Vector3( -5.96046e-08, -2.27676, -1.5708 )
+background_color = Color( 0.19, 0.19, 0.19, 0.3 )
+enable_set_background_texture = false
+stars_field_color = Color( 1, 1, 1, 1 )
+enable_set_stars_field_texture = false
+stars_scintillation = 0.75
+stars_scintillation_speed = 0.01
+atm_quality = 0
+atm_darkness = 0.0
+atm_wavelenghts = Vector3( 680, 550, 440 )
+atm_sun_intensity = 20.0
+atm_day_tint = Color( 0.815686, 0.815686, 0.815686, 1 )
+atm_horizon_light_tint = Color( 1, 0.556863, 0.631373, 1 )
+atm_night_scatter_mode = 0
+atm_night_tint = Color( 0.0980392, 0.117647, 0.145098, 1 )
+atm_params = Vector3( 1, 0, 0 )
+atm_thickness = 1.019
+atm_mie = 1.233
+atm_turbidity = 0.001
+atm_sun_mie_tint = Color( 0.137255, 0.184314, 0.290196, 1 )
+atm_sun_mie_intensity = 1.0
+atm_sun_mie_anisotropy = 0.8
+atm_moon_mie_tint = Color( 0.054902, 0.0627451, 0.0705882, 1 )
+atm_moon_mie_intensity = 0.5
+atm_moon_mie_anisotropy = 0.853
+fog_visible = false
+fog_density = 0.000735
+fog_rayleigh_depth = 0.035
+fog_mie_depth = 0.007
+fog_layers = 524288
+fog_render_priority = 123
+clouds_thickness = 0.0
+clouds_coverage = 0.0
+clouds_absorption = 6.7
+clouds_sky_tint_fade = 0.0
+clouds_intensity = 20.0
+clouds_size = 0.415
+clouds_uv = Vector2( 1, 1 )
+clouds_offset = Vector2( 0.1, 0.254 )
+clouds_offset_speed = 0.005
+clouds_enable_set_texture = false
+clouds_cumulus_visible = false
+clouds_cumulus_thickness = 0.032
+clouds_cumulus_coverage = 0.7
+clouds_cumulus_absorption = 6.0
+clouds_cumulus_mie_intensity = 1.5
+clouds_cumulus_mie_anisotropy = 0.245
+clouds_cumulus_noise_frequency = 2.7
+clouds_cumulus_intensity = 1.0
+clouds_cumulus_size = 0.4
+clouds_cumulus_offset = Vector3( 0.1, 0.254, -0.075 )
+clouds_cumulus_offset_speed = 0.005
+clouds_cumulus_enable_set_texture = false
+enviro = null

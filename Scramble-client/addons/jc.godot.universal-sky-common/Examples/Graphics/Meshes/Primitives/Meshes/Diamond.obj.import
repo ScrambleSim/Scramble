@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Diamond.obj-4ed561ad4e537b07a67acac28c9ee546.mesh"
+
+[deps]
+
+files=[ "res://.import/Diamond.obj-4ed561ad4e537b07a67acac28c9ee546.mesh" ]
+
+source_file="res://addons/jc.godot.universal-sky-common/Examples/Graphics/Meshes/Primitives/Meshes/Diamond.obj"
+dest_files=[ "res://.import/Diamond.obj-4ed561ad4e537b07a67acac28c9ee546.mesh", "res://.import/Diamond.obj-4ed561ad4e537b07a67acac28c9ee546.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

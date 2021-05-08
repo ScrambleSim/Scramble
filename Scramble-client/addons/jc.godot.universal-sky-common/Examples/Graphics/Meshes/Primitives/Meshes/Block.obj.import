@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Block.obj-da196d451ba4c469d7300663d4c8cc3e.mesh"
+
+[deps]
+
+files=[ "res://.import/Block.obj-da196d451ba4c469d7300663d4c8cc3e.mesh" ]
+
+source_file="res://addons/jc.godot.universal-sky-common/Examples/Graphics/Meshes/Primitives/Meshes/Block.obj"
+dest_files=[ "res://.import/Block.obj-da196d451ba4c469d7300663d4c8cc3e.mesh", "res://.import/Block.obj-da196d451ba4c469d7300663d4c8cc3e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

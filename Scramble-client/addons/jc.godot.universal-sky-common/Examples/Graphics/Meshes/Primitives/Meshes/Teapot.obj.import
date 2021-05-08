@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Teapot.obj-6735b7664ef0de26cf5eae944d0190c8.mesh"
+
+[deps]
+
+files=[ "res://.import/Teapot.obj-6735b7664ef0de26cf5eae944d0190c8.mesh" ]
+
+source_file="res://addons/jc.godot.universal-sky-common/Examples/Graphics/Meshes/Primitives/Meshes/Teapot.obj"
+dest_files=[ "res://.import/Teapot.obj-6735b7664ef0de26cf5eae944d0190c8.mesh", "res://.import/Teapot.obj-6735b7664ef0de26cf5eae944d0190c8.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 0.5, 0.5, 0.5 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

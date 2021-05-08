@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/RoundCube.obj-f6d11d6460fa54e2e3c3778b10bbd3bc.mesh"
+
+[deps]
+
+files=[ "res://.import/RoundCube.obj-f6d11d6460fa54e2e3c3778b10bbd3bc.mesh" ]
+
+source_file="res://addons/jc.godot.universal-sky-common/Examples/Graphics/Meshes/Primitives/Meshes/RoundCube.obj"
+dest_files=[ "res://.import/RoundCube.obj-f6d11d6460fa54e2e3c3778b10bbd3bc.mesh", "res://.import/RoundCube.obj-f6d11d6460fa54e2e3c3778b10bbd3bc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
